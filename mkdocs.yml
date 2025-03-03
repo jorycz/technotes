@@ -1,0 +1,10 @@
+site_name: Tech Pit
+
+docs_dir: source
+site_dir: docs
+
+theme:
+  name: material
+plugins:
+  - search
+
