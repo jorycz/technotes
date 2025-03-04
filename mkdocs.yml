@@ -1,10 +1,21 @@
-site_name: Tech Pit
+site_name: Tech Notes
 
 docs_dir: source
 site_dir: docs
 
 theme:
   name: material
+  features:
+    - content.code.copy
+    - navigation.expand
+
 plugins:
   - search
+
+nav:
+  - Home: index.md
+  - macOS:
+    - General: macOS-General.md
+  # - Snippets:
+  #     - macOS: macOS.md
 
