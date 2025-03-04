@@ -269,6 +269,13 @@ Autovacuum SQLite /private/var/db/systemstats/snapshots.db
 
     sudo pmset -a autopoweroffdelay 43200   ### in seconds
 
+## xcrun errors
+
+xcrun: error: invalid active developer path ...  
+missing xcrun at: ...
+
+    xcode-select --install
+
 ## OOBSOLETE: Sleep to RAM only
 
     pmset -g   ### to see current settings

@@ -9,18 +9,22 @@
       
       
       
+        <link rel="prev" href="../macOS-General/">
       
       
-      <link rel="icon" href="/assets/images/favicon.png">
+        <link rel="next" href="../macOS-Java/">
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.7">
     
     
       
-        <title>Tech Notes</title>
+        <title>OpenCore Patcher - Tech Notes</title>
       
     
     
-      <link rel="stylesheet" href="/assets/stylesheets/main.8608ea7d.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/main.8608ea7d.min.css">
       
       
 
@@ -39,7 +43,7 @@
       
     
     
-    <script>__md_scope=new URL("/",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -57,6 +61,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#macos-opencore-patcher" class="md-skip">
+          Skip to content
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -69,7 +78,7 @@
 
 <header class="md-header md-header--shadow" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="/." title="Tech Notes" class="md-header__button md-logo" aria-label="Tech Notes" data-md-component="logo">
+    <a href=".." title="Tech Notes" class="md-header__button md-logo" aria-label="Tech Notes" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -89,7 +98,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              
+              OpenCore Patcher
             
           </span>
         </div>
@@ -164,7 +173,7 @@
 
 <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="/." title="Tech Notes" class="md-nav__button md-logo" aria-label="Tech Notes" data-md-component="logo">
+    <a href=".." title="Tech Notes" class="md-nav__button md-logo" aria-label="Tech Notes" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -182,7 +191,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/." class="md-nav__link">
+      <a href=".." class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -200,19 +209,19 @@
       
   
   
+    
   
   
+  
     
     
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-          
-        
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
         
           
           <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
@@ -227,7 +236,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_2">
             <span class="md-nav__icon md-icon"></span>
             macOS
@@ -241,7 +250,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/macOS-General/" class="md-nav__link">
+      <a href="../macOS-General/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -260,10 +269,31 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="/macOS-OpenCorePatcher/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    OpenCore Patcher
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   <span class="md-ellipsis">
@@ -273,6 +303,77 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#installation-to-hdd-with-dualboot" class="md-nav__link">
+    <span class="md-ellipsis">
+      Installation to HDD with dualboot
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Installation to HDD with dualboot">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#installation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Installation
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#restore-microsoft-windows-in-the-efi-menu" class="md-nav__link">
+    <span class="md-ellipsis">
+      Restore Microsoft Windows in the EFI menu
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#boot-into-macos-if-not-selected-automatically" class="md-nav__link">
+    <span class="md-ellipsis">
+      Boot into macOS - if not selected automatically
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#recovery" class="md-nav__link">
+    <span class="md-ellipsis">
+      Recovery
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -285,7 +386,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/macOS-Java/" class="md-nav__link">
+      <a href="../macOS-Java/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -324,6 +425,67 @@
   
   
   
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#installation-to-hdd-with-dualboot" class="md-nav__link">
+    <span class="md-ellipsis">
+      Installation to HDD with dualboot
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Installation to HDD with dualboot">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#installation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Installation
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#restore-microsoft-windows-in-the-efi-menu" class="md-nav__link">
+    <span class="md-ellipsis">
+      Restore Microsoft Windows in the EFI menu
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#boot-into-macos-if-not-selected-automatically" class="md-nav__link">
+    <span class="md-ellipsis">
+      Boot into macOS - if not selected automatically
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#recovery" class="md-nav__link">
+    <span class="md-ellipsis">
+      Recovery
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
   
 </nav>
                   </div>
@@ -335,8 +497,59 @@
             <div class="md-content" data-md-component="content">
               <article class="md-content__inner md-typeset">
                 
-  <h1>404 - Not found</h1>
+                  
 
+
+
+<h1 id="macos-opencore-patcher">macOS OpenCore Patcher</h1>
+<h2 id="installation-to-hdd-with-dualboot">Installation to HDD with dualboot</h2>
+<ul>
+<li><a href="https://www.benchodroff.com/2017/02/15/backup-and-restore-boot-camp-on-a-new-mac-for-free/">Backup and Restore Boot Camp on a new mac for free</a></li>
+<li>
+<ul>
+<li><a href="../files/Backup_and_Restore_Boot_Camp_on_a_new_mac_for_free_-_benchodroff.com.pdf" download>Page Backup in PDF</a></li>
+</ul>
+</li>
+</ul>
+<h3 id="installation">Installation</h3>
+<p>If the <code>EFI Boot</code> menu item (where the OCP EFI part is) is not displayed when installing on a dual boot HDD (Windows), you need to move the <code>Boot/boot</code> directory (delete) in the EFI partition (under the <code>EFI/</code> directory) and rename the <code>Microsoft</code> directory to <code>Microsoft-BAK</code>.<br />
+Afterwards, the OCP installation into EFI on the HDD should go through fine and during boot the OC <code>EFI Boot</code> (or with the Windows name but the OCP icon) should appear even without the USB Flash (which we have to remove before restarting).<br />
+Then Shutdown with PRAM reset (option command P R and Startup button)</p>
+<h3 id="restore-microsoft-windows-in-the-efi-menu">Restore Microsoft Windows in the EFI menu</h3>
+<p>Just remount the EFI partition after booting macOS and rename <code>Microsoft-BAK</code> to <code>Microsoft</code>.<br />
+In the EFI menu (Hold <strong>Option key</strong> before chime boot sound) it will say Windows, but the icon will be OCP (OpenCore Patcher).<br />
+MacOS and Windows can be started after selecting the OCP icon (now named Windows) :)</p>
+<h3 id="boot-into-macos-if-not-selected-automatically">Boot into macOS - if not selected automatically</h3>
+<p>Just set the <strong>Startup Disk</strong> to <code>Macintosh HD</code>.</p>
+<h3 id="recovery">Recovery</h3>
+<p><a href="https://dcg-ipod.affinityco.net/blogs/help-2/kb-60604-reinstalling-macos-on-a-device-with-opencore">https://dcg-ipod.affinityco.net/blogs/help-2/kb-60604-reinstalling-macos-on-a-device-with-opencore</a><br />
+Follow the steps in the app. You will need to:</p>
+<ul>
+<li>Download a copy of the macOS installer. You can choose from a list of different versions - it is recommended to use the same version that you have currently installed. Check which version you have by viewing <code>About this Mac</code> in the Apple menu.</li>
+<li>Copy the macOS installer to a USB drive</li>
+<li>Install OpenCore to the USB drive</li>
+</ul>
+<p>If you can't follow these steps on your Mac because you can't use it, then you will need to use another Macintosh computer to do so. We recommend preparing a Recovery USB drive ahead of time - make it a part of your backup plan for your data.</p>
+<p>To use your Recovery drive, turn off your Mac. Then:</p>
+<ul>
+<li>Turn on your Mac whilst holding cmd + opt + P + R until you hear the chime twice</li>
+<li>Hold opt until you see a menu appear</li>
+<li>Choose OpenCore / EFI from the menu</li>
+<li>Choose Install macOS from the next menu that appears</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                
               </article>
             </div>
           
@@ -370,10 +583,10 @@
     </div>
     
     
-    <script id="__config" type="application/json">{"base": "/", "features": ["content.code.copy", "navigation.expand"], "search": "/assets/javascripts/workers/search.f8cc74c7.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "..", "features": ["content.code.copy", "navigation.expand"], "search": "../assets/javascripts/workers/search.f8cc74c7.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
-      <script src="/assets/javascripts/bundle.c8b220af.min.js"></script>
+      <script src="../assets/javascripts/bundle.c8b220af.min.js"></script>
       
     
   </body>

@@ -16,6 +16,8 @@ nav:
   - Home: index.md
   - macOS:
     - General: macOS-General.md
+    - OpenCore Patcher: macOS-OpenCorePatcher.md
+    - Java: macOS-Java.md
   # - Snippets:
   #     - macOS: macOS.md
 

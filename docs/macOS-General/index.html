@@ -12,6 +12,8 @@
         <link rel="prev" href="..">
       
       
+        <link rel="next" href="../macOS-OpenCorePatcher/">
+      
       
       <link rel="icon" href="../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.7">
@@ -593,6 +595,15 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#xcrun-errors" class="md-nav__link">
+    <span class="md-ellipsis">
+      xcrun errors
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#oobsolete-sleep-to-ram-only" class="md-nav__link">
     <span class="md-ellipsis">
       OOBSOLETE: Sleep to RAM only
@@ -647,6 +658,50 @@
   
 </nav>
       
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../macOS-OpenCorePatcher/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    OpenCore Patcher
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../macOS-Java/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Java
+    
+  </span>
+  
+
+      </a>
     </li>
   
 
@@ -983,6 +1038,15 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#xcrun-errors" class="md-nav__link">
+    <span class="md-ellipsis">
+      xcrun errors
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#oobsolete-sleep-to-ram-only" class="md-nav__link">
     <span class="md-ellipsis">
       OOBSOLETE: Sleep to RAM only
@@ -1255,6 +1319,11 @@ Check after reboot:</p>
 </code></pre>
 <h2 id="delay-hibernate-after-standby-mode">Delay Hibernate after Standby mode</h2>
 <pre><code>sudo pmset -a autopoweroffdelay 43200   ### in seconds
+</code></pre>
+<h2 id="xcrun-errors">xcrun errors</h2>
+<p>xcrun: error: invalid active developer path ...<br />
+missing xcrun at: ...</p>
+<pre><code>xcode-select --install
 </code></pre>
 <h2 id="oobsolete-sleep-to-ram-only">OOBSOLETE: Sleep to RAM only</h2>
 <pre><code>pmset -g   ### to see current settings
