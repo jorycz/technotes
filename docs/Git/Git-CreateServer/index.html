@@ -237,6 +237,27 @@
       
   
   
+  
+  
+    <li class="md-nav__item">
+      <a href="../../iSH/iSH/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    iSH Linux Shell
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
     
   
   
@@ -249,10 +270,10 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
         
           
-          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
             
   
   <span class="md-ellipsis">
@@ -264,8 +285,8 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
-          <label class="md-nav__title" for="__nav_3">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4">
             <span class="md-nav__icon md-icon"></span>
             Git
           </label>
@@ -419,6 +440,15 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#custom-update-script-post-info-to-google-chat" class="md-nav__link">
+    <span class="md-ellipsis">
+      Custom update script - post info to Google Chat
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -465,10 +495,10 @@
         
           
         
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4" >
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5" >
         
           
-          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
             
   
   <span class="md-ellipsis">
@@ -480,8 +510,8 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_4">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
             <span class="md-nav__icon md-icon"></span>
             macOS
           </label>
@@ -543,6 +573,28 @@
   
   <span class="md-ellipsis">
     Time Machine
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../macOS/macOS-ShellScripting/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Shell Scripting
     
   </span>
   
@@ -626,6 +678,73 @@
   
 
     
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Linux
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            Linux
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Linux/Linux-Common/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Common
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
   </ul>
 </nav>
                   </div>
@@ -675,6 +794,15 @@
   <a href="#if-you-damage-remove-loose-access-to-server-as-admin" class="md-nav__link">
     <span class="md-ellipsis">
       If you damage / remove / loose access to server as admin
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#custom-update-script-post-info-to-google-chat" class="md-nav__link">
+    <span class="md-ellipsis">
+      Custom update script - post info to Google Chat
     </span>
   </a>
   
@@ -736,6 +864,55 @@ sudo chsh git -s $(which git-shell)   ### set shell for user git
 <ul>
 <li>Replace current <code>admin.pub</code> in gitolite-admin repo with command <code>gitolite setup -pk admin.pub</code></li>
 </ul>
+<h3 id="custom-update-script-post-info-to-google-chat">Custom update script - post info to Google Chat</h3>
+<p>~/.gitolite/hooks/common/update - this file is rewritten when new repository is added. Add <code>MY SCRIPT</code> section again.</p>
+<pre><code>#!/usr/bin/perl
+
+use strict;
+use warnings;
+use lib $ENV{GL_LIBDIR};
+use Gitolite::Hooks::Update;
+
+# gitolite update hook
+# ----------------------------------------------------------------------
+
+#### MY SCRIPT ###
+# $ARGV[2] - actual new commit
+system("/bin/bash ~/bin/sendMsgToGoogleChat.sh $ARGV[2]");
+##################
+
+update();               # is not expected to return
+exit 1;                 # so if it does, something is wrong
+</code></pre>
+<p>~/bin/sendMsgToGoogleChat.sh</p>
+<pre><code>#!/bin/bash
+
+PR="${PROXY}:${PORT}"
+
+sendMsg() {
+    echo -n "Message to Google Chat: "
+    # Channel_1
+    curl -x ${PR} -s -H "Content-type: application/json; charset=UTF-8" --data "{'text':'$(&lt;/dev/stdin)'}" "https://chat.googleapis.com/v1/spaces/AAAAspZSqTM/messages?key=AIzaSyDdI...&amp;token=CnjcBE...%3D" | jq '.text'
+}
+
+# COMMIT="${1}"
+# COMMIT_SHORT=$(git show -s --format=%h ${1})
+# AUTHOR=$(git --no-pager show -s --format='%an &lt;%ae&gt;' ${COMMIT})
+# COMMENT=$(git show -s --format=%B ${COMMIT})
+
+MSG=$(git --no-pager show -s --pretty="\`NEW PUSH to GIT [ $GL_REPO ] from [ %cn ] hash [ %h ]\`\n\`%s\`" -C ${1})
+
+### Do NOT send mesage to chat for this REPO
+if [ "${GL_REPO}x" == "private-repo-name1" ] ; then exit 0 ; fi
+
+### Do NOT send mesage to chat for CRL auto update
+if echo "${MSG}" | grep 'CRL Updater' ; then exit 0 ; fi
+
+### SEND NOTIFICATION:
+removed_quotes="${MSG//\'/}"   # single quote ' in string is issue, notification does not work then
+# echo "${removed_quotes} ||| ${1}" &gt; /dev/shm/gitPushTempLog.msg
+echo "${removed_quotes}" | sendMsg 2&gt;&amp;1 &gt; /dev/shm/gitPushMessageDebug
+</code></pre>
 <h2 id="restore-git-repository-to-server-from-encrypted-backup">Restore git repository to server from encrypted backup</h2>
 <ul>
 <li>To authorized_keys of git user, add key of user (me) that will be restoring that repository.</li>
@@ -788,7 +965,7 @@ sudo chsh git -s $(which git-shell)   ### set shell for user git
     </div>
     
     
-    <script id="__config" type="application/json">{"base": "../..", "features": ["content.code.copy", "navigation.expand", "search.suggest", "search.highlight", "search.share"], "search": "../../assets/javascripts/workers/search.f8cc74c7.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["content.code.copy", "navigation.expand", "search.suggest", "search.highlight", "search.share", "search.focus"], "search": "../../assets/javascripts/workers/search.f8cc74c7.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
       <script src="../../assets/javascripts/bundle.c8b220af.min.js"></script>

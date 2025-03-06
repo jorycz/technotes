@@ -32,7 +32,7 @@ markdown_extensions:
 nav:
   - Home: index.md
   - Visual Studio Code: VSCode/VSCode.md
-  - iSH Linux Shell: iSH.md
+  - iSH Linux Shell: iSH/iSH.md
   - Git:
     - Common: Git/Git-Common.md
     - Issues: Git/Git-Issues.md
