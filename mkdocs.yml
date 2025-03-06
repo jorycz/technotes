@@ -8,13 +8,31 @@ theme:
   features:
     - content.code.copy
     - navigation.expand
+    - search.suggest
+    - search.highlight
+    - search.share
+    - search.focus
 
+### For Search support
 plugins:
-  - search
+  - search:
+      ### regexp for word separators:
+      ### space - . " / ' _ (
+      separator: '[\s\-\."\/''_(]+'
+      lang: en
 
+### For Emoji support
+markdown_extensions:
+  - attr_list
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+
+### Navigation and Full-Text search
 nav:
   - Home: index.md
   - Visual Studio Code: VSCode/VSCode.md
+  - iSH Linux Shell: iSH.md
   - Git:
     - Common: Git/Git-Common.md
     - Issues: Git/Git-Issues.md
@@ -24,6 +42,9 @@ nav:
     - Common: macOS/macOS-Common.md
     - OpenCore Patcher: macOS/macOS-OpenCorePatcher.md
     - Time Machine: macOS/macOS-TimeMachine.md
+    - Shell Scripting: macOS/macOS-ShellScripting.md
     - Java: macOS/macOS-Java.md
     - Safari: macOS/macOS-Safari.md
     - Spotlight: macOS/macOS-Spotlight.md
+  - Linux:
+    - Common: Linux/Linux-Common.md

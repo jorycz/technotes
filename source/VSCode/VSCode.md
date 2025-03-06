@@ -46,7 +46,7 @@ In case of remote development / Remote SSH choose `Open Remote Settings SSH` ...
             "editor.formatOnSave": false,
             "editor.codeActionsOnSave": {
                 "source.organizeImports": false
-        }
+            }
         }
     }
 
@@ -73,3 +73,42 @@ In case HTTP proxy is needed for vscode-server
 
     export HTTP_PROXY=http://proxy:port
     export HTTPS_PROXY=${HTTP_PROXY}
+
+## Code-Server on WEB
+
+* [code-server on github](https://github.com/coder/code-server)
+
+### Install
+
+This will install DEB package
+
+    curl -fsSL https://code-server.dev/install.sh | sh
+
+Enable & Start code-server
+
+    sudo systemctl enable --now code-server@${USER}
+
+Or run it in foreground
+
+    code-server
+
+### Config
+
+* /home/${USER}/.config/code-server/config.yaml
+
+Warning! This configuration is for local private LAN or with usage of another authentication like required client certificate, because security of code-server is DISABLED using this:
+
+    bind-addr: 0.0.0.0:8888
+    # auth: password
+    auth: none
+    password: <PASSWORD>
+    cert: false
+
+### Update
+
+To update code-server, install the new version over the old version using one-liner in **Install** section. All user data is in `~/.local/share/code-server` so they are preserved between installations.  
+My way:
+
+    ### snapshot
+    ansible-playbook guest-dev.yml --tags updateVSCode
+    ### delete snapshot if everything works

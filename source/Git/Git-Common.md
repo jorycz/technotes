@@ -2,7 +2,7 @@
 
     - v = verbose
 
-## Git commit push oneliner
+## Git commit push one-liner
 
     git pull && git add --all && git commit -am "MESSAGE" && git push
 

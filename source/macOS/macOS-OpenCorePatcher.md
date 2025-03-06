@@ -3,7 +3,7 @@
 ## Installation to HDD with dualboot
 
 * [Backup and Restore Boot Camp on a new mac for free](https://www.benchodroff.com/2017/02/15/backup-and-restore-boot-camp-on-a-new-mac-for-free/)
-* * <a href="../files/Backup_and_Restore_Boot_Camp_on_a_new_mac_for_free_-_benchodroff.com.pdf" download>Page Backup in PDF</a>
+* * <a href="files/Backup_and_Restore_Boot_Camp_on_a_new_mac_for_free_-_benchodroff.com.pdf" download>Page Backup in PDF</a>
 
 ### How to proceed with BootCamp
 

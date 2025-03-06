@@ -32,8 +32,61 @@ Add name of new repository to `gitolite-admin` repository conf file `conf/gitoli
 
 * Replace current `admin.pub` in gitolite-admin repo with command `gitolite setup -pk admin.pub`
 
+### Custom update script - post info to Google Chat
+
+~/.gitolite/hooks/common/update - this file is rewritten when new repository is added. Add `MY SCRIPT` section again.
+
+    #!/usr/bin/perl
+
+    use strict;
+    use warnings;
+    use lib $ENV{GL_LIBDIR};
+    use Gitolite::Hooks::Update;
+
+    # gitolite update hook
+    # ----------------------------------------------------------------------
+
+    #### MY SCRIPT ###
+    # $ARGV[2] - actual new commit
+    system("/bin/bash ~/bin/sendMsgToGoogleChat.sh $ARGV[2]");
+    ##################
+
+    update();               # is not expected to return
+    exit 1;                 # so if it does, something is wrong
+
+~/bin/sendMsgToGoogleChat.sh
+
+    #!/bin/bash
+
+    PR="${PROXY}:${PORT}"
+
+    sendMsg() {
+        echo -n "Message to Google Chat: "
+        # Channel_1
+        curl -x ${PR} -s -H "Content-type: application/json; charset=UTF-8" --data "{'text':'$(</dev/stdin)'}" "https://chat.googleapis.com/v1/spaces/AAAAspZSqTM/messages?key=AIzaSyDdI...&token=CnjcBE...%3D" | jq '.text'
+    }
+
+    # COMMIT="${1}"
+    # COMMIT_SHORT=$(git show -s --format=%h ${1})
+    # AUTHOR=$(git --no-pager show -s --format='%an <%ae>' ${COMMIT})
+    # COMMENT=$(git show -s --format=%B ${COMMIT})
+
+    MSG=$(git --no-pager show -s --pretty="\`NEW PUSH to GIT [ $GL_REPO ] from [ %cn ] hash [ %h ]\`\n\`%s\`" -C ${1})
+
+    ### Do NOT send mesage to chat for this REPO
+    if [ "${GL_REPO}x" == "private-repo-name1" ] ; then exit 0 ; fi
+
+    ### Do NOT send mesage to chat for CRL auto update
+    if echo "${MSG}" | grep 'CRL Updater' ; then exit 0 ; fi
+
+    ### SEND NOTIFICATION:
+    removed_quotes="${MSG//\'/}"   # single quote ' in string is issue, notification does not work then
+    # echo "${removed_quotes} ||| ${1}" > /dev/shm/gitPushTempLog.msg
+    echo "${removed_quotes}" | sendMsg 2>&1 > /dev/shm/gitPushMessageDebug
+
 ## Restore git repository to server from encrypted backup
 
 * To authorized_keys of git user, add key of user (me) that will be restoring that repository.
 * Unpack repository from backup to home of git user
 * Then test clone of that repository by `git clone ssh://USER@HOSTNAME/home/USER/REPO.git`
+

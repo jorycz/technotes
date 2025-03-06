@@ -1,14 +1,11 @@
-# Welcome to Tech Notes
+# Welcome to Tech Notes - My external memory
 
-This is part of my external memory.  
-I have commands, how-to guides or code/script snippets stored here.  
-It should be working on Linux or macOS.
+I store here commands, how-to guides or code/script snippets. It should be working on Linux or macOS.
   
 **! WARNING !** <font color="red">Do not copy & execute snippets blindly. You can damage your system.</font>
 
-## My public repository list
-
-[https://github.com/jorycz](https://github.com/jorycz?tab=repositories )
+* [My Home Page](https://www.rysanci.cz)
+* [Public Repository list on github](https://github.com/jorycz?tab=repositories)
 
 ## Show my public IP
 
