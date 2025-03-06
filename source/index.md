@@ -16,6 +16,10 @@ It should be working on Linux or macOS.
 
 * Use `--noproxy '*'` or `--proxy ${HTTP_PROXY}` for curl if needed or [showmyip.com](https://www.showmyip.com)
 
+## Generate random password
+
+    openssl rand -base64 6
+
 ## Show top with processes filtered with pattern
 
 Pattern is matched against full command line.

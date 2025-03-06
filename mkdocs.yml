@@ -14,10 +14,16 @@ plugins:
 
 nav:
   - Home: index.md
+  - Visual Studio Code: VSCode/VSCode.md
+  - Git:
+    - Common: Git/Git-Common.md
+    - Issues: Git/Git-Issues.md
+    - New Repository: Git/Git-NewRepository.md
+    - Create Server: Git/Git-CreateServer.md
   - macOS:
-    - General: macOS-General.md
-    - OpenCore Patcher: macOS-OpenCorePatcher.md
-    - Java: macOS-Java.md
-  # - Snippets:
-  #     - macOS: macOS.md
-
+    - Common: macOS/macOS-Common.md
+    - OpenCore Patcher: macOS/macOS-OpenCorePatcher.md
+    - Time Machine: macOS/macOS-TimeMachine.md
+    - Java: macOS/macOS-Java.md
+    - Safari: macOS/macOS-Safari.md
+    - Spotlight: macOS/macOS-Spotlight.md

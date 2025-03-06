@@ -5,6 +5,26 @@
 * [Backup and Restore Boot Camp on a new mac for free](https://www.benchodroff.com/2017/02/15/backup-and-restore-boot-camp-on-a-new-mac-for-free/)
 * * <a href="../files/Backup_and_Restore_Boot_Camp_on_a_new_mac_for_free_-_benchodroff.com.pdf" download>Page Backup in PDF</a>
 
+### How to proceed with BootCamp
+
+[Check my comment on reddit](https://www.reddit.com/r/OpenCoreLegacyPatcher/comments/15eh6bp/comment/kw8mbge/)
+
+*Hi, I just installed OC on my 2 2017 iMacs, both with bootcamp. There is no issues at all and one iMac shows OC "EFI Boot" also after install on HDD. 2nd iMac didn't show that boot menu item (when holding Option key during startup), so I fixed it like this: Before you install OC on HDD*
+
+    mount EFI partition (diskutil list, sudo mount ...)
+    rename Microsoft folder to Microsoft-BAK and delete Boot/boot folder
+        (or move it somewhere to USB Flash. I didn't need it later.)
+    umount EFI partition using diskutil
+    Install OC on HDD and remove USB Flash
+    Reset PRAM
+    Reboot with Option hey holding and select OC EFI Boot and then macOS Sonoma
+    mount EFI, rename MS folder back and unmount, reboot with Option key
+    Now naming was wrong, OC EFI Boot name is Windows with OC icon.
+        Select it and you can see now proper naming and icons. Select macOS ...
+    Set Startup Disk to Macintosh HD or where you Sonoma is
+
+*This way both my iMacs boot to Sonoma automatically. Hope it helps.*
+
 ### Installation
 
 If the `EFI Boot` menu item (where the OCP EFI part is) is not displayed when installing on a dual boot HDD (Windows), you need to move the `Boot/boot` directory (delete) in the EFI partition (under the `EFI/` directory) and rename the `Microsoft` directory to `Microsoft-BAK`.  

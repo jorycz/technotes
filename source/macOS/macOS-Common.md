@@ -1,4 +1,4 @@
-# macOS General
+# macOS Common
 
 ## HDD format / FS delete
 
@@ -69,6 +69,12 @@ Convert CDR to ISO
     ls -la /Volumes/secureStorage
     hdiutil detach /Volumes/secureStorage/
 
+## FileVault - Check, Validate Recovery Key
+
+It's good to **run this command** from time to time and **for sure when it was changed**.
+
+    sudo fdesetup validaterecovery
+
 ## Set Login Screen keyboard layout
 
     # sudo languagesetup   ### doesn't work anymore
@@ -86,12 +92,6 @@ Logout / Restart. Should be english keyboard layout on login screen always.
 ## Flush DNS resolver
 
     sudo killall -HUP mDNSResponder
-
-## Clean DNS cache in Safari
-
-**Safari** > Preferences > Advanced and check "**Show develop menu in menu bar**"  
-Develop > Empty Caches (shortcut is ⌥⌘E)  
-(Restart of Safari may be needed)
 
 ## Protect hosts
 
@@ -145,15 +145,9 @@ Some Examples
     /usr/libexec/PlistBuddy -c "Set :AppleGlobalTextInputProperties:TextInputGlobalPropertyPerContextInput true" ~/Library/Preferences/com.apple.HIToolbox.plist
     /usr/libexec/PlistBuddy -c "Add :AppleGlobalTextInputProperties:TextInputGlobalPropertyPerContextInput bool true" ~/Library/Preferences/com.apple.HIToolbox.plist
 
-## Compress to ZIP with Password
+## Compress to ZIP using random generated password
 
-Generate password
-
-    openssl rand -base64 6
-
-Compress using that password
-
-    zip -er FILE.zip <folder-OR-file>
+    openssl rand -base64 6 ; zip -er FILE.zip <folder-OR-file>
 
 ## Searching / Filtering logs
 
