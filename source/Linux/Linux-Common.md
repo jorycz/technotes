@@ -105,6 +105,12 @@ Beware of `-localhost no` which setup vnc to listen on ALL interfaces.
 
     curl -v -F uploadBtn=Upload -F uploadedFile=@IMAGE_098.jpg https://some.domain.cz/upload.php
 
+## curl - set timeouts
+
+    CURL="/usr/bin/curl --connect-timeout 5 --max-time 10"
+    ### Then use like
+    ${CURL} -s -H "Content-type: application/json; charset=UTF-8" ...
+
 ## Disable auto-lock, screen autolock, screensaver
 
     apt purge light-locker
