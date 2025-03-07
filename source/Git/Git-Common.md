@@ -62,6 +62,13 @@ If you want to combine local commits before pushing them upstream, for example, 
 * If ABC/abc.info exists as a **branch**, Git switches to that branch.
 * If ABC/abc.info **is a file path**, this command restores that file from the latest committed version in the current branch, **discarding any local changes in that file**.
 
+## Clone repo and set state to particular commit hash
+
+    git clone https://github.com/<USER>/<REPO> repository-tmp
+    cd repository-tmp
+    git reset --hard 1234567XYZ5554a093c9e883ce239cf123456789
+    ### HEAD is not at ... (commit message)
+
 ## Branches
 
 `git branch` - Show **Local** branches

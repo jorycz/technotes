@@ -24,12 +24,7 @@ Set password for root - run `passwd`
 
 ## .tmux.conf
 
-screen user here ...
-
-    unbind C-b
-    set -g prefix C-a
-    bind C-a send-prefix
-    bind-key C-a last-window
+[.tmux.conf](../Linux/Linux-Tmux.md#tmuxconf)
 
 ## REBOOT
 

@@ -5,7 +5,7 @@ I store here commands, how-to guides or code/script snippets. It should be worki
 **! WARNING !** <font color="red">Do not copy & execute snippets blindly. You can damage your system.</font>
 
 * [My Home Page](https://www.rysanci.cz)
-* [Public Repository list on github](https://github.com/jorycz?tab=repositories)
+* [Public repository list on github](https://github.com/jorycz?tab=repositories)
 
 ## Show my public IP
 

@@ -7,6 +7,7 @@
 * `SHIFT + CMD + E` - File explorer
 * `SHIFT + CMD + P` - Preferences
 * `SHIFT + CMD + O` - Search in code (variables, functions, ...)
+* `CTRL + SHIFT + G` - Open Source Control (git)
 * `CMD + P` - Search for a file by name, line, symbol ...
 * `SHIFT + CMD + B` - Build
 * `CMD + B` - Toggle file explorer
