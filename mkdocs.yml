@@ -22,6 +22,7 @@ nav:
   - Linux:
     - Common: Linux/Linux-Common.md
     - BASH: Linux/Linux-BASH.md
+    - Parsing: Linux/Linux-Parsing.md
     - Systemd: Linux/Linux-Systemd.md
     - Rescue: Linux/Linux-Rescue.md
     - TMUX: Linux/Linux-Tmux.md
