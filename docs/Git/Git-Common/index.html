@@ -419,6 +419,15 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#clone-repo-and-set-state-to-particular-commit-hash" class="md-nav__link">
+    <span class="md-ellipsis">
+      Clone repo and set state to particular commit hash
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#branches" class="md-nav__link">
     <span class="md-ellipsis">
       Branches
@@ -810,6 +819,182 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Linux/Linux-BASH/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    BASH
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Linux/Linux-Systemd/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Systemd
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Linux/Linux-Rescue/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Rescue
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Linux/Linux-Tmux/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    TMUX
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Linux/Linux-Cron/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Cron
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Linux/Linux-Security/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Security
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Linux/Linux-UPSPowerWalker/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    UPS PowerWalker
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Linux/Linux-AltServer/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    AltServer
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -910,6 +1095,15 @@
   <a href="#forget-my-changes-on-file-or-swith-to-another-branch" class="md-nav__link">
     <span class="md-ellipsis">
       Forget my changes on file OR swith to another branch
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#clone-repo-and-set-state-to-particular-commit-hash" class="md-nav__link">
+    <span class="md-ellipsis">
+      Clone repo and set state to particular commit hash
     </span>
   </a>
   
@@ -1036,6 +1230,12 @@ git stash apply &lt;STASH&gt;  ### if you want your work apply to current branch
 <li>If ABC/abc.info exists as a <strong>branch</strong>, Git switches to that branch.</li>
 <li>If ABC/abc.info <strong>is a file path</strong>, this command restores that file from the latest committed version in the current branch, <strong>discarding any local changes in that file</strong>.</li>
 </ul>
+<h2 id="clone-repo-and-set-state-to-particular-commit-hash">Clone repo and set state to particular commit hash</h2>
+<pre><code>git clone https://github.com/&lt;USER&gt;/&lt;REPO&gt; repository-tmp
+cd repository-tmp
+git reset --hard 1234567XYZ5554a093c9e883ce239cf123456789
+### HEAD is not at ... (commit message)
+</code></pre>
 <h2 id="branches">Branches</h2>
 <p><code>git branch</code> - Show <strong>Local</strong> branches
 <code>git branch -r</code> - Show <strong>Remote</strong> branches</p>
