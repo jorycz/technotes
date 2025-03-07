@@ -731,6 +731,15 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#jq-json-parser" class="md-nav__link">
+    <span class="md-ellipsis">
+      jq - JSON parser
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -936,6 +945,15 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#jq-json-parser" class="md-nav__link">
+    <span class="md-ellipsis">
+      jq - JSON parser
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -963,6 +981,45 @@
 <p>Find first occurence of ${D} and get all content to the end of the file</p>
 <pre><code>D=$(date "+%Y-%m-%d %H:%M:" --date='1 mins ago')
 sed -n '/'"$D"'/,$p' app.log
+</code></pre>
+<h2 id="jq-json-parser">jq - JSON parser</h2>
+<pre><code>{
+    "data": [
+        {
+            "type": "vzmigrate",
+            "user": "root@pam",
+            "id": "101",
+            "endtime": 1716975183,
+            "status": "OK",
+            "node": "vpvecommon3",
+            "upid": "UPID:vpvecommon3:00397036:766AAF6F:6656F611:vzmigrate:101:root@pam:",
+            "saved": "1",
+            "starttime": 1716975121
+        },
+        {
+            "status": "migration aborted",
+            "node": "vpvecommon3",
+            "upid": "UPID:vpvecommon3:00396F69:766A9641:6656F5D0:vzmigrate:101:root@pam:",
+            "saved": "1",
+            "starttime": 1716975056,
+            "type": "vzmigrate",
+            "user": "root@pam",
+            "endtime": 1716975056,
+            "id": "101"
+        }
+    ]
+}
+</code></pre>
+<p>Parse element conditionally</p>
+<pre><code> jq '.data[] | select(.type == "vzmigrate" and .saved == "0")'
+</code></pre>
+<p>Parse element conditionally and return one key</p>
+<pre><code>jq -r '.data[] | select(.type == "vzmigrate" and .saved == "0") | .upid'
+</code></pre>
+<p>Parse element conditionally and return more keys using more formats</p>
+<pre><code>jq -r '.data[] | select(.type == "vzmigrate" and .saved == "0") | {upid, user}'           ### JSON
+jq -r '.data[] | select(.type == "vzmigrate" and .saved == "0") | "\(.upid)\t\(.user)"'   ### Separated using TABs
+jq -r '.data[] | select(.type == "vzmigrate" and .saved == "0") | "\(.upid)---\(.user)"'  ### Separated using 3 hyphens (---)
 </code></pre>
 
 
