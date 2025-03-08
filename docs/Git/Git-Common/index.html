@@ -425,6 +425,30 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="Branches">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#create-and-work-on-new-branch" class="md-nav__link">
+    <span class="md-ellipsis">
+      Create and work on new branch
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#merge-branch" class="md-nav__link">
+    <span class="md-ellipsis">
+      Merge branch
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -1160,6 +1184,30 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="Branches">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#create-and-work-on-new-branch" class="md-nav__link">
+    <span class="md-ellipsis">
+      Create and work on new branch
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#merge-branch" class="md-nav__link">
+    <span class="md-ellipsis">
+      Merge branch
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -1307,8 +1355,24 @@ git reset --hard 1234567XYZ5554a093c9e883ce239cf123456789
 ### HEAD is not at ... (commit message)
 </code></pre>
 <h2 id="branches">Branches</h2>
-<p><code>git branch</code> - Show <strong>Local</strong> branches
+<p><code>git branch</code> - Show <strong>Local</strong> branches<br />
 <code>git branch -r</code> - Show <strong>Remote</strong> branches</p>
+<h3 id="create-and-work-on-new-branch">Create and work on new branch</h3>
+<p><code>git branch working</code> - Create
+<code>git checkout working</code> - Switch to <code>working</code> branch
+<code>touch file-in-working-branch.txt</code> - Edit <code>working</code> branch
+<code>git add --all</code>
+<code>git status</code>
+<code>git commit -am "MESSSAGE"</code></p>
+<h3 id="merge-branch">Merge branch</h3>
+<p><code>git checkout main</code> - Switch to main, master or any other branch you want to merge with<br />
+<code>git merge working</code> - Merge changes from <code>working</code> branch to <code>main</code><br />
+<code>git push</code> - push to remote<br />
+<code>git branch -D working</code> - delete branch if you wish</p>
+<ul>
+<li><code>-d OR --delete</code> - deletes the branch if it has already been fully merged</li>
+<li><code>-D OR --delete --force</code> - deletes the branch "irrespective of its merged status"</li>
+</ul>
 <h2 id="git-tagging">Git Tagging</h2>
 <pre><code>git describe –tags
 </code></pre>

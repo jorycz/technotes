@@ -80,8 +80,27 @@ If you want to combine local commits before pushing them upstream, for example, 
 
 ## Branches
 
-`git branch` - Show **Local** branches
+`git branch` - Show **Local** branches  
 `git branch -r` - Show **Remote** branches
+
+### Create and work on new branch
+
+`git branch working` - Create
+`git checkout working` - Switch to `working` branch
+`touch file-in-working-branch.txt` - Edit `working` branch
+`git add --all`
+`git status`
+`git commit -am "MESSSAGE"`
+
+### Merge branch
+
+`git checkout main` - Switch to main, master or any other branch you want to merge with  
+`git merge working` - Merge changes from `working` branch to `main`  
+`git push` - push to remote  
+`git branch -D working` - delete branch if you wish
+
+* `-d OR --delete` - deletes the branch if it has already been fully merged
+* `-D OR --delete --force` - deletes the branch "irrespective of its merged status"
 
 ## Git Tagging
 
