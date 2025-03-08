@@ -347,9 +347,9 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#git-commit-push-one-liner" class="md-nav__link">
+  <a href="#pull-add-all-including-delete-commit-push" class="md-nav__link">
     <span class="md-ellipsis">
-      Git commit push one-liner
+      pull, add all (including delete), commit, push
     </span>
   </a>
   
@@ -374,18 +374,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#config" class="md-nav__link">
+  <a href="#discard-last-commit-that-hasnt-been-pushed-yet" class="md-nav__link">
     <span class="md-ellipsis">
-      Config
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#change-remote-repo-url" class="md-nav__link">
-    <span class="md-ellipsis">
-      Change remote repo URL
+      Discard last commit that hasn't been pushed yet
     </span>
   </a>
   
@@ -401,9 +392,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#stash-save-work-for-later-push-or-discard" class="md-nav__link">
+  <a href="#stash-save-work-for-later-commitpush-or-discard" class="md-nav__link">
     <span class="md-ellipsis">
-      Stash - save work for later push or discard
+      Stash - save work for later commit/push or discard
     </span>
   </a>
   
@@ -466,6 +457,24 @@
         
       </ul>
     </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#config" class="md-nav__link">
+    <span class="md-ellipsis">
+      Config
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#change-remote-repo-url" class="md-nav__link">
+    <span class="md-ellipsis">
+      Change remote repo URL
+    </span>
+  </a>
   
 </li>
       
@@ -1073,9 +1082,9 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#git-commit-push-one-liner" class="md-nav__link">
+  <a href="#pull-add-all-including-delete-commit-push" class="md-nav__link">
     <span class="md-ellipsis">
-      Git commit push one-liner
+      pull, add all (including delete), commit, push
     </span>
   </a>
   
@@ -1100,18 +1109,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#config" class="md-nav__link">
+  <a href="#discard-last-commit-that-hasnt-been-pushed-yet" class="md-nav__link">
     <span class="md-ellipsis">
-      Config
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#change-remote-repo-url" class="md-nav__link">
-    <span class="md-ellipsis">
-      Change remote repo URL
+      Discard last commit that hasn't been pushed yet
     </span>
   </a>
   
@@ -1127,9 +1127,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#stash-save-work-for-later-push-or-discard" class="md-nav__link">
+  <a href="#stash-save-work-for-later-commitpush-or-discard" class="md-nav__link">
     <span class="md-ellipsis">
-      Stash - save work for later push or discard
+      Stash - save work for later commit/push or discard
     </span>
   </a>
   
@@ -1196,6 +1196,24 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#config" class="md-nav__link">
+    <span class="md-ellipsis">
+      Config
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#change-remote-repo-url" class="md-nav__link">
+    <span class="md-ellipsis">
+      Change remote repo URL
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#debug" class="md-nav__link">
     <span class="md-ellipsis">
       DEBUG
@@ -1223,8 +1241,12 @@
 <h1 id="git-common">Git Common</h1>
 <pre><code>- v = verbose
 </code></pre>
-<h2 id="git-commit-push-one-liner">Git commit push one-liner</h2>
-<pre><code>git pull &amp;&amp; git add --all &amp;&amp; git commit -am "MESSAGE" &amp;&amp; git push
+<h2 id="pull-add-all-including-delete-commit-push">pull, add all (including delete), commit, push</h2>
+<pre><code>git pull
+git add --all
+git commit -am "MESSAGE"
+git push
+# git pull &amp;&amp; git add --all &amp;&amp; git commit -am "MESSAGE" &amp;&amp; git push   ### one-liner
 </code></pre>
 <h2 id="fast-helpers">Fast Helpers</h2>
 <pre><code>git log --pretty=oneline
@@ -1232,7 +1254,7 @@
 git diff HASH
 git show -C HASH
 git clone https://github.com/jorycz/macOS-setup
-# git clone git@cmd:ansible-cmd
+git clone git@${SERVER}:ansible-cmd
 </code></pre>
 <ul>
 <li><a href="https://git-scm.com/book/en/v2/Git-Basics-Viewing-the-Commit-History">Viewing the Commit History on git-scm.com/book</a></li>
@@ -1242,26 +1264,30 @@ git clone https://github.com/jorycz/macOS-setup
 <pre><code>git diff origin/$(git rev-parse --abbrev-ref HEAD)
 </code></pre>
 <p>Or use these commads:</p>
-<pre><code>git remote -v update &amp;&amp; git status -uno
-git diff origin/master
+<pre><code>    ### ALWAYS update remote copy on local
+git remote -v update
+
+    ### what was changed on remote
+git status -uno
+    ### only file names with modification type
+git diff --name-status HEAD..origin/$(git branch --show-current)
+    ### what was changed on local
+git diff origin/$(git branch --show-current)
+    ### only file names with modification type
+git diff --name-status origin/$(git branch --show-current)
 </code></pre>
-<h2 id="config">Config</h2>
-<pre><code>git config --global user.name "MAME"
-git config --global user.email email@somewhere.com
-git config --global pull.rebase false
-# git config --global http.proxy http://proxy:port
-# git config --global http.sslverify false
+<h2 id="discard-last-commit-that-hasnt-been-pushed-yet">Discard last commit that hasn't been pushed yet</h2>
+<p>Undo the commit and unstage the changes, but still keep them. Files will appear as <code>Modified</code></p>
+<pre><code>git reset --mixed HEAD~1
 </code></pre>
-<h2 id="change-remote-repo-url">Change remote repo URL</h2>
-<pre><code>git remote add origin https://github.com/&lt;USER&gt;/&lt;REPO&gt;.git
-# or SSH: git remote &lt;add|set-url&gt; origin git@github.com:&lt;USER&gt;/&lt;REPO&gt;.git
-# or SSH: git remote &lt;add|set-url&gt; origin ssh://git@cmd/home/git/ansible-cmd.git
+<p>Undo the commit and delete all changes. <font color="red">DANGER</font> This will permanently delete your changes!</p>
+<pre><code>git reset --hard HEAD~1
 </code></pre>
 <h2 id="rebase">Rebase</h2>
 <p>If you want to combine local commits before pushing them upstream, for example, because you discovered a typo or bug after a commit, you can do this interactively.</p>
 <pre><code>git rebase -i
 </code></pre>
-<h2 id="stash-save-work-for-later-push-or-discard">Stash - save work for later push or discard</h2>
+<h2 id="stash-save-work-for-later-commitpush-or-discard">Stash - save work for later commit/push or discard</h2>
 <pre><code>git stash save "COMMENT"
 git stash list
 git stash drop &lt;STASH&gt;   ### if you want your work discard
@@ -1299,6 +1325,18 @@ git push origin :refs/tags/0.0.1   ### delete tag on remote
 </code></pre>
 <p><code>git tag 0.0.1</code> - lightweight - just a pointer to a specific commit
 <code>git tag -a v1.4 -m "my version 1.4"</code> - annotated - full objects in the Git database, They’re checksummed; contain the tagger name, email, and date; have a tagging message; and can be signed and verified with GNU Privacy Guard (GPG)</p>
+<h2 id="config">Config</h2>
+<pre><code>git config --global user.name "MAME"
+git config --global user.email email@somewhere.com
+git config --global pull.rebase false
+# git config --global http.proxy http://proxy:port
+# git config --global http.sslverify false
+</code></pre>
+<h2 id="change-remote-repo-url">Change remote repo URL</h2>
+<pre><code>git remote add origin https://github.com/&lt;USER&gt;/&lt;REPO&gt;.git
+# or SSH: git remote &lt;add|set-url&gt; origin git@github.com:&lt;USER&gt;/&lt;REPO&gt;.git
+# or SSH: git remote &lt;add|set-url&gt; origin ssh://git@cmd/home/git/ansible-cmd.git
+</code></pre>
 <h2 id="debug">DEBUG</h2>
 <pre><code>export GIT_CURL_VERBOSE=1
 export GIT_TRACE_PACKET=1
