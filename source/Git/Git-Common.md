@@ -2,9 +2,13 @@
 
     - v = verbose
 
-## Git commit push one-liner
+## pull, add all (including delete), commit, push
 
-    git pull && git add --all && git commit -am "MESSAGE" && git push
+    git pull
+    git add --all
+    git commit -am "MESSAGE"
+    git push
+    # git pull && git add --all && git commit -am "MESSAGE" && git push   ### one-liner
 
 ## Fast Helpers
 
@@ -13,7 +17,7 @@
     git diff HASH
     git show -C HASH
     git clone https://github.com/jorycz/macOS-setup
-    # git clone git@cmd:ansible-cmd
+    git clone git@${SERVER}:ansible-cmd
 
 * [Viewing the Commit History on git-scm.com/book](https://git-scm.com/book/en/v2/Git-Basics-Viewing-the-Commit-History)
 
@@ -25,22 +29,27 @@
 
 Or use these commads:
 
-    git remote -v update && git status -uno
-    git diff origin/master
+        ### ALWAYS update remote copy on local
+    git remote -v update
 
-## Config
+        ### what was changed on remote
+    git status -uno
+        ### only file names with modification type
+    git diff --name-status HEAD..origin/$(git branch --show-current)
+        ### what was changed on local
+    git diff origin/$(git branch --show-current)
+        ### only file names with modification type
+    git diff --name-status origin/$(git branch --show-current)
 
-    git config --global user.name "MAME"
-    git config --global user.email email@somewhere.com
-    git config --global pull.rebase false
-    # git config --global http.proxy http://proxy:port
-    # git config --global http.sslverify false
+## Discard last commit that hasn't been pushed yet
 
-## Change remote repo URL
+Undo the commit and unstage the changes, but still keep them. Files will appear as `Modified`
 
-    git remote add origin https://github.com/<USER>/<REPO>.git
-    # or SSH: git remote <add|set-url> origin git@github.com:<USER>/<REPO>.git
-    # or SSH: git remote <add|set-url> origin ssh://git@cmd/home/git/ansible-cmd.git
+    git reset --mixed HEAD~1
+
+Undo the commit and delete all changes. <font color="red">DANGER</font> This will permanently delete your changes!
+
+    git reset --hard HEAD~1
 
 ## Rebase
 
@@ -48,7 +57,7 @@ If you want to combine local commits before pushing them upstream, for example, 
 
     git rebase -i
 
-## Stash - save work for later push or discard
+## Stash - save work for later commit/push or discard
 
     git stash save "COMMENT"
     git stash list
@@ -94,6 +103,20 @@ Workflow is ... add, commit, push ...
 
 `git tag 0.0.1` - lightweight - just a pointer to a specific commit
 `git tag -a v1.4 -m "my version 1.4"` - annotated - full objects in the Git database, They’re checksummed; contain the tagger name, email, and date; have a tagging message; and can be signed and verified with GNU Privacy Guard (GPG)
+
+## Config
+
+    git config --global user.name "MAME"
+    git config --global user.email email@somewhere.com
+    git config --global pull.rebase false
+    # git config --global http.proxy http://proxy:port
+    # git config --global http.sslverify false
+
+## Change remote repo URL
+
+    git remote add origin https://github.com/<USER>/<REPO>.git
+    # or SSH: git remote <add|set-url> origin git@github.com:<USER>/<REPO>.git
+    # or SSH: git remote <add|set-url> origin ssh://git@cmd/home/git/ansible-cmd.git
 
 ## DEBUG
 
