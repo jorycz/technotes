@@ -83,12 +83,12 @@ Beware of `-localhost no` which setup vnc to listen on ALL interfaces.
 
 /etc/environment
 
-    http_proxy="http://${HOST}:${PORT}/"
-    https_proxy="http://${HOST}:${PORT}"
-    no_proxy="localhost,127.0.0.1,localaddress,.localdomain.com"
-    HTTP_PROXY="http://${HOST}:${PORT}/"
-    HTTPS_PROXY="http://${HOST}:${PORT}/"
-    NO_PROXY="localhost,127.0.0.1,localaddress,.localdomain.com"
+    export http_proxy="http://${HOST}:${PORT}/"
+    export https_proxy="http://${HOST}:${PORT}"
+    export no_proxy="localhost,127.0.0.1,localaddress,.localdomain.com"
+    export HTTP_PROXY="http://${HOST}:${PORT}/"
+    export HTTPS_PROXY="http://${HOST}:${PORT}/"
+    export NO_PROXY="localhost,127.0.0.1,localaddress,.localdomain.com"
 
 ~/.curlrc
 

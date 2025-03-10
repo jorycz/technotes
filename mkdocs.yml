@@ -5,6 +5,7 @@ site_name: Tech Notes
 nav:
   - Home: index.md
   - Visual Studio Code: VSCode/VSCode.md
+  - Go: Go/Go.md
   - iSH Linux Shell: iSH/iSH.md
   - Git:
     - Common: Git/Git-Common.md
