@@ -9,8 +9,10 @@
       
       
       
-        <link rel="prev" href="../Linux-UPSPowerWalker/">
+        <link rel="prev" href="../../Go/Go/">
       
+      
+        <link rel="next" href="../../iSH/iSH/">
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
@@ -18,7 +20,7 @@
     
     
       
-        <title>AltServer - Tech Notes</title>
+        <title>PostgreSQL - Tech Notes</title>
       
     
     
@@ -60,7 +62,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#linux-alt-server" class="md-skip">
+        <a href="#postgresql" class="md-skip">
           Skip to content
         </a>
       
@@ -96,7 +98,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              AltServer
+              PostgreSQL
             
           </span>
         </div>
@@ -256,10 +258,31 @@
       
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../../PostgreSQL/PostgreSQL/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    PostgreSQL
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   <span class="md-ellipsis">
@@ -269,6 +292,68 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#install" class="md-nav__link">
+    <span class="md-ellipsis">
+      Install
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#connect-as-system-user" class="md-nav__link">
+    <span class="md-ellipsis">
+      Connect as system user
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Connect as system user">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#basic-db-commands" class="md-nav__link">
+    <span class="md-ellipsis">
+      Basic DB commands
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dangerous-commands" class="md-nav__link">
+    <span class="md-ellipsis">
+      Dangerous commands
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -630,19 +715,19 @@
       
   
   
-    
   
   
-  
     
     
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8" checked>
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_8" >
         
           
           <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="0">
@@ -657,7 +742,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_8">
             <span class="md-nav__icon md-icon"></span>
             Linux
@@ -671,7 +756,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../Linux-Common/" class="md-nav__link">
+      <a href="../../Linux/Linux-Common/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -693,7 +778,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../Linux-BASH/" class="md-nav__link">
+      <a href="../../Linux/Linux-BASH/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -715,7 +800,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../Linux-Parsing/" class="md-nav__link">
+      <a href="../../Linux/Linux-Parsing/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -737,7 +822,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../Linux-Systemd/" class="md-nav__link">
+      <a href="../../Linux/Linux-Systemd/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -759,7 +844,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../Linux-Rescue/" class="md-nav__link">
+      <a href="../../Linux/Linux-Rescue/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -781,7 +866,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../Linux-Tmux/" class="md-nav__link">
+      <a href="../../Linux/Linux-Tmux/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -803,7 +888,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../Linux-Cron/" class="md-nav__link">
+      <a href="../../Linux/Linux-Cron/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -825,7 +910,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../Linux-AudioVideo/" class="md-nav__link">
+      <a href="../../Linux/Linux-AudioVideo/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -847,7 +932,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../Linux-Security/" class="md-nav__link">
+      <a href="../../Linux/Linux-Security/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -869,7 +954,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../Linux-UPSPowerWalker/" class="md-nav__link">
+      <a href="../../Linux/Linux-UPSPowerWalker/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -888,31 +973,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  <span class="md-ellipsis">
-    AltServer
-    
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../Linux/Linux-AltServer/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -922,35 +986,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#install" class="md-nav__link">
-    <span class="md-ellipsis">
-      Install
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -998,6 +1033,39 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#connect-as-system-user" class="md-nav__link">
+    <span class="md-ellipsis">
+      Connect as system user
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Connect as system user">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#basic-db-commands" class="md-nav__link">
+    <span class="md-ellipsis">
+      Basic DB commands
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dangerous-commands" class="md-nav__link">
+    <span class="md-ellipsis">
+      Dangerous commands
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1014,20 +1082,30 @@
 
 
 
-<h1 id="linux-alt-server">Linux Alt Server</h1>
-<p><a href="https://github.com/powenn/AltServer-Linux-PyScript">AltServer-Linux-PyScript</a></p>
+<h1 id="postgresql">PostgreSQL</h1>
 <h2 id="install">Install</h2>
-<p>Install using <a href="https://github.com/NyaMisty/AltServer-Linux">AltServer-Linux script</a> it is very easy.<br />
-I need to install requests python module on Ubuntu 24 <code>apt install python3-requests</code></p>
+<pre><code>sudo apt install -y postgresql postgresql-contrib
+</code></pre>
+<h2 id="connect-as-system-user">Connect as system user</h2>
+<pre><code>sudo -u postgres psql
+</code></pre>
+<h3 id="basic-db-commands">Basic DB commands</h3>
 <ul>
-<li>Map iPad connected to linux CT (using Proxmox)</li>
-<li>
+<li><code>\du</code> - show users</li>
+<li><code>\dn</code> - show schemas</li>
+<li><code>\l</code> - show DBs</li>
+<li><code>\c</code> - show current DB</li>
+<li><code>\c new_db</code> - switch to new_db DB (but user is kept, use <code>SET ROLE keycloak;</code> if can)</li>
+<li><code>sudo -u keycloak psql</code> - connect as another user</li>
+<li><code>\dt</code> - show tables in the public schema by default</li>
+<li><code>\dt *.*</code> - show tables from all schemas</li>
+<li><code>\d</code> - shows all tables, views, sequences, and indexes</li>
+</ul>
+<h3 id="dangerous-commands">Dangerous commands</h3>
 <ul>
-<li>Resources / Add Device Passthrough / DEVICE (like /dev/bus/usb/001/004)</li>
+<li><code>DROP ROLE username;</code> - delete user</li>
+<li><code>DROP DATABASE database_name;</code> - delete database</li>
 </ul>
-</li>
-</ul>
-<p>Run CT and on it <code>usbmuxd</code> for first pairing, then <code>python3 main.py</code>. More details <a href="../Linux-Systemd/#bash-script-to-unit-altserver-example">here</a></p>
 
 
 
