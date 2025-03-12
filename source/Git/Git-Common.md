@@ -85,11 +85,11 @@ If you want to combine local commits before pushing them upstream, for example, 
 
 ### Create and work on new branch
 
-`git branch working` - Create
-`git checkout working` - Switch to `working` branch
-`touch file-in-working-branch.txt` - Edit `working` branch
-`git add --all`
-`git status`
+`git branch working` - Create  
+`git checkout working` - Switch to `working` branch  
+`touch file-in-working-branch.txt` - Edit `working` branch  
+`git add --all`  
+`git status`  
 `git commit -am "MESSSAGE"`
 
 ### Merge branch
