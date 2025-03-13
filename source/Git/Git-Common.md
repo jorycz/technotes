@@ -41,6 +41,53 @@ Or use these commads:
         ### only file names with modification type
     git diff --name-status origin/$(git branch --show-current)
 
+## Branches
+
+        ### Show Local branches
+    git branch
+        ### Show Remote branches
+    git branch -r
+
+Create and work on new branch
+
+        ### Create & switch to branch abc (-c = create)
+    git switch -c abc
+        ### Work on abc branch
+    touch file-in-working-branch.txt
+        ### ...
+    git add --all
+    git status
+    git commit -am "MESSSAGE"
+
+Push branch to remote
+
+        ### first time
+    git switch abc
+    git push --set-upstream origin abc
+        ### later git push (when in branch)
+
+Pull branch
+
+        ### first time
+    git pull
+    git switch abc
+    git branch --set-upstream-to=origin/abc abc
+        ### later git pull (when in branch)
+
+Merge branch
+
+        ### Switch to main, master or any other branch you want to merge with
+    git switch main
+        ### Merge changes from abc branch to main
+    git merge abc
+        ### Push to remote
+    git push
+        ### Delete branch if you wish
+    git branch -D abc
+
+* `-d OR --delete` - deletes the branch if it has already been fully merged
+* `-D OR --delete --force` - deletes the branch "irrespective of its merged status"
+
 ## Discard last commit that hasn't been pushed yet
 
 Undo the commit and unstage the changes, but still keep them. Files will appear as `Modified`
@@ -57,50 +104,12 @@ If you want to combine local commits before pushing them upstream, for example, 
 
     git rebase -i
 
-## Stash - save work for later commit/push or discard
-
-    git stash save "COMMENT"
-    git stash list
-    git stash drop <STASH>   ### if you want your work discard
-    git stash apply <STASH>  ### if you want your work apply to current branch
-
-## Forget my changes on file OR swith to another branch
-
-    git checkout ABC/abc.info
-
-* If ABC/abc.info exists as a **branch**, Git switches to that branch.
-* If ABC/abc.info **is a file path**, this command restores that file from the latest committed version in the current branch, **discarding any local changes in that file**.
-
 ## Clone repo and set state to particular commit hash
 
     git clone https://github.com/<USER>/<REPO> repository-tmp
     cd repository-tmp
     git reset --hard 1234567XYZ5554a093c9e883ce239cf123456789
     ### HEAD is not at ... (commit message)
-
-## Branches
-
-`git branch` - Show **Local** branches  
-`git branch -r` - Show **Remote** branches
-
-### Create and work on new branch
-
-`git branch working` - Create  
-`git checkout working` - Switch to `working` branch  
-`touch file-in-working-branch.txt` - Edit `working` branch  
-`git add --all`  
-`git status`  
-`git commit -am "MESSSAGE"`
-
-### Merge branch
-
-`git checkout main` - Switch to main, master or any other branch you want to merge with  
-`git merge working` - Merge changes from `working` branch to `main`  
-`git push` - push to remote  
-`git branch -D working` - delete branch if you wish
-
-* `-d OR --delete` - deletes the branch if it has already been fully merged
-* `-D OR --delete --force` - deletes the branch "irrespective of its merged status"
 
 ## Git Tagging
 
@@ -122,6 +131,27 @@ Workflow is ... add, commit, push ...
 
 `git tag 0.0.1` - lightweight - just a pointer to a specific commit
 `git tag -a v1.4 -m "my version 1.4"` - annotated - full objects in the Git database, They’re checksummed; contain the tagger name, email, and date; have a tagging message; and can be signed and verified with GNU Privacy Guard (GPG)
+
+## Stash - save work for later
+
+        ### Save actual work with new files
+    git add .
+    git stash push -m "Saving work for later on this branch"
+        ### List all
+    git stash list
+        ### Restore latest stash and remove from stashed (previously saved, repeat for all)
+    git stash pop
+        ### OR git stash pop stash@{X}   ### for particular
+        ### Finally
+    git stash drop <STASH>   ### if you want your work discard
+    git stash apply <STASH>  ### if you want your work apply to current branch
+
+## Forget my changes on file OR swith to another branch
+
+    git checkout ABC/abc.info
+
+* If ABC/abc.info exists as a **branch**, Git switches to that branch.
+* If ABC/abc.info **is a file path**, this command restores that file from the latest committed version in the current branch, **discarding any local changes in that file**.
 
 ## Config
 

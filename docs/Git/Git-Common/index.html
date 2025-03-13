@@ -416,6 +416,15 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#branches" class="md-nav__link">
+    <span class="md-ellipsis">
+      Branches
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#discard-last-commit-that-hasnt-been-pushed-yet" class="md-nav__link">
     <span class="md-ellipsis">
       Discard last commit that hasn't been pushed yet
@@ -434,62 +443,11 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#stash-save-work-for-later-commitpush-or-discard" class="md-nav__link">
-    <span class="md-ellipsis">
-      Stash - save work for later commit/push or discard
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#forget-my-changes-on-file-or-swith-to-another-branch" class="md-nav__link">
-    <span class="md-ellipsis">
-      Forget my changes on file OR swith to another branch
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#clone-repo-and-set-state-to-particular-commit-hash" class="md-nav__link">
     <span class="md-ellipsis">
       Clone repo and set state to particular commit hash
     </span>
   </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#branches" class="md-nav__link">
-    <span class="md-ellipsis">
-      Branches
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Branches">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#create-and-work-on-new-branch" class="md-nav__link">
-    <span class="md-ellipsis">
-      Create and work on new branch
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#merge-branch" class="md-nav__link">
-    <span class="md-ellipsis">
-      Merge branch
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -523,6 +481,24 @@
         
       </ul>
     </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#stash-save-work-for-later" class="md-nav__link">
+    <span class="md-ellipsis">
+      Stash - save work for later
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#forget-my-changes-on-file-or-swith-to-another-branch" class="md-nav__link">
+    <span class="md-ellipsis">
+      Forget my changes on file OR swith to another branch
+    </span>
+  </a>
   
 </li>
       
@@ -1175,6 +1151,15 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#branches" class="md-nav__link">
+    <span class="md-ellipsis">
+      Branches
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#discard-last-commit-that-hasnt-been-pushed-yet" class="md-nav__link">
     <span class="md-ellipsis">
       Discard last commit that hasn't been pushed yet
@@ -1193,62 +1178,11 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#stash-save-work-for-later-commitpush-or-discard" class="md-nav__link">
-    <span class="md-ellipsis">
-      Stash - save work for later commit/push or discard
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#forget-my-changes-on-file-or-swith-to-another-branch" class="md-nav__link">
-    <span class="md-ellipsis">
-      Forget my changes on file OR swith to another branch
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#clone-repo-and-set-state-to-particular-commit-hash" class="md-nav__link">
     <span class="md-ellipsis">
       Clone repo and set state to particular commit hash
     </span>
   </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#branches" class="md-nav__link">
-    <span class="md-ellipsis">
-      Branches
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Branches">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#create-and-work-on-new-branch" class="md-nav__link">
-    <span class="md-ellipsis">
-      Create and work on new branch
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#merge-branch" class="md-nav__link">
-    <span class="md-ellipsis">
-      Merge branch
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -1282,6 +1216,24 @@
         
       </ul>
     </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#stash-save-work-for-later" class="md-nav__link">
+    <span class="md-ellipsis">
+      Stash - save work for later
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#forget-my-changes-on-file-or-swith-to-another-branch" class="md-nav__link">
+    <span class="md-ellipsis">
+      Forget my changes on file OR swith to another branch
+    </span>
+  </a>
   
 </li>
       
@@ -1366,6 +1318,49 @@ git diff origin/$(git branch --show-current)
     ### only file names with modification type
 git diff --name-status origin/$(git branch --show-current)
 </code></pre>
+<h2 id="branches">Branches</h2>
+<pre><code>    ### Show Local branches
+git branch
+    ### Show Remote branches
+git branch -r
+</code></pre>
+<p>Create and work on new branch</p>
+<pre><code>    ### Create &amp; switch to branch abc (-c = create)
+git switch -c abc
+    ### Work on abc branch
+touch file-in-working-branch.txt
+    ### ...
+git add --all
+git status
+git commit -am "MESSSAGE"
+</code></pre>
+<p>Push branch to remote</p>
+<pre><code>    ### first time
+git switch abc
+git push --set-upstream origin abc
+    ### later git push (when in branch)
+</code></pre>
+<p>Pull branch</p>
+<pre><code>    ### first time
+git pull
+git switch abc
+git branch --set-upstream-to=origin/abc abc
+    ### later git pull (when in branch)
+</code></pre>
+<p>Merge branch</p>
+<pre><code>    ### Switch to main, master or any other branch you want to merge with
+git switch main
+    ### Merge changes from abc branch to main
+git merge abc
+    ### Push to remote
+git push
+    ### Delete branch if you wish
+git branch -D abc
+</code></pre>
+<ul>
+<li><code>-d OR --delete</code> - deletes the branch if it has already been fully merged</li>
+<li><code>-D OR --delete --force</code> - deletes the branch "irrespective of its merged status"</li>
+</ul>
 <h2 id="discard-last-commit-that-hasnt-been-pushed-yet">Discard last commit that hasn't been pushed yet</h2>
 <p>Undo the commit and unstage the changes, but still keep them. Files will appear as <code>Modified</code></p>
 <pre><code>git reset --mixed HEAD~1
@@ -1377,44 +1372,12 @@ git diff --name-status origin/$(git branch --show-current)
 <p>If you want to combine local commits before pushing them upstream, for example, because you discovered a typo or bug after a commit, you can do this interactively.</p>
 <pre><code>git rebase -i
 </code></pre>
-<h2 id="stash-save-work-for-later-commitpush-or-discard">Stash - save work for later commit/push or discard</h2>
-<pre><code>git stash save "COMMENT"
-git stash list
-git stash drop &lt;STASH&gt;   ### if you want your work discard
-git stash apply &lt;STASH&gt;  ### if you want your work apply to current branch
-</code></pre>
-<h2 id="forget-my-changes-on-file-or-swith-to-another-branch">Forget my changes on file OR swith to another branch</h2>
-<pre><code>git checkout ABC/abc.info
-</code></pre>
-<ul>
-<li>If ABC/abc.info exists as a <strong>branch</strong>, Git switches to that branch.</li>
-<li>If ABC/abc.info <strong>is a file path</strong>, this command restores that file from the latest committed version in the current branch, <strong>discarding any local changes in that file</strong>.</li>
-</ul>
 <h2 id="clone-repo-and-set-state-to-particular-commit-hash">Clone repo and set state to particular commit hash</h2>
 <pre><code>git clone https://github.com/&lt;USER&gt;/&lt;REPO&gt; repository-tmp
 cd repository-tmp
 git reset --hard 1234567XYZ5554a093c9e883ce239cf123456789
 ### HEAD is not at ... (commit message)
 </code></pre>
-<h2 id="branches">Branches</h2>
-<p><code>git branch</code> - Show <strong>Local</strong> branches<br />
-<code>git branch -r</code> - Show <strong>Remote</strong> branches</p>
-<h3 id="create-and-work-on-new-branch">Create and work on new branch</h3>
-<p><code>git branch working</code> - Create<br />
-<code>git checkout working</code> - Switch to <code>working</code> branch<br />
-<code>touch file-in-working-branch.txt</code> - Edit <code>working</code> branch<br />
-<code>git add --all</code><br />
-<code>git status</code><br />
-<code>git commit -am "MESSSAGE"</code></p>
-<h3 id="merge-branch">Merge branch</h3>
-<p><code>git checkout main</code> - Switch to main, master or any other branch you want to merge with<br />
-<code>git merge working</code> - Merge changes from <code>working</code> branch to <code>main</code><br />
-<code>git push</code> - push to remote<br />
-<code>git branch -D working</code> - delete branch if you wish</p>
-<ul>
-<li><code>-d OR --delete</code> - deletes the branch if it has already been fully merged</li>
-<li><code>-D OR --delete --force</code> - deletes the branch "irrespective of its merged status"</li>
-</ul>
 <h2 id="git-tagging">Git Tagging</h2>
 <pre><code>git describe –tags
 </code></pre>
@@ -1431,6 +1394,26 @@ git push origin :refs/tags/0.0.1   ### delete tag on remote
 </code></pre>
 <p><code>git tag 0.0.1</code> - lightweight - just a pointer to a specific commit
 <code>git tag -a v1.4 -m "my version 1.4"</code> - annotated - full objects in the Git database, They’re checksummed; contain the tagger name, email, and date; have a tagging message; and can be signed and verified with GNU Privacy Guard (GPG)</p>
+<h2 id="stash-save-work-for-later">Stash - save work for later</h2>
+<pre><code>    ### Save actual work with new files
+git add .
+git stash push -m "Saving work for later on this branch"
+    ### List all
+git stash list
+    ### Restore latest stash and remove from stashed (previously saved, repeat for all)
+git stash pop
+    ### OR git stash pop stash@{X}   ### for particular
+    ### Finally
+git stash drop &lt;STASH&gt;   ### if you want your work discard
+git stash apply &lt;STASH&gt;  ### if you want your work apply to current branch
+</code></pre>
+<h2 id="forget-my-changes-on-file-or-swith-to-another-branch">Forget my changes on file OR swith to another branch</h2>
+<pre><code>git checkout ABC/abc.info
+</code></pre>
+<ul>
+<li>If ABC/abc.info exists as a <strong>branch</strong>, Git switches to that branch.</li>
+<li>If ABC/abc.info <strong>is a file path</strong>, this command restores that file from the latest committed version in the current branch, <strong>discarding any local changes in that file</strong>.</li>
+</ul>
 <h2 id="config">Config</h2>
 <pre><code>git config --global user.name "MAME"
 git config --global user.email email@somewhere.com
