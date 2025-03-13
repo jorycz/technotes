@@ -1319,10 +1319,8 @@ git diff origin/$(git branch --show-current)
 git diff --name-status origin/$(git branch --show-current)
 </code></pre>
 <h2 id="branches">Branches</h2>
-<pre><code>    ### Show Local branches
-git branch
-    ### Show Remote branches
-git branch -r
+<pre><code>    ### Show Local and Remote branches
+git branch -a
 </code></pre>
 <p>Create and work on new branch</p>
 <pre><code>    ### Create &amp; switch to branch abc (-c = create)
@@ -1341,7 +1339,7 @@ git push --set-upstream origin abc
     ### later git push (when in branch)
 </code></pre>
 <p>Pull branch</p>
-<pre><code>    ### first time
+<pre><code>    ### first time on OTHER computers
 git pull
 git switch abc
 git branch --set-upstream-to=origin/abc abc
@@ -1354,7 +1352,11 @@ git switch main
 git merge abc
     ### Push to remote
 git push
-    ### Delete branch if you wish
+    ### Delete branch if you wish on local and remote
+git branch -D abc
+git push -d origin abc
+    ### On OTHER computers, refresh changes and delete also
+git fetch --all --prune
 git branch -D abc
 </code></pre>
 <ul>

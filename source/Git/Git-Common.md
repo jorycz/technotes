@@ -43,10 +43,8 @@ Or use these commads:
 
 ## Branches
 
-        ### Show Local branches
-    git branch
-        ### Show Remote branches
-    git branch -r
+        ### Show Local and Remote branches
+    git branch -a
 
 Create and work on new branch
 
@@ -68,7 +66,7 @@ Push branch to remote
 
 Pull branch
 
-        ### first time
+        ### first time on OTHER computers
     git pull
     git switch abc
     git branch --set-upstream-to=origin/abc abc
@@ -82,7 +80,11 @@ Merge branch
     git merge abc
         ### Push to remote
     git push
-        ### Delete branch if you wish
+        ### Delete branch if you wish on local and remote
+    git branch -D abc
+    git push -d origin abc
+        ### On OTHER computers, refresh changes and delete also
+    git fetch --all --prune
     git branch -D abc
 
 * `-d OR --delete` - deletes the branch if it has already been fully merged
