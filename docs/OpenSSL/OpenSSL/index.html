@@ -9,10 +9,10 @@
       
       
       
-        <link rel="prev" href="../../OpenSSL/OpenSSL/">
+        <link rel="prev" href="../..">
       
       
-        <link rel="next" href="../../Go/Go/">
+        <link rel="next" href="../../VSCode/VSCode/">
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
@@ -20,7 +20,7 @@
     
     
       
-        <title>Visual Studio Code - Tech Notes</title>
+        <title>OpenSSL - Tech Notes</title>
       
     
     
@@ -62,7 +62,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#visual-studio-code" class="md-skip">
+        <a href="#openssl" class="md-skip">
           Skip to content
         </a>
       
@@ -98,7 +98,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Visual Studio Code
+              OpenSSL
             
           </span>
         </div>
@@ -214,27 +214,6 @@
       
   
   
-  
-  
-    <li class="md-nav__item">
-      <a href="../../OpenSSL/OpenSSL/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    OpenSSL
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-    
-      
-      
-  
-  
     
   
   
@@ -251,7 +230,7 @@
           
   
   <span class="md-ellipsis">
-    Visual Studio Code
+    OpenSSL
     
   </span>
   
@@ -263,7 +242,7 @@
         
   
   <span class="md-ellipsis">
-    Visual Studio Code
+    OpenSSL
     
   </span>
   
@@ -286,89 +265,164 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#shortcuts" class="md-nav__link">
+  <a href="#create-request-need-sign-by-ca" class="md-nav__link">
     <span class="md-ellipsis">
-      Shortcuts
+      Create Request (need sign by CA)
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#extensions" class="md-nav__link">
+  <a href="#create-self-signed-certificate" class="md-nav__link">
     <span class="md-ellipsis">
-      Extensions
+      Create Self-signed certificate
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#go-golang-do-not-format-on-typesave" class="md-nav__link">
+  <a href="#convert-a-pfx-to-pem-base64" class="md-nav__link">
     <span class="md-ellipsis">
-      Go / golang - do not format on type/save
+      Convert a PFX to PEM (Base64)
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#remote-ssh-development" class="md-nav__link">
+  <a href="#convert-pem-with-key-to-pkcs12" class="md-nav__link">
     <span class="md-ellipsis">
-      Remote SSH development
+      Convert PEM with key to PKCS12
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#vscode-server-on-linux" class="md-nav__link">
+  <a href="#convert-pem-with-key-to-pkcs12-macos-version" class="md-nav__link">
     <span class="md-ellipsis">
-      vscode-server on Linux
+      Convert PEM with key to PKCS12 - MacOS version
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#code-server-on-web" class="md-nav__link">
+  <a href="#check-if-cert-and-key-fits" class="md-nav__link">
     <span class="md-ellipsis">
-      Code-Server on WEB
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Code-Server on WEB">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#install" class="md-nav__link">
-    <span class="md-ellipsis">
-      Install
+      Check if cert and key fits
     </span>
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
-  <a href="#config" class="md-nav__link">
+      
+        <li class="md-nav__item">
+  <a href="#check-if-cert-and-ca-fits" class="md-nav__link">
     <span class="md-ellipsis">
-      Config
+      Check if cert and CA fits
     </span>
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
-  <a href="#update" class="md-nav__link">
+      
+        <li class="md-nav__item">
+  <a href="#add-ca-to-linux-java-keystore" class="md-nav__link">
     <span class="md-ellipsis">
-      Update
+      Add CA to Linux &amp; Java KeyStore
     </span>
   </a>
   
 </li>
-        
-      </ul>
-    </nav>
+      
+        <li class="md-nav__item">
+  <a href="#convert-cert-no-key-from-p7b-to-pem" class="md-nav__link">
+    <span class="md-ellipsis">
+      Convert cert (no key) from P7B to PEM
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#convert-cert-from-der-to-pem" class="md-nav__link">
+    <span class="md-ellipsis">
+      Convert cert from DER to PEM
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#check-if-crl-file-is-ok-openssl-will-read-him-for-der-format" class="md-nav__link">
+    <span class="md-ellipsis">
+      Check if CRL file is OK (openssl will read him) for DER format
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#convert-crl-from-pem-to-der" class="md-nav__link">
+    <span class="md-ellipsis">
+      Convert CRL from PEM to DER
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#check-crl-certificate-revocation-list" class="md-nav__link">
+    <span class="md-ellipsis">
+      Check CRL (certificate revocation list)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#talk-to-smtp-server-using-tls" class="md-nav__link">
+    <span class="md-ellipsis">
+      Talk to SMTP server using TLS
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#debug-ssl-communication" class="md-nav__link">
+    <span class="md-ellipsis">
+      DEBUG SSL communication
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#debug-ssl-communication-using-java" class="md-nav__link">
+    <span class="md-ellipsis">
+      DEBUG SSL communication using Java
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ssl-cipher-suite-tester" class="md-nav__link">
+    <span class="md-ellipsis">
+      SSL Cipher Suite Tester
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#apache-ssl-error-ca-signature-digest-algorithm-too-weak" class="md-nav__link">
+    <span class="md-ellipsis">
+      Apache SSL Error - CA signature digest algorithm too weak
+    </span>
+  </a>
   
 </li>
       
@@ -376,6 +430,27 @@
   
 </nav>
       
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../VSCode/VSCode/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Visual Studio Code
+    
+  </span>
+  
+
+      </a>
     </li>
   
 
@@ -1089,89 +1164,164 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#shortcuts" class="md-nav__link">
+  <a href="#create-request-need-sign-by-ca" class="md-nav__link">
     <span class="md-ellipsis">
-      Shortcuts
+      Create Request (need sign by CA)
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#extensions" class="md-nav__link">
+  <a href="#create-self-signed-certificate" class="md-nav__link">
     <span class="md-ellipsis">
-      Extensions
+      Create Self-signed certificate
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#go-golang-do-not-format-on-typesave" class="md-nav__link">
+  <a href="#convert-a-pfx-to-pem-base64" class="md-nav__link">
     <span class="md-ellipsis">
-      Go / golang - do not format on type/save
+      Convert a PFX to PEM (Base64)
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#remote-ssh-development" class="md-nav__link">
+  <a href="#convert-pem-with-key-to-pkcs12" class="md-nav__link">
     <span class="md-ellipsis">
-      Remote SSH development
+      Convert PEM with key to PKCS12
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#vscode-server-on-linux" class="md-nav__link">
+  <a href="#convert-pem-with-key-to-pkcs12-macos-version" class="md-nav__link">
     <span class="md-ellipsis">
-      vscode-server on Linux
+      Convert PEM with key to PKCS12 - MacOS version
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#code-server-on-web" class="md-nav__link">
+  <a href="#check-if-cert-and-key-fits" class="md-nav__link">
     <span class="md-ellipsis">
-      Code-Server on WEB
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Code-Server on WEB">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#install" class="md-nav__link">
-    <span class="md-ellipsis">
-      Install
+      Check if cert and key fits
     </span>
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
-  <a href="#config" class="md-nav__link">
+      
+        <li class="md-nav__item">
+  <a href="#check-if-cert-and-ca-fits" class="md-nav__link">
     <span class="md-ellipsis">
-      Config
+      Check if cert and CA fits
     </span>
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
-  <a href="#update" class="md-nav__link">
+      
+        <li class="md-nav__item">
+  <a href="#add-ca-to-linux-java-keystore" class="md-nav__link">
     <span class="md-ellipsis">
-      Update
+      Add CA to Linux &amp; Java KeyStore
     </span>
   </a>
   
 </li>
-        
-      </ul>
-    </nav>
+      
+        <li class="md-nav__item">
+  <a href="#convert-cert-no-key-from-p7b-to-pem" class="md-nav__link">
+    <span class="md-ellipsis">
+      Convert cert (no key) from P7B to PEM
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#convert-cert-from-der-to-pem" class="md-nav__link">
+    <span class="md-ellipsis">
+      Convert cert from DER to PEM
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#check-if-crl-file-is-ok-openssl-will-read-him-for-der-format" class="md-nav__link">
+    <span class="md-ellipsis">
+      Check if CRL file is OK (openssl will read him) for DER format
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#convert-crl-from-pem-to-der" class="md-nav__link">
+    <span class="md-ellipsis">
+      Convert CRL from PEM to DER
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#check-crl-certificate-revocation-list" class="md-nav__link">
+    <span class="md-ellipsis">
+      Check CRL (certificate revocation list)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#talk-to-smtp-server-using-tls" class="md-nav__link">
+    <span class="md-ellipsis">
+      Talk to SMTP server using TLS
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#debug-ssl-communication" class="md-nav__link">
+    <span class="md-ellipsis">
+      DEBUG SSL communication
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#debug-ssl-communication-using-java" class="md-nav__link">
+    <span class="md-ellipsis">
+      DEBUG SSL communication using Java
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ssl-cipher-suite-tester" class="md-nav__link">
+    <span class="md-ellipsis">
+      SSL Cipher Suite Tester
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#apache-ssl-error-ca-signature-digest-algorithm-too-weak" class="md-nav__link">
+    <span class="md-ellipsis">
+      Apache SSL Error - CA signature digest algorithm too weak
+    </span>
+  </a>
   
 </li>
       
@@ -1191,151 +1341,137 @@
 
 
 
-<h1 id="visual-studio-code">Visual Studio Code</h1>
-<h2 id="shortcuts">Shortcuts</h2>
+<h1 id="openssl">OpenSSL</h1>
+<p>Cipher suite <strong>TLS_RSA</strong>_WITH_<strong>AES_128_CBC</strong>_<strong>SHA</strong> uses</p>
 <ul>
-<li><code>CMD + J</code> - Hide terminal</li>
-<li><code>SHIFT + CMD + F</code> - Search (everywhere)</li>
-<li><code>SHIFT + CMD + E</code> - File explorer</li>
-<li><code>SHIFT + CMD + P</code> - Preferences</li>
-<li><code>SHIFT + CMD + O</code> - Search in code (variables, functions, ...)</li>
-<li><code>CTRL + SHIFT + G</code> - Open Source Control (git)</li>
-<li><code>CMD + P</code> - Search for a file by name, line, symbol ...</li>
-<li><code>SHIFT + CMD + B</code> - Build</li>
-<li><code>CMD + B</code> - Toggle file explorer</li>
-<li><code>CMD + D</code> - Select the next occurrence of the current word for multi-edit</li>
-<li><code>SHIFT + CMD + M</code> - Error in code tab</li>
-<li><code>CTRL + R</code> - Open Recent window + filtered search</li>
-<li><code>OPTION + SHIFT + UP/DOWN</code> - Duplicate the current line</li>
+<li>RSA as the <strong>key exchange algorithm</strong></li>
+<li>AES_128_CBC (128 bits AES <strong>cipher algorithm in CBC mode</strong>) as the cipher (encryption) algorithm</li>
+<li>SHA-1 as the <strong>message digest algorithm</strong> for HMAC</li>
 </ul>
-<h2 id="extensions">Extensions</h2>
-<ul>
-<li><a href="https://marketplace.visualstudio.com/items?itemName=vscode-icons-team.vscode-icons">vscode-icons</a></li>
-<li><a href="https://marketplace.visualstudio.com/items?itemName=golang.go">Go</a></li>
-<li><a href="https://marketplace.visualstudio.com/items?itemName=ms-python.python">Python</a></li>
-<li>
-<ul>
-<li><a href="https://marketplace.visualstudio.com/items?itemName=ms-python.debugpy">Python Debugger</a></li>
-</ul>
-</li>
-<li>
-<ul>
-<li><a href="https://marketplace.visualstudio.com/items?itemName=ms-python.vscode-pylance">Pylance</a></li>
-</ul>
-</li>
-<li><a href="https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-ssh">Remote - SSH</a></li>
-<li>
-<ul>
-<li><a href="https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-ssh-edit">Remote - SSH: Editing Configuration Files</a></li>
-</ul>
-</li>
-<li>
-<ul>
-<li><a href="https://marketplace.visualstudio.com/items?itemName=ms-vscode.remote-explorer">Remote Explorer</a></li>
-</ul>
-</li>
-<li><a href="https://marketplace.visualstudio.com/items?itemName=redhat.vscode-yaml">YAML</a></li>
-<li><a href="https://marketplace.visualstudio.com/items?itemName=redhat.ansible">Ansible</a></li>
-</ul>
-<p><code>ansible</code> and <code>ansible-lint</code> is needed.  Install for macOS:</p>
-<pre><code>brew install ansible ansible-lint
+<p><code>key exchange algorithm___cipher (encryption) algorithm___message digest algorithm</code></p>
+<h2 id="create-request-need-sign-by-ca">Create Request (need sign by CA)</h2>
+<pre><code>openssl req -new -newkey rsa:2048 -sha256 -keyout certificate.pem -out certificate.req -nodes
+openssl rsa -in certificate.pem -out certificate.key   ### convert PRIVATE KEY to RSA PRIVATE KEY
 </code></pre>
-<ul>
-<li>Open Ansible Extension settings - <code>Command Palette</code> - fill <code>Settings</code>, open <code>Ansible: Open Ansible Extension Settings</code></li>
-<li>
-<ul>
-<li>in <code>Basic Configuration</code> enter path to Ansible binary: <code>/usr/local/bin/ansible</code></li>
-</ul>
-</li>
-</ul>
-<h2 id="go-golang-do-not-format-on-typesave">Go / golang - do not format on type/save</h2>
-<p><code>CMD + SHIFT + P</code> &gt; <code>settings.json</code><br />
-In case of remote development / Remote SSH choose <code>Open Remote Settings SSH</code> ...</p>
-<pre><code>{
-    "[go]": {
-        "editor.formatOnType": false,
-        "editor.formatOnSave": false,
-        "editor.codeActionsOnSave": {
-            "source.organizeImports": false
-        }
-    }
-}
+<h2 id="create-self-signed-certificate">Create Self-signed certificate</h2>
+<pre><code>openssl genrsa -out selfsigned.key 2048
+openssl req -new -x509 -key selfsigned.key -out selfsigned.crt -days 3650 -subj /CN=www.mytest-domain.com
 </code></pre>
-<h2 id="remote-ssh-development">Remote SSH development</h2>
-<ul>
-<li>Install Visual Studio Code Remote Development Extension Pack</li>
-<li>Read <a href="https://medium.com/macoclock/remote-development-with-vscode-on-mac-in-simple-5-steps-6ae100938d67">Remote Development with VS Code on Mac in 5 simple steps</a></li>
-<li>
-<ul>
-<li>In Extensions search for <strong>remote development extension pack</strong> and install</li>
-</ul>
-</li>
-<li>
-<ul>
-<li>In the command pallete (<code>CMD + SHIFT + P</code>) select <code>Remote-SSH: Add New SSH Host...</code> and use user@hostname ...</li>
-</ul>
-</li>
-<li>
-<ul>
-<li>Select <code>Remote-SSH: Connect to Host...</code> from the Command Palette. From the drop-down choose the already added host</li>
-</ul>
-</li>
-<li>
-<ul>
-<li>
-<ul>
-<li>You can edit type of the server (Windows, Linux, Mac) in vscode settings (Code &gt; Preferences &gt; Settings) by updating <code>remote.SSH.remotePlatform</code> property</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<h2 id="vscode-server-on-linux">vscode-server on Linux</h2>
-<p>Home folder is <code>.vscode-server</code><br />
-Stop Server: <code>CMD + SHIFT + P</code> &gt; <code>Kill VS Code Server on Host</code></p>
-<ul>
-<li>
-<p>Sometimes I do it 2x or disconnect and try it again. It will start next time I connect or project is oppened.</p>
-<p>ps -elf | grep -i vscode-server
-kill $(pidof node)</p>
-</li>
-</ul>
-<p>In case HTTP proxy is needed for vscode-server</p>
-<pre><code>export HTTP_PROXY=http://proxy:port
-export HTTPS_PROXY=${HTTP_PROXY}
+<h2 id="convert-a-pfx-to-pem-base64">Convert a PFX to PEM (Base64)</h2>
+<p>Key</p>
+<pre><code>openssl pkcs12 -in certificate.pfx -nocerts -out certificate.key
+    ### Remove password from key
+# openssl rsa -in certificate.key -out certificate-without-password.key
 </code></pre>
-<h2 id="code-server-on-web">Code-Server on WEB</h2>
-<ul>
-<li><a href="https://github.com/coder/code-server">code-server on github</a></li>
-</ul>
-<h3 id="install">Install</h3>
-<p>This will install DEB package</p>
-<pre><code>curl -fsSL https://code-server.dev/install.sh | sh
+<p>Cert</p>
+<pre><code>openssl pkcs12 -in certificate.pfx -clcerts -nokeys -out certificate.crt
 </code></pre>
-<p>Enable &amp; Start code-server</p>
-<pre><code>sudo systemctl enable --now code-server@${USER}
+<h2 id="convert-pem-with-key-to-pkcs12">Convert PEM with key to PKCS12</h2>
+<pre><code>openssl pkcs12 -export -out certificate.pfx -inkey certificate.key -in certificate.crt -certfile CACert.crt
 </code></pre>
-<p>Or run it in foreground</p>
-<pre><code>code-server
+<h2 id="convert-pem-with-key-to-pkcs12-macos-version">Convert PEM with key to PKCS12 - MacOS version</h2>
+<pre><code>openssl pkcs12 -export -inkey certificate.key -in certificate.crt -name WebPrivateClientAuth -certfile CACert.crt -out certificate.pfx
+# openssl pkcs12 -noout -info -in certificate.pfx   ### INFO about pfx
 </code></pre>
-<h3 id="config">Config</h3>
-<ul>
-<li>/home/${USER}/.config/code-server/config.yaml</li>
-</ul>
-<p>Warning! This configuration is for local private LAN or with usage of another authentication like required client certificate, because security of code-server is DISABLED using this:</p>
-<pre><code>bind-addr: 0.0.0.0:8888
-# auth: password
-auth: none
-password: &lt;PASSWORD&gt;
-cert: false
+<h2 id="check-if-cert-and-key-fits">Check if cert and key fits</h2>
+<pre><code>openssl x509 -noout -modulus -in certificate.crt | openssl md5
+# 8a4282fa4e12f0a203b300cs33d0b91a
+openssl rsa -noout -modulus -in certificate.key | openssl md5
+# 8a4282fa4e12f0a203b300cs33d0b91a
 </code></pre>
-<h3 id="update">Update</h3>
-<p>To update code-server, install the new version over the old version using one-liner in <strong>Install</strong> section. All user data is in <code>~/.local/share/code-server</code> so they are preserved between installations.<br />
-My way:</p>
-<pre><code>### snapshot
-ansible-playbook guest-dev.yml --tags updateVSCode
-### delete snapshot if everything works
+<h2 id="check-if-cert-and-ca-fits">Check if cert and CA fits</h2>
+<pre><code>openssl verify -verbose -CAfile CACert.crt certificate.crt
 </code></pre>
+<h2 id="add-ca-to-linux-java-keystore">Add CA to Linux &amp; Java KeyStore</h2>
+<pre><code>cp CACert.crt /usr/local/share/ca-certificates/
+update-ca-certificates
+    ### Check if it's in system's java keystore
+for i in $(find /etc/ -name cacerts) ; do file $i ; done
+    ### look for Java KeyStore, in Ubuntu it is /etc/ssl/certs/java/cacerts
+keytool -list -keystore /etc/ssl/certs/java/cacerts -storepass changeit |&amp; head
+keytool -list -keystore /etc/ssl/certs/java/cacerts -storepass changeit |&amp; grep ...
+</code></pre>
+<h2 id="convert-cert-no-key-from-p7b-to-pem">Convert cert (no key) from P7B to PEM</h2>
+<pre><code>openssl pkcs7 -print_certs -in certificate.p7b -out certificate.cer
+</code></pre>
+<h2 id="convert-cert-from-der-to-pem">Convert cert from DER to PEM</h2>
+<pre><code>openssl x509 -inform DER -in certificate.cer -out certificate.pem
+</code></pre>
+<h2 id="check-if-crl-file-is-ok-openssl-will-read-him-for-der-format">Check if CRL file is OK (openssl will read him) for DER format</h2>
+<pre><code>if openssl crl -inform DER -noout -in actual.crl &amp;&gt;/dev/null ; then echo CRL_OK ; else echo CRL_ERROR ; fi
+</code></pre>
+<h2 id="convert-crl-from-pem-to-der">Convert CRL from PEM to DER</h2>
+<pre><code>openssl crl -in crl.pem -outform DER -out crl.der
+</code></pre>
+<h2 id="check-crl-certificate-revocation-list">Check CRL (certificate revocation list)</h2>
+<pre><code>openssl crl -inform DER -text -in actual.crl
+openssl crl -inform PEM -text -in actual.crl
+</code></pre>
+<h2 id="talk-to-smtp-server-using-tls">Talk to SMTP server using TLS</h2>
+<pre><code>    ### openssl s_client -starttls smtp -connect [HOST]:[PORT]
+openssl s_client -starttls smtp -connect smtp.gmail.com:587
+</code></pre>
+<h2 id="debug-ssl-communication">DEBUG SSL communication</h2>
+<pre><code>time (echo "Test" | openssl s_client -debug -connect HOST:PORT -servername HOST)
+</code></pre>
+<p>Performance test</p>
+<pre><code>openssl s_time -connect HOST:PORT
+</code></pre>
+<h2 id="debug-ssl-communication-using-java">DEBUG SSL communication using Java</h2>
+<p>SSLPoke - install openjdk-19-jdk-headless</p>
+<pre><code>git clone https://github.com/MichalHecko/SSLPoke.git
+cd SSLPoke &amp;&amp; ./gradlew clean jar
+java -jar build/libs/SSLPoke-1.0.jar HOST PORT
+java -jar SSLPoke-1.0.jar HOST PORT
+    ### or
+java -Djavax.net.ssl.trustStore=trustStore.keystore -Djavax.net.ssl.trustStorePassword=123456 -jar ./SSLPoke-1.0.jar HOST PORT
+</code></pre>
+<h2 id="ssl-cipher-suite-tester">SSL Cipher Suite Tester</h2>
+<pre><code>#!/bin/bash
+
+if [ -z "${1}" ] ; then echo "USAGE: $0 hostname:port" ; exit 1 ; fi
+
+### OpenSSL requires port number.
+SERVER=${1}
+DELAY=.1
+
+ciphers=$(openssl ciphers 'ALL:eNULL' | sed -e 's/:/ /g')
+
+echo
+echo "**********************************************************************"
+echo "   Obtaining cipher list from $(openssl version)."
+echo "**********************************************************************"
+echo
+
+for cipher in ${ciphers[@]}
+do
+
+    echo -n "Testing $cipher..."
+    result=$(echo -n | openssl s_client -cipher "$cipher" -connect $SERVER 2&gt;&amp;1)
+
+    if [[ "$result" =~ ":error:" ]]
+    then
+        error=$(echo -n $result | cut -d':' -f6)
+        echo NO \($error\)
+    else
+        if [[ "$result" =~ "Cipher is ${cipher}" || "$result" =~ "Cipher    :" ]] ; then
+            echo YES
+        else
+            echo UNKNOWN RESPONSE
+            echo $result
+        fi
+    fi
+
+    sleep $DELAY
+
+done
+</code></pre>
+<p>Usage</p>
+<pre><code>./ssl-tester.sh HOST:PORT
+</code></pre>
+<h2 id="apache-ssl-error-ca-signature-digest-algorithm-too-weak">Apache SSL Error - CA signature digest algorithm too weak</h2>
+<p><code>[Thu Jun 03 ...] [ssl:info] [pid ...] [client ...] AH02276: Certificate Verification: Error (68): CA signature digest algorithm too weak [subject: CN=... / issuer: CN=... / serial: ... / notbefore: Dec  8 ... / notafter: Dec  8 ...]</code></p>
+<p>Lower security in <code>/etc/ssl/openssl.cnf</code> down to <code>CipherString = DEFAULT@SECLEVEL=1</code> from <code>=2</code></p>
 
 
 

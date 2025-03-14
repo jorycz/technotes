@@ -11,7 +11,7 @@ I store here commands, how-to guides or code/script snippets. It should be worki
 
     curl checkip.amazonaws.com
 
-* Use `--noproxy '*'` or `--proxy ${HTTP_PROXY}` for curl if needed or [showmyip.com](https://www.showmyip.com)
+* Or use [showmyip.com](https://www.showmyip.com)
 
 ## Generate random password
 

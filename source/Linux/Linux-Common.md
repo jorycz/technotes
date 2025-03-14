@@ -56,6 +56,21 @@ And / or
     hwclock --systohc
     timedatectl
 
+## Tcpdump
+
+    tcpdump -nli eth0 -s 0 -U -w /root/tcpdump_$(date +"%d%m%Y_%H%M%S")_$(hostname).dmp host IP_ADDRESS
+        ### BETTER - print ascii & data only to terminal & all to file
+    tcpdump -nli eth0 -A -s 0 -U -w /root/tcpdump_$(date +"%d%m%Y_%H%M%S")_$(hostname).dmp port TCP_PORT --print
+
+* n - don't lookup DNS names
+* l - buffered output (for tail, etc ...)
+* i - interface
+* s 0 - store whole packets (default is 68 bytes only)
+* w - store RAW packets to file instead of stdout (can be printed later using -r)
+* U - do not buffer, store packets as they arrive
+
+For Ethereal/Wireshark in case of SSL (not PFS) in Settings > SSL protocol set in RSA key list `server IP`, `port`, `ssl key` and protocol `http`. Then use `Follow TCP stream`.
+
 ## Start something after boot - Legacy examples
 
 /etc/rc.local
@@ -79,7 +94,7 @@ Or run script with environment setup
 
 Beware of `-localhost no` which setup vnc to listen on ALL interfaces.
 
-## Set HTTP proxy - paranoid way
+## Set HTTP proxy (environment, curl, wget)
 
 /etc/environment
 
@@ -94,12 +109,20 @@ Beware of `-localhost no` which setup vnc to listen on ALL interfaces.
 
     proxy=${HOST}:${PORT}
 
+* `--noproxy '*'`
+* `--proxy ${HTTP_PROXY}`
+
 ~/.wgetrc
 
     use_proxy = on
     https_proxy = http://${HOST}:${PORT}/
     http_proxy = http://${HOST}:${PORT}/
     ftp_proxy = http://${HOST}:${PORT}/
+
+Java
+
+    export JAVA_OPTS="-Dhttps.proxyHost=${HOST} -Dhttps.proxyPort=${PORT}"
+    export JAVA_FLAGS="-Dhttps.proxyHost=${HOST} -Dhttps.proxyPort=${PORT}"
 
 ## curl - post binary to WEB form
 

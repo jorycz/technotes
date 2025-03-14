@@ -4,6 +4,7 @@ site_name: Tech Notes
 ### Navigation and Full-Text search
 nav:
   - Home: index.md
+  - OpenSSL: OpenSSL/OpenSSL.md
   - Visual Studio Code: VSCode/VSCode.md
   - Go: Go/Go.md
   - PostgreSQL: PostgreSQL/PostgreSQL.md
@@ -43,8 +44,8 @@ theme:
   features:
     - content.code.copy
     - navigation.expand
-    - search.suggest
-    - search.highlight
+    # - search.suggest
+    # - search.highlight
     - search.share
     - search.focus
 
