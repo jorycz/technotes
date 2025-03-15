@@ -1,5 +1,10 @@
 # Visual Studio Code
 
+## Open from terminal for folder
+
+To shell profile on Mac add `alias code="open -a 'Visual Studio Code'"`.  
+Then open in terminal like `code .`
+
 ## Shortcuts
 
 * `CMD + J` - Hide terminal
