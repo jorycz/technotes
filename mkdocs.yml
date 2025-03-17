@@ -18,6 +18,7 @@ nav:
     - Common: macOS/macOS-Common.md
     - OpenCore Patcher: macOS/macOS-OpenCorePatcher.md
     - Time Machine: macOS/macOS-TimeMachine.md
+    - OrbStack: macOS/macOS-OrbStack.md
     - Shell Scripting: macOS/macOS-ShellScripting.md
     - Java: macOS/macOS-Java.md
     - Safari: macOS/macOS-Safari.md
