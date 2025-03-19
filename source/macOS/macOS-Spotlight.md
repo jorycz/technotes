@@ -6,28 +6,36 @@ Run as owner for network homes, otherwise run as root.
 
     mdutil   ### To show options ...
 
-Disable && Reset - under root
+Show Status
 
-    sudo su -
-    mdutil -a -i off
-    mdutil -aE
-    rm -rf /System/Volumes/Data/.Spotlight-V100/
-    exit
+    mdutil -asv
 
-Delete users's Spotlight now
+Global - Disable and Reset
+
+    sudo mdutil -a -i off
+    sudo mdutil -aE
+    sudo rm -rf /System/Volumes/Data/.Spotlight-V100/
+
+User - Delete Spotlight now
 
     rm -rf Library/Metadata/CoreSpotlight/
     pkill mds
     pkill mds_stores
     pkill mdbulkimport
 
-Now REBOOT...  
-  
-Enable & show status
+Enable without Reboot
 
-    sudo su -
     mdutil -a -i on
-    mdutil -asv
+    sudo killall Spotlight
+  
+Enable with Reboot
+
+    ### ... REBOOT ...
+    sudo mdutil -a -i on
+
+## If icon is in wrong state, restart UI Server
+
+    killall SystemUIServer
 
 ## Do NOT index HDD
 

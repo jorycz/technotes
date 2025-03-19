@@ -704,6 +704,15 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#if-icon-is-in-wrong-state-restart-ui-server" class="md-nav__link">
+    <span class="md-ellipsis">
+      If icon is in wrong state, restart UI Server
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#do-not-index-hdd" class="md-nav__link">
     <span class="md-ellipsis">
       Do NOT index HDD
@@ -1069,6 +1078,15 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#if-icon-is-in-wrong-state-restart-ui-server" class="md-nav__link">
+    <span class="md-ellipsis">
+      If icon is in wrong state, restart UI Server
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#do-not-index-hdd" class="md-nav__link">
     <span class="md-ellipsis">
       Do NOT index HDD
@@ -1116,24 +1134,30 @@
 <p>Run as owner for network homes, otherwise run as root.</p>
 <pre><code>mdutil   ### To show options ...
 </code></pre>
-<p>Disable &amp;&amp; Reset - under root</p>
-<pre><code>sudo su -
-mdutil -a -i off
-mdutil -aE
-rm -rf /System/Volumes/Data/.Spotlight-V100/
-exit
+<p>Show Status</p>
+<pre><code>mdutil -asv
 </code></pre>
-<p>Delete users's Spotlight now</p>
+<p>Global - Disable and Reset</p>
+<pre><code>sudo mdutil -a -i off
+sudo mdutil -aE
+sudo rm -rf /System/Volumes/Data/.Spotlight-V100/
+</code></pre>
+<p>User - Delete Spotlight now</p>
 <pre><code>rm -rf Library/Metadata/CoreSpotlight/
 pkill mds
 pkill mds_stores
 pkill mdbulkimport
 </code></pre>
-<p>Now REBOOT...  </p>
-<p>Enable &amp; show status</p>
-<pre><code>sudo su -
-mdutil -a -i on
-mdutil -asv
+<p>Enable without Reboot</p>
+<pre><code>mdutil -a -i on
+sudo killall Spotlight
+</code></pre>
+<p>Enable with Reboot</p>
+<pre><code>### ... REBOOT ...
+sudo mdutil -a -i on
+</code></pre>
+<h2 id="if-icon-is-in-wrong-state-restart-ui-server">If icon is in wrong state, restart UI Server</h2>
+<pre><code>killall SystemUIServer
 </code></pre>
 <h2 id="do-not-index-hdd">Do NOT index HDD</h2>
 <pre><code>touch /.metadata-never-index
