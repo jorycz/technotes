@@ -85,3 +85,6 @@ Can be resolved by early upgrading to plucky from this [reddit](https://www.redd
 
 [Source](https://askubuntu.com/questions/79280/how-to-install-chrome-browser-properly-via-command-line)
 
+## Data Storage
+
+    du -sh ~/Library/Group\ Containers/HUAQ24HBR6.dev.orbstack/data
