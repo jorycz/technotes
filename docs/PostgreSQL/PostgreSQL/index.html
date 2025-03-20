@@ -369,6 +369,24 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#listen-on-all-interfaces" class="md-nav__link">
+    <span class="md-ellipsis">
+      Listen on ALL interfaces
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#set-password-for-user-postgres" class="md-nav__link">
+    <span class="md-ellipsis">
+      Set password for user postgres
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1107,6 +1125,24 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#listen-on-all-interfaces" class="md-nav__link">
+    <span class="md-ellipsis">
+      Listen on ALL interfaces
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#set-password-for-user-postgres" class="md-nav__link">
+    <span class="md-ellipsis">
+      Set password for user postgres
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1147,6 +1183,18 @@
 <li><code>DROP ROLE username;</code> - delete user</li>
 <li><code>DROP DATABASE database_name;</code> - delete database</li>
 </ul>
+<h2 id="listen-on-all-interfaces">Listen on ALL interfaces</h2>
+<p>Set in <strong>postgresql.conf</strong> option <code>listen_addresses = '*'</code><br />
+Set in <strong>pg_hba.conf</strong> option <code>host    all             all             0.0.0.0/0            scram-sha-256</code></p>
+<p>Reload config</p>
+<pre><code>SELECT pg_reload_conf();
+</code></pre>
+<p>If <code>listen_addresses</code> was changed - restart of server is needed.<br />
+Set <strong>GOOD password</strong> for user postgres.</p>
+<h2 id="set-password-for-user-postgres">Set password for user postgres</h2>
+<pre><code>sudo -u postgres psql
+\password
+</code></pre>
 
 
 

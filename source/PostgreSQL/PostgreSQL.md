@@ -25,3 +25,21 @@
 * `DROP ROLE username;` - delete user
 * `DROP DATABASE database_name;` - delete database
 
+## Listen on ALL interfaces
+
+Set in **postgresql.conf** option `listen_addresses = '*'`  
+Set in **pg_hba.conf** option `host    all             all             0.0.0.0/0            scram-sha-256`
+
+Reload config
+
+    SELECT pg_reload_conf();
+
+If `listen_addresses` was changed - restart of server is needed.  
+Set **GOOD password** for user postgres.
+
+## Set password for user postgres
+
+    sudo -u postgres psql
+    \password
+
+
