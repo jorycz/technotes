@@ -1329,6 +1329,9 @@ orb -m VM_NAME -u root   ### login to VM_NAME as root
 echo 'cd' &gt;&gt; .bashrc
 echo 'alias s="sudo su -"' &gt;&gt; .bashrc
 sudo apt install -y software-properties-common bash-completion vim git sudo dialog tzdata net-tools curl wget netcat-openbsd rsync
+    ### Turn off unattended upgrades
+# echo 'Unattended-Upgrade::Allowed-Origins:: "LP-PPA-mozillateam:${distro_codename}";' | sudo tee /etc/apt/apt.conf.d/51unattended-upgrades-firefox
+sudo apt purge unattended-upgrades
 </code></pre>
 <h2 id="clone-vm">Clone VM</h2>
 <pre><code>orb clone VM_NAME VM_NAME_CLONE
@@ -1368,11 +1371,24 @@ tar zxvf plucky.tar.gz
 ./plucky
 </code></pre>
 <h2 id="web-browser">Web Browser</h2>
-<pre><code>sudo apt-get install libxss1 libappindicator1 libindicator7
-wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
-sudo apt install ./google-chrome*.deb
+<p>Latest stable Firefox</p>
+<pre><code>sudo add-apt-repository ppa:mozillateam/ppa
 </code></pre>
-<p><a href="https://askubuntu.com/questions/79280/how-to-install-chrome-browser-properly-via-command-line">Source</a></p>
+<p>Prioritize apt version over snap one</p>
+<pre><code>echo '
+Package: *
+Pin: release o=LP-PPA-mozillateam
+Pin-Priority: 1001
+
+Package: firefox
+Pin: version 1:1snap*
+Pin-Priority: -1
+' | sudo tee /etc/apt/preferences.d/mozilla-firefox
+</code></pre>
+<p>Install</p>
+<pre><code>sudo apt install firefox
+</code></pre>
+<p><a href="https://askubuntu.com/questions/1399383/how-to-install-firefox-as-a-traditional-deb-package-without-snap-in-ubuntu-22/1404401#1404401">Source</a></p>
 <h2 id="data-storage">Data Storage</h2>
 <pre><code>du -sh ~/Library/Group\ Containers/HUAQ24HBR6.dev.orbstack/data
 </code></pre>
