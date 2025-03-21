@@ -28,6 +28,8 @@
     echo 'cd' >> .bashrc
     echo 'alias s="sudo su -"' >> .bashrc
     sudo apt install -y software-properties-common bash-completion vim git sudo dialog tzdata net-tools curl wget netcat-openbsd rsync
+        ### Turn off unattended upgrades
+    echo 'Unattended-Upgrade::Allowed-Origins:: "LP-PPA-mozillateam:${distro_codename}";' | sudo tee /etc/apt/apt.conf.d/51unattended-upgrades-firefox
 
 ## Clone VM
 
@@ -79,11 +81,27 @@ Can be resolved by early upgrading to plucky from this [reddit](https://www.redd
 
 ## Web Browser
 
-    sudo apt-get install libxss1 libappindicator1 libindicator7
-    wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
-    sudo apt install ./google-chrome*.deb
+Latest stable Firefox
 
-[Source](https://askubuntu.com/questions/79280/how-to-install-chrome-browser-properly-via-command-line)
+    sudo add-apt-repository ppa:mozillateam/ppa
+
+Prioritize apt version over snap one
+
+    echo '
+    Package: *
+    Pin: release o=LP-PPA-mozillateam
+    Pin-Priority: 1001
+
+    Package: firefox
+    Pin: version 1:1snap*
+    Pin-Priority: -1
+    ' | sudo tee /etc/apt/preferences.d/mozilla-firefox
+
+Install
+
+    sudo apt install firefox
+
+[Source](https://askubuntu.com/questions/1399383/how-to-install-firefox-as-a-traditional-deb-package-without-snap-in-ubuntu-22/1404401#1404401)
 
 ## Data Storage
 
