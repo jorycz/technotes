@@ -29,7 +29,8 @@
     echo 'alias s="sudo su -"' >> .bashrc
     sudo apt install -y software-properties-common bash-completion vim git sudo dialog tzdata net-tools curl wget netcat-openbsd rsync
         ### Turn off unattended upgrades
-    echo 'Unattended-Upgrade::Allowed-Origins:: "LP-PPA-mozillateam:${distro_codename}";' | sudo tee /etc/apt/apt.conf.d/51unattended-upgrades-firefox
+    # echo 'Unattended-Upgrade::Allowed-Origins:: "LP-PPA-mozillateam:${distro_codename}";' | sudo tee /etc/apt/apt.conf.d/51unattended-upgrades-firefox
+    sudo apt purge unattended-upgrades
 
 ## Clone VM
 
