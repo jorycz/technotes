@@ -1,5 +1,7 @@
 # Visual Studio Code
 
+ * Sign in to GitHub account.
+
 ## Open from terminal for folder
 
 To shell profile on Mac add `alias code="open -a 'Visual Studio Code'"`.  
@@ -33,6 +35,7 @@ Then open in terminal like `code .`
 * * [Remote Explorer](https://marketplace.visualstudio.com/items?itemName=ms-vscode.remote-explorer)
 * [YAML](https://marketplace.visualstudio.com/items?itemName=redhat.vscode-yaml)
 * [Ansible](https://marketplace.visualstudio.com/items?itemName=redhat.ansible)
+* [Codeium](https://marketplace.visualstudio.com/items?itemName=Codeium.codeium)
 
 `ansible` and `ansible-lint` is needed.  Install for macOS:
 
