@@ -1,0 +1,66 @@
+site_name: Tech Notes
+
+### Navigation and Full-Text search
+nav:
+  - Home: index.md
+  - OpenSSL: OpenSSL/OpenSSL.md
+  - Visual Studio Code: VSCode/VSCode.md
+  - Go: Go/Go.md
+  - PostgreSQL: PostgreSQL/PostgreSQL.md
+  - iSH Linux Shell: iSH/iSH.md
+  - Git:
+    - Common: Git/Git-Common.md
+    - Issues: Git/Git-Issues.md
+    - New Repository: Git/Git-NewRepository.md
+    - Create Server: Git/Git-CreateServer.md
+  - macOS:
+    - Common: macOS/macOS-Common.md
+    - OpenCore Patcher: macOS/macOS-OpenCorePatcher.md
+    - Time Machine: macOS/macOS-TimeMachine.md
+    - OrbStack: macOS/macOS-OrbStack.md
+    - Shell Scripting: macOS/macOS-ShellScripting.md
+    - Color Shell: macOS/macOS-ColorShell.md
+    - Java: macOS/macOS-Java.md
+    - Safari: macOS/macOS-Safari.md
+    - Spotlight: macOS/macOS-Spotlight.md
+  - Linux:
+    - Common: Linux/Linux-Common.md
+    - BASH: Linux/Linux-BASH.md
+    - Parsing: Linux/Linux-Parsing.md
+    - Systemd: Linux/Linux-Systemd.md
+    - Rescue: Linux/Linux-Rescue.md
+    - TMUX: Linux/Linux-Tmux.md
+    - Cron: Linux/Linux-Cron.md
+    - Audio Video: Linux/Linux-AudioVideo.md
+    - Security: Linux/Linux-Security.md
+    - UPS PowerWalker: Linux/Linux-UPSPowerWalker.md
+    - AltServer: Linux/Linux-AltServer.md
+
+docs_dir: docs
+#docs_dir: source
+#site_dir: docs
+
+theme:
+  name: material
+  features:
+    - content.code.copy
+    - navigation.expand
+    # - search.suggest
+    # - search.highlight
+    - search.share
+    - search.focus
+
+### For Search support
+plugins:
+  - search:
+      ### regexp for word separators:
+      ### space - . " / ' _ (
+      separator: '[\s\-\."\/''_(]+'
+      lang: en
+
+### For Emoji support
+markdown_extensions:
+  - attr_list
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
