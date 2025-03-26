@@ -35,6 +35,7 @@ nav:
     - Security: Linux/Linux-Security.md
     - UPS PowerWalker: Linux/Linux-UPSPowerWalker.md
     - AltServer: Linux/Linux-AltServer.md
+  - Google: Google/Google.md
 
 docs_dir: docs
 #docs_dir: source
