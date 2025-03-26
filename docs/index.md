@@ -22,11 +22,3 @@ I store here commands, how-to guides or code/script snippets. It should be worki
 Pattern is matched against full command line.
 
     top -d 1 -c -p $(pgrep -d',' -f postgres)
-
-## Deploy by GitHub Action workflow
-
-[GitHub Pages on Material for MkDocs](https://squidfunk.github.io/mkdocs-material/publishing-your-site/)
-
-* Setup in repository `Settings` > `Pages` > `Build and deployment`
-* * Source > `Deploy from a branch`
-* * Branch > `gh-pages` and `/ (root)`
