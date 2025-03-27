@@ -27,6 +27,15 @@
     cd
     echo 'cd' >> .bashrc
     echo 'alias s="sudo su -"' >> .bashrc
+
+Proxy
+
+    echo 'Acquire::http::Proxy "http://${HOST}:3128";' > /etc/apt/apt.conf.d/99proxy
+
+Update and Install
+
+    sudo apt update
+    sudo apt dist-upgrade -y 
     sudo apt install -y software-properties-common bash-completion vim git sudo dialog tzdata net-tools curl wget netcat-openbsd rsync
         ### Turn off unattended upgrades
     # echo 'Unattended-Upgrade::Allowed-Origins:: "LP-PPA-mozillateam:${distro_codename}";' | sudo tee /etc/apt/apt.conf.d/51unattended-upgrades-firefox
