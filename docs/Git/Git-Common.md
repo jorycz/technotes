@@ -46,6 +46,22 @@ Or use these commads:
         ### only file names with modification type
     git diff --name-status origin/$(git branch --show-current)
 
+## Stash
+
+    git add folder/file.yml    ### Store only one file
+    git add -A                 ### Store ALL actual work
+
+    git stash push -m "STASH MESSAGE"
+    git stash list             ### List all stored stashes
+
+        ### Restore _latest_ stash and remove it from stashed (previously stored)
+    git stash pop
+        ### OR
+    git stash pop stash@{X}    ### for particular
+        ### OR
+    git stash drop <STASH>     ### if you want your work discard
+    git stash apply <STASH>    ### if you want your work apply to current branch
+
 ## Branches
 
     git branch -a   ### Show Local and Remote branches
@@ -110,22 +126,6 @@ If you want to combine local commits before pushing them upstream, for example, 
     cd repository-tmp
     git reset --hard 1234567XYZ5554a093c9e883ce239cf123456789
     ### HEAD is not at ... (commit message)
-
-## Stash - save work for later
-
-        ### Save actual work with new files
-    git add -A
-    git stash push -m "Saving work for later on this branch"
-        ### List all
-    git stash list
-
-        ### Restore _latest_ stash and remove it from stashed (previously saved)
-    git stash pop
-        ### OR
-    git stash pop stash@{X}   ### for particular
-        ### OR
-    git stash drop <STASH>    ### if you want your work discard
-    git stash apply <STASH>   ### if you want your work apply to current branch
 
 ## Forget my changes on file
 
