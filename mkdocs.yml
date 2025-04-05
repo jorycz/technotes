@@ -36,6 +36,7 @@ nav:
     - UPS PowerWalker: Linux/Linux-UPSPowerWalker.md
     - AltServer: Linux/Linux-AltServer.md
   - Google: Google/Google.md
+  - fail2ban: fail2ban/Fail2ban.md
 
 docs_dir: docs
 #docs_dir: source
