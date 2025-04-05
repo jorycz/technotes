@@ -35,7 +35,7 @@ Then open in terminal like `code .`
 * * [Remote Explorer](https://marketplace.visualstudio.com/items?itemName=ms-vscode.remote-explorer)
 * [YAML](https://marketplace.visualstudio.com/items?itemName=redhat.vscode-yaml)
 * [Ansible](https://marketplace.visualstudio.com/items?itemName=redhat.ansible)
-* [Codeium](https://marketplace.visualstudio.com/items?itemName=Codeium.codeium)
+* [Windsurf](https://marketplace.visualstudio.com/items?itemName=Codeium.codeium)
 
 `ansible` and `ansible-lint` is needed.  Install for macOS:
 
