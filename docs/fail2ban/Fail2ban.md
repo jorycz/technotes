@@ -30,14 +30,14 @@ Package `fail2ban`
 
 ## Setup
 
-fail2ban/jail.d/custom.conf
+**fail2ban/jail.d/custom.conf**
 
     [DEFAULT]
     bantime  = 300
     findtime = 300
     banaction = iptables-allports
 
-fail2ban/jail.d/apache-dos.conf
+**fail2ban/jail.d/apache-dos.conf**
 
     [apache-dos]
     enabled  = true
@@ -49,7 +49,7 @@ fail2ban/jail.d/apache-dos.conf
     findtime = 60
     bantime  = 24h
 
-fail2ban/filter.d/apache-dos.conf
+**fail2ban/filter.d/apache-dos.conf**
 
     # Fail2Ban filter to scan Apache access.log for DoS attacks
 
@@ -73,11 +73,18 @@ fail2ban/filter.d/apache-dos.conf
     #
     ignoreregex =
 
-fail2ban/action.d/iptables-common.conf
+**fail2ban/action.d/iptables-common.conf**
 
-Replace both of `blocktype = REJECT --reject-with icmp-port-unreachable` and `blocktype = REJECT --reject-with icmp6-port-unreachable` with `blocktype = DROP`
+Replace both of
 
-fail2ban/filter.d/openvpn.conf
+* `blocktype = REJECT --reject-with icmp-port-unreachable`
+* `blocktype = REJECT --reject-with icmp6-port-unreachable`
+
+with
+
+* `blocktype = DROP`
+
+**fail2ban/filter.d/openvpn.conf**
 
     # Fail2Ban filter for openvpn
     # For custom logs ...
@@ -99,7 +106,7 @@ fail2ban/filter.d/openvpn.conf
 
     ignoreregex = 
 
-fail2ban/filter.d/sshd-tcpdos.conf
+**fail2ban/filter.d/sshd-tcpdos.conf**
 
     # Fail2Ban ssh filter for TCP packet not related to SSH protocol
     #
@@ -121,7 +128,12 @@ fail2ban/filter.d/sshd-tcpdos.conf
 
 ## Disable WHOIS details in email notification
 
-fail2ban/action.d/mail-whois-common.conf
+**fail2ban/action.d/mail-whois-common.conf**
 
-Replace `_whois = whois <ip> ...` with `_whois = whois_disabledByAnsible <ip> || echo "missing whois program"`
+Replace
 
+* `_whois = whois <ip> ...`
+
+with
+
+* `_whois = whois_disabledByAnsible <ip> || echo "missing whois program"`
