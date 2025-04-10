@@ -29,6 +29,7 @@ nav:
     - Parsing: Linux/Linux-Parsing.md
     - Systemd: Linux/Linux-Systemd.md
     - Rescue: Linux/Linux-Rescue.md
+    - Apache: Linux/Linux-Apache.md
     - TMUX: Linux/Linux-Tmux.md
     - Cron: Linux/Linux-Cron.md
     - Audio Video: Linux/Linux-AudioVideo.md
