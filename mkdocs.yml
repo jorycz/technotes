@@ -38,6 +38,7 @@ nav:
     - AltServer: Linux/Linux-AltServer.md
   - Google: Google/Google.md
   - fail2ban: fail2ban/Fail2ban.md
+  - VirtualBox: VirtualBox/VirtualBox.md
 
 docs_dir: docs
 #docs_dir: source
