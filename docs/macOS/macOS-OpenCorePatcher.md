@@ -11,19 +11,30 @@
 
 *Hi, I just installed OC on my 2 2017 iMacs, both with bootcamp. There is no issues at all and one iMac shows OC "EFI Boot" also after install on HDD. 2nd iMac didn't show that boot menu item (when holding Option key during startup), so I fixed it like this: Before you install OC on HDD*
 
-    mount EFI partition (diskutil list, sudo mount ...)
-    rename Microsoft folder to Microsoft-BAK and delete Boot/boot folder
-        (or move it somewhere to USB Flash. I didn't need it later.)
-    umount EFI partition using diskutil
-    Install OC on HDD and remove USB Flash
-    Reset PRAM
-    Reboot with Option hey holding and select OC EFI Boot and then macOS Sonoma
-    mount EFI, rename MS folder back and unmount, reboot with Option key
-    Now naming was wrong, OC EFI Boot name is Windows with OC icon.
-        Select it and you can see now proper naming and icons. Select macOS ...
-    Set Startup Disk to Macintosh HD or where you Sonoma is
+        ### mount EFI partition
+    diskutil list | grep EFI
+    mkdir -p /Users/${USER}/tmp/tempEFI/
+        ### choose right EFI_PARTITION if you have more than one
+    sudo mount_msdos /dev/EFI_PARTITION /Users/${USER}/tmp/tempEFI/
+        ### rename Microsoft folder to Microsoft-BAK and delete content of Boot/boot folder
+        ### (or backup content of Boot/boot folder. I didn't later.)
+    cd /Users/${USER}/tmp/tempEFI/
+    mv Microsoft Microsoft-BAK
+    rm -f Boot/boot*
+        ### umount EFI partition using diskutil
+    sudo diskutil unmount /Users/${USER}/tmp/tempEFI/
+        ### Install OC on HDD and remove USB Flash
+        ### Reset PRAM
+        ### Reboot with Option hey holding and select OC EFI Boot and then macOS Sonoma
+        ### mount EFI, rename MS folder back and unmount, reboot with Option key
+    sudo mount_msdos /dev/EFI_PARTITION /Users/${USER}/tmp/tempEFI/
+    mv Microsoft-BAK Microsoft
+    sudo diskutil unmount /Users/${USER}/tmp/tempEFI/
+        ### Now naming/icon was wrong - OC EFI Boot name is Windows with OC icon.
+        ### Select it and you can see now proper naming and icons. Select macOS and let it boot ...
+        ### in macOS, set Startup Disk to Macintosh HD or where you Sonoma/Seqoia/... is.
 
-*This way both my iMacs boot to Sonoma automatically. Hope it helps.*
+*This way both my iMacs boot to macOS automatically. Hope it helps.*
 
 ### Installation
 
