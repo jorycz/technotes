@@ -44,6 +44,13 @@ Then open in terminal like `code .`
 * Open Ansible Extension settings - `Command Palette` - fill `Settings`, open `Ansible: Open Ansible Extension Settings`
 * * in `Basic Configuration` enter path to Ansible binary: `/usr/local/bin/ansible`
 
+### Ansible Lint Settings
+
+**Do not show long lines warning** - create `.ansible-lint.yml` in the root of the repository with content:
+
+    skip_list:
+      - yaml[line-length]
+
 ## Go / golang - do not format on type/save
 
 `CMD + SHIFT + P` > `settings.json`  
