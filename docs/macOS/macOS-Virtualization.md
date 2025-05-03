@@ -12,6 +12,8 @@
 
 During installation it will ask for license, continue and then there is a screen that can ask for network driver or login to MS account. Press `Shift + (Fn) F10` and then in command line that will appear run `start ms-cxh:localonly`
 
+* [DirectX Download](https://www.microsoft.com/en-us/download/details.aspx?id=35)
+
 ### Ubuntu 24 LTS
 
 Install ARM Ubuntu server and then install desktop using `sudo apt install ubuntu-desktop`
