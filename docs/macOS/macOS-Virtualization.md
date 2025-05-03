@@ -14,6 +14,16 @@ During installation it will ask for license, continue and then there is a screen
 
 * [DirectX Download](https://www.microsoft.com/en-us/download/details.aspx?id=35)
 
+#### Copied or Moved VM issue
+
+If VMware Fusion asks every start of VM.
+
+    cd /Library/Application\ Support/VMware/VMware\ Fusion/Shared
+    mv vmInventory vmInventory.save
+    ln -s ~/Library/Application\ Support/VMware\ Fusion/vmInventory .
+
+[Check post 44 on VMs constantly asking if I Copied or Moved VM from Ken Feldman](https://community.broadcom.com/vmware-cloud-foundation/discussion/vms-constantly-asking-if-i-copied-or-moved-vm)
+
 ### Ubuntu 24 LTS
 
 Install ARM Ubuntu server and then install desktop using `sudo apt install ubuntu-desktop`
