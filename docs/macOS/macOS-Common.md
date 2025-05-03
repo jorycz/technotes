@@ -132,6 +132,12 @@ Start Built-in macOS Recovery system, NVRAM / PRAM / SMC reset, Safe Mode ...
     sudo nvram boot-args="-v keepsyms=y debug=0x144"
     sudo nvram boot-args="-v keepsyms=y debug=0x14e"   ### More verbose
 
+## SMART smartctl
+
+    diskutil list
+    diskutil info /dev/diskX | grep SMART      ### Basic info, only if S.M.A.R.T. is supported
+    sudo smartctl -l error /dev/disk0          ### Full info if it's supported
+
 ## PlistBuddy a defaults
 
 Get BundleID
