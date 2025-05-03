@@ -15,15 +15,16 @@ nav:
     - Create Server: Git/Git-CreateServer.md
   - macOS:
     - Common: macOS/macOS-Common.md
-    - OpenCore Patcher: macOS/macOS-OpenCorePatcher.md
     - Time Machine: macOS/macOS-TimeMachine.md
     - OrbStack: macOS/macOS-OrbStack.md
     - Shell Scripting: macOS/macOS-ShellScripting.md
+    - Virtualization: macOS/macOS-Virtualization.md
     - Color Shell: macOS/macOS-ColorShell.md
     - Privacy: macOS/macOS-Privacy.md
-    - Java: macOS/macOS-Java.md
-    - Safari: macOS/macOS-Safari.md
     - Spotlight: macOS/macOS-Spotlight.md
+    - Safari: macOS/macOS-Safari.md
+    - OpenCore Patcher: macOS/macOS-OpenCorePatcher.md
+    - Java: macOS/macOS-Java.md
   - Linux:
     - Common: Linux/Linux-Common.md
     - BASH: Linux/Linux-BASH.md

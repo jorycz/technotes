@@ -148,6 +148,12 @@ Java
     autologin-user=doma
     autologin-user-timeout=5
 
+/etc/gdm3/custom.conf
+
+    [daemon]
+    AutomaticLoginEnable=True
+    AutomaticLogin=username
+
 ## Show information about HW, Hardware model etc
 
     dmidecode | grep -A3 '^System Information'
