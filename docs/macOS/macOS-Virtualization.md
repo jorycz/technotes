@@ -26,7 +26,10 @@ If VMware Fusion asks every start of VM.
 
 ### Ubuntu 24 LTS
 
-Install ARM Ubuntu server and then install desktop using `sudo apt install ubuntu-desktop`
+Install ARM Ubuntu server and then install desktop and VM tools using
+
+    sudo apt install -y ubuntu-desktop
+    sudo apt install -y open-vm-tools open-vm-tools-desktop
 
 * [Enable Auto Login](../Linux/Linux-Common.md#enable-auto-login)
 * [Disable Screen Auto Lock](../Linux/Linux-Common.md#disable-auto-lock-screen-autolock-screensaver)
