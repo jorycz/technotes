@@ -19,7 +19,8 @@ One-liner if it's safe
 
     git log --pretty=oneline
     # git whatchanged
-    git diff HASH
+    git diff HASH                    ### diff of file contents
+    git diff --name-status HASH      ### diff of file names
     git show -C HASH
     git clone https://github.com/jorycz/macOS-setup
     # git clone git@github.com:jorycz/macOS-setup
