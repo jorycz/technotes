@@ -17,7 +17,7 @@ Destination is `/Library/Java/JavaVirtualMachines/` as folder.
 
 After unpack copy `zulu-8.jdk` to `/Library/Java/JavaVirtualMachines/`
 
-## JNLP under Java 8 (newer could be used but JNLP are ... old)
+## JNLP under Java 8 (you can try 11 or 17 also)
 
 You don't want to use this.  
 

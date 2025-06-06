@@ -1,5 +1,18 @@
 # Git Issues
 
+## clone issue - remote HEAD refers to nonexistent ref
+
+    warning: remote HEAD refers to nonexistent ref, unable to checkout.
+
+Your git client wants to use **master** branch but **main** is used as default (new name for master).
+
+    git log             ### check what is now your default branch
+    fatal: your current branch 'master' does not have any commits yet
+    git branch -a       ### show all branches
+      remotes/origin/main
+    git switch main     ### just switch to main branch
+    git branch -a       ### show all branches and main is now default
+
 ## push issue - RPC failes
 
     error: RPC failed; HTTP 400 curl 22 The requested URL returned error: 400
