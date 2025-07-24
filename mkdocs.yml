@@ -25,6 +25,7 @@ nav:
     - Safari: macOS/macOS-Safari.md
     - OpenCore Patcher: macOS/macOS-OpenCorePatcher.md
     - Java: macOS/macOS-Java.md
+    - iTerm2: macOS/macOS-iTerm2.md
   - Linux:
     - Common: Linux/Linux-Common.md
     - BASH: Linux/Linux-BASH.md
