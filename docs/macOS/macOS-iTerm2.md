@@ -7,7 +7,8 @@
 
 ## Install font SF Mono
 
-Open all `SF-Mono...` fonts using Finder from system Terminal app at `/System/Applications/Utilities/Terminal.app/Contents/Resources/Fonts/` in Font Book and Install them.
+* Open all `SF-Mono...` fonts using Finder from system Terminal app at `/System/Applications/Utilities/Terminal.app/Contents/Resources/Fonts/` in Font Book and Install them.
+* Or download them from [Apple Fonts Page](https://developer.apple.com/fonts/)
 
 ## Configuration
 
