@@ -18,7 +18,7 @@
 * Profiles (Default)
 * * Colors
 * * * Background - `000000`
-* * * Foreground - `f2f2f2`
+* * * Foreground - `ffffff`
 * * * Red - `c74d35`
 * * * Blue - `5840f5`
 * * Text
