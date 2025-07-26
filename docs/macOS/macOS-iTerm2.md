@@ -14,6 +14,7 @@
 
 * General - tmux
 * * Enable `Automatically bury the tmux client session after connecting` which will hide window with tmux session with control channel and show only iTerm2 terminal.
+* * Disable `Use "tmux" profile rather than profile of the connecting session` to use default profile settings
 
 * Profiles (Default)
 * * Colors
@@ -29,4 +30,6 @@
 * * * Transparency - `5`
 * * Terminal
 * * * Scrollback lines: `10000`
-
+* * Keys
+* * * Key Bindings
+* * * * In `Presets...` choose `Natural Text Editing` for default macOS keys navigation
