@@ -12,6 +12,8 @@
 
 ## Configuration
 
+`tmux` settings make sense if using SSH and something like `tmux -CC new -A -s git1`
+
 * General - tmux
 * * Enable `Automatically bury the tmux client session after connecting` which will hide window with tmux session with control channel and show only iTerm2 terminal.
 * * Disable `Use "tmux" profile rather than profile of the connecting session` to use default profile settings
