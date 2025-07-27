@@ -23,7 +23,7 @@
 * * * Background - `000000`
 * * * Foreground - `ffffff`
 * * * Red - `c74d35`
-* * * Blue - `5840f5`
+* * * Blue - `5369f9`
 * * Text
 * * * Thin strokes `On Retina Displays` should be enabled by default
 * * * Font - `SF Mono` - `Light` - `16` - 100 - 100
