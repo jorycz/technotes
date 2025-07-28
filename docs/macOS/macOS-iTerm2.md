@@ -37,4 +37,4 @@
 * * * Scrollback lines: `10000`
 * * Keys
 * * * Key Bindings
-* * * * In `Presets...` choose `Terminal.app Compatibility` for default macOS keys navigation
+* * * * In `Presets...` choose `Natural Text Editing` for default macOS keys navigation
