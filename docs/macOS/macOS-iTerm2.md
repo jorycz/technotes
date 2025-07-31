@@ -38,3 +38,4 @@
 * * Keys
 * * * Key Bindings
 * * * * In `Presets...` choose `Natural Text Editing` for default macOS keys navigation
+* * * * Delete `Send Hex Codes: 0x4` to enable `Delete` key on Apple External Keyboard
