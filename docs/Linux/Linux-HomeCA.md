@@ -25,7 +25,7 @@ Save this script as `createCertificate.sh`
 
     CERT="${1}"
     TYPE="${2}"
-    DAYS="14590"
+    DAYS="3650"
     CA_KEY="ca-cert/ca.key"
     CA_CRT="ca-cert/ca.crt"
     CERTS="certs"
