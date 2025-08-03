@@ -24,7 +24,26 @@ At this point, users are still able to use SSH port forwarding to access any hos
 
 ## Gitolite
 
-Add name of new repository to `gitolite-admin` repository conf file `conf/gitolite.conf` and commit and push. Then clone of new repo from gitolite server.
+[Gitolite](https://gitolite.com/)
+
+### Install
+
+    ### Create user `git` with home directory `/home/git`
+    su - git
+    mkdir bin
+    echo 'PATH=$PATH:/home/git/bin' >> /home/git/.bashrc
+    
+    ### Create first admin user pub key gitolite-admin.pub
+    git clone https://github.com/sitaramc/gitolite
+    gitolite/install -ln
+    bin/gitolite setup -pk gitolite-admin.pub
+
+### Create repository and add new user
+
+* Add name of new repository to `gitolite-admin` repository conf file `conf/gitolite.conf` with username from `keydir` and rights.
+* Add public key of user that should have access to this repository, for example `keydir/myUser.pub`
+* Commit and push.
+* After that, clone of this new empty repo from gitolite server.
 
 ### If you damage / remove / loose access to server as admin
 
@@ -34,55 +53,37 @@ Add name of new repository to `gitolite-admin` repository conf file `conf/gitoli
 
 ### Custom update script - post info to Google Chat
 
-~/.gitolite/hooks/common/update - this file is rewritten when new repository is added. Add `MY SCRIPT` section again.
-
-    #!/usr/bin/perl
-
-    use strict;
-    use warnings;
-    use lib $ENV{GL_LIBDIR};
-    use Gitolite::Hooks::Update;
-
-    # gitolite update hook
-    # ----------------------------------------------------------------------
-
-    #### MY SCRIPT ###
-    # $ARGV[2] - actual new commit
-    system("/bin/bash ~/bin/sendMsgToGoogleChat.sh $ARGV[2]");
-    ##################
-
-    update();               # is not expected to return
-    exit 1;                 # so if it does, something is wrong
-
-~/bin/sendMsgToGoogleChat.sh
+Create `.gitolite/hooks/common/post-receive` with content
 
     #!/bin/bash
 
-    PR="${PROXY}:${PORT}"
+    PROXY=http://...
 
     sendMsg() {
         echo -n "Message to Google Chat: "
-        # Channel_1
-        curl -x ${PR} -s -H "Content-type: application/json; charset=UTF-8" --data "{'text':'$(</dev/stdin)'}" "https://chat.googleapis.com/v1/spaces/AAAAspZSqTM/messages?key=AIzaSyDdI...&token=CnjcBE...%3D" | jq '.text'
+        curl -x ${PROXY} -s -H "Content-type: application/json; charset=UTF-8" --data "{'text':'$(</dev/stdin)'}" "https://chat.googleapis.com/v1/spaces/SomeSpaceID/messages?key=someGoogleChatSpaceKey..." | jq '.text'
     }
 
-    # COMMIT="${1}"
-    # COMMIT_SHORT=$(git show -s --format=%h ${1})
-    # AUTHOR=$(git --no-pager show -s --format='%an <%ae>' ${COMMIT})
-    # COMMENT=$(git show -s --format=%B ${COMMIT})
+    while read oldrev newrev refname; do
 
-    MSG=$(git --no-pager show -s --pretty="\`NEW PUSH to GIT [ $GL_REPO ] from [ %cn ] hash [ %h ]\`\n\`%s\`" -C ${1})
+        for commit in $(git rev-list $oldrev..$newrev); do
+            MSG=$(git --no-pager show -s --pretty="GIT push [ $GL_REPO ] from [ %cn ] hash [ %h ]%n%s" "$commit")
 
-    ### Do NOT send mesage to chat for this REPO
-    if [ "${GL_REPO}x" == "private-repo-name1" ] ; then exit 0 ; fi
+            ### Do NOT send mesage to chat for this REPOs
+            if [[ "${GL_REPO}" =~ "testing-" ]] ; then exit 0 ; fi
 
-    ### Do NOT send mesage to chat for CRL auto update
-    if echo "${MSG}" | grep 'CRL Updater' ; then exit 0 ; fi
+            ### SEND NOTIFICATION:
+            removed_quotes="${MSG//\'/}"   ### This char ' is issue. Message with this char never arrives.
+            echo "${removed_quotes}" | sendMsg 2>&1 > /dev/shm/gitPushMessageDebug
+        done
 
-    ### SEND NOTIFICATION:
-    removed_quotes="${MSG//\'/}"   # single quote ' in string is issue, notification does not work then
-    # echo "${removed_quotes} ||| ${1}" > /dev/shm/gitPushTempLog.msg
-    echo "${removed_quotes}" | sendMsg 2>&1 > /dev/shm/gitPushMessageDebug
+    done
+
+Run
+
+    cd /home/git && bin/gitolite setup
+
+to update already existing repositories. New ones will be created with link to this hook automatically.
 
 ## Restore git repository to server from encrypted backup
 
