@@ -29,6 +29,7 @@ nav:
   - Linux:
     - Common: Linux/Linux-Common.md
     - BASH: Linux/Linux-BASH.md
+    - Certification Authority: Linux/Linux-HomeCA.md
     - Parsing: Linux/Linux-Parsing.md
     - Systemd: Linux/Linux-Systemd.md
     - Rescue: Linux/Linux-Rescue.md
