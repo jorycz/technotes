@@ -8,6 +8,7 @@ nav:
   - Go: Go/Go.md
   - PostgreSQL: PostgreSQL/PostgreSQL.md
   - iSH Linux Shell: iSH/iSH.md
+  - 3D Print: 3DPrint/3DPrint-PrusaMiniPlus.md
   - Git:
     - Common: Git/Git-Common.md
     - Issues: Git/Git-Issues.md
