@@ -19,7 +19,7 @@ On Display menu, go to `Settings` and then `Press and Hold the control button` t
 
 ## Integrace Camera to Prusa Connect
 
-I am using [this jerzeek's firmware](https://jerzeek.github.io/PrintCam-Firmware/) with following settings:
+I bought ESP32-CAM module with MB board so I get PSRAM and also connector which is used for programming (microUSB in this case). USB-C version is also available but lack PSRAM from what I found on the internet. I flashed [this jerzeek's firmware](https://jerzeek.github.io/PrintCam-Firmware/) and set up following settings:
 
 * Startup delay: 15
 * Board: AI THINKER
