@@ -21,10 +21,11 @@ On Display menu, go to `Settings` and then `Press and Hold the control button` t
 
 I bought ESP32-CAM module with MB board so I get PSRAM and also connector which is used for programming (microUSB in this case). USB-C version is also available but lack PSRAM from what I found on the internet. I flashed [this jerzeek's firmware](https://jerzeek.github.io/PrintCam-Firmware/) and set up following settings:
 
+* Frame rate: 100 ms (10.0 f/s)
 * Startup delay: 15
 * Board: AI THINKER
 * Frame size: SXGA (1280x1024)
-* JPG quality: 10
+* JPG quality: 14
 * Enable PSRAM if available: Checked
 * Buffers: 2
 * Brightness: 1
