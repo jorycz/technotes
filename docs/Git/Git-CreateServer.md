@@ -45,6 +45,8 @@ At this point, users are still able to use SSH port forwarding to access any hos
 * Commit and push.
 * After that, clone of this new empty repo from gitolite server.
 
+Now add some content and then `git add -A`. When you do first commit like `git commit -m "Inital commit"`, new branch will be created. If it's `master` or `main` depends on your git client. Finally push changes to git server using `git push`.
+
 ### If you damage / remove / loose access to server as admin
 
 [lost-admin-keyaccess](https://gitolite.com/gitolite/emergencies#lost-admin-keyaccess)
