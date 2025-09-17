@@ -149,6 +149,8 @@ Workflow is:
 * `create tag`
 * `push tag`
 
+Create tag for last commit:
+
     git tag
     git tag 0.0.X
     git push origin 0.0.X       ### after last commit
