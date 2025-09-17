@@ -142,6 +142,7 @@ If you want to combine local commits before pushing them upstream, for example, 
 ### Create tag
 
 Workflow is:
+
 * work on content as usually and `add` it
 * `commit`
 * `push`
@@ -152,6 +153,10 @@ Workflow is:
     git tag 0.0.X
     git push origin 0.0.X       ### after last commit
     ### git push origin --tags  ### Optionally: push all created tags
+
+### Clone repo using tag
+
+    git clone --branch 0.0.1 git@github.com:<REPO>
 
 ### Delete tag
 
