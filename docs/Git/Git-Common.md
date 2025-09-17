@@ -137,7 +137,7 @@ If you want to combine local commits before pushing them upstream, for example, 
 
 ## Git Tagging
 
-    git describe –tags
+    git describe --tags
 
 ### Create tag
 
