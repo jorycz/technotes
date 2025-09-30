@@ -68,8 +68,10 @@ Create `.gitolite/hooks/common/post-receive` with content
 
     while read oldrev newrev refname; do
 
+        branch=`echo $refname | cut -d/ -f3`
+
         for commit in $(git rev-list $oldrev..$newrev); do
-            MSG=$(git --no-pager show -s --pretty="GIT push [ $GL_REPO ] from [ %cn ] hash [ %h ]%n%s" "$commit")
+            MSG=$(git --no-pager show -s --pretty="GIT push [ $GL_REPO ---> ${branch} ] from [ %cn ] hash [ %h ]%n%s" "$commit")
 
             ### Do NOT send mesage to chat for this REPOs
             if [[ "${GL_REPO}" =~ "testing-" ]] ; then exit 0 ; fi
