@@ -89,3 +89,5 @@
     PROMPT='${COLOR_USR}%n ${COLOR_DIR}%~${COLOR_GIT} $(parse_git_branch)${COLOR_DEF}$(git_status)$ '
 
 [Source on SO](https://unix.stackexchange.com/questions/124407/what-color-codes-can-i-use-in-my-bash-ps1-prompt/124409#124409)
+
+[Linux version in ~/.bashrc](files/bashrc.txt)
