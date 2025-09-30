@@ -1,0 +1,67 @@
+
+git_status() {
+    git rev-parse --is-inside-work-tree &>/dev/null || return
+
+    local status_symbols=()
+    local esc=$'\e'  # escape sequence
+
+    local git_status
+    git_status="$(git status --porcelain -b 2>/dev/null)"
+    local working_tree
+    working_tree=$(echo "$git_status" | tail -n +2)
+
+    # Branch status
+    if echo "$git_status" | grep -q "ahead"; then
+        status_symbols+=("${esc}[36m\u2191${esc}[0m")    # Cyan
+    elif echo "$git_status" | grep -q "behind"; then
+        status_symbols+=("${esc}[33m\u2193${esc}[0m")    # Yellow
+    elif echo "$git_status" | grep -q "diverged"; then
+        status_symbols+=("${esc}[31m\u2195${esc}[0m")    # Red
+    fi
+
+    if [[ -z "$working_tree" ]]; then
+        status_symbols+=("${esc}[32m\u2714${esc}[0m")    # Green clean
+    else
+        if echo "$git_status" | grep -q "^??"; then
+            status_symbols+=("${esc}[34m?${esc}[0m")
+        fi
+        if echo "$git_status" | grep -q "^.M"; then
+            status_symbols+=("${esc}[33m!${esc}[0m")
+        fi
+        if echo "$git_status" | grep -q "^.D"; then
+            status_symbols+=("${esc}[31m-${esc}[0m")
+        fi
+        if echo "$git_status" | grep -q "^A"; then
+            status_symbols+=("${esc}[35m+${esc}[0m")
+        fi
+        if echo "$git_status" | grep -q "^M"; then
+            status_symbols+=("${esc}[35mM${esc}[0m")
+        fi
+        if echo "$git_status" | grep -q "^D"; then
+            status_symbols+=("${esc}[35mD${esc}[0m")
+        fi
+        if echo "$git_status" | grep -q "^R"; then
+            status_symbols+=("${esc}[36mR${esc}[0m")
+        fi
+        if echo "$git_status" | grep -q "^C"; then
+            status_symbols+=("${esc}[36mC${esc}[0m")
+        fi
+        if echo "$git_status" | grep -Eq "^U|^.U|^AA|^DD"; then
+            status_symbols+=("${esc}[31m\u2260${esc}[0m")
+        fi
+    fi
+
+    echo " ${status_symbols[*]} "
+}
+
+parse_git_branch() {
+    git branch 2>/dev/null | sed -n -e 's/^\* \(.*\)/[\1]/p'
+}
+
+# Colors (only here we wrap them in \[ \] for Bash prompt)
+COLOR_DEF="\[\e[0m\]"
+COLOR_USR="\[\e[38;5;39m\]"
+COLOR_DIR="\[\e[38;5;82m\]"
+COLOR_GIT="\[\e[38;5;11m\]"
+
+PS1="${COLOR_USR}\u ${COLOR_DIR}\w${COLOR_GIT} \$(parse_git_branch)\$(git_status)${COLOR_DEF}$ "
