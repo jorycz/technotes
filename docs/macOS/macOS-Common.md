@@ -50,9 +50,9 @@ Write to Flash
 
 ## Repair system volume
 
-I need to be in Recovery mode & run Terminal from there.
+{--Run `diskutil repairvolume <diskX>` in Terminal from Recovery Mode.--} Does not work anymore for encrypted volumes.
 
-    diskutil repairvolume <diskX>
+Now run **Disk Utility** in **Recovery Mode** and repair the disk from there. After that, unmount and mount the disk. Then check if errors are gone and reboot.
 
 ## Create ISO from Folder on HDD
 

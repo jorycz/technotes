@@ -70,6 +70,7 @@ plugins:
 ### For Emoji support
 markdown_extensions:
   - attr_list
+  - pymdownx.critic
   - pymdownx.emoji:
       emoji_index: !!python/name:material.extensions.emoji.twemoji
       emoji_generator: !!python/name:material.extensions.emoji.to_svg
