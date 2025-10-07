@@ -6,9 +6,10 @@ Run as owner for network homes, otherwise run as root.
 
     mdutil   ### To show options ...
 
-Show Status
+Show Status and Workers
 
     mdutil -asv
+    ps -ceo command | grep -c mdworker
 
 Global - Disable and Reset
 
@@ -19,13 +20,14 @@ Global - Disable and Reset
 User - Delete Spotlight now
 
     rm -rf Library/Metadata/CoreSpotlight/
-    pkill mds
-    pkill mds_stores
-    pkill mdbulkimport
+    # mdutil -X ...
+    sudo pkill mds
+    sudo pkill mds_stores
+    sudo pkill mdbulkimport
 
 Enable without Reboot
 
-    mdutil -a -i on
+    sudo mdutil -a -i on
     sudo killall Spotlight
   
 Enable with Reboot
