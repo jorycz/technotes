@@ -20,10 +20,11 @@ Global - Disable and Reset
 User - Delete Spotlight now
 
     rm -rf Library/Metadata/CoreSpotlight/
-    # mdutil -X ...
     sudo pkill mds
     sudo pkill mds_stores
     sudo pkill mdbulkimport
+
+* You can try `mdutil -X` also.
 
 Enable without Reboot
 
