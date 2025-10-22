@@ -1,0 +1,2353 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../../Git/Git-CreateServer/">
+      
+      
+        <link rel="next" href="../macOS-TimeMachine/">
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.22">
+    
+    
+      
+        <title>Common - Tech Notes</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.84d31ad4.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#macos-common" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Tech Notes" class="md-header__button md-logo" aria-label="Tech Notes" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Tech Notes
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Common
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="Share" aria-label="Share" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91s2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08"/></svg>
+          </a>
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Tech Notes" class="md-nav__button md-logo" aria-label="Tech Notes" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Tech Notes
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Home
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../OpenSSL/OpenSSL/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    OpenSSL
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../VSCode/VSCode/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Visual Studio Code
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Go/Go/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Go
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../PostgreSQL/PostgreSQL/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    PostgreSQL
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../iSH/iSH/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    iSH Linux Shell
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../3DPrint/3DPrint-PrusaMiniPlus/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    3D Print
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Git
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8">
+            <span class="md-nav__icon md-icon"></span>
+            Git
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Git/Git-Common/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Common
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Git/Git-Issues/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Issues
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Git/Git-NewRepository/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    New Repository
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Git/Git-CreateServer/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Create Server
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_9" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_9" id="__nav_9_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    macOS
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_9_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_9">
+            <span class="md-nav__icon md-icon"></span>
+            macOS
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    Common
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    Common
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#hdd-format-fs-delete" class="md-nav__link">
+    <span class="md-ellipsis">
+      HDD format / FS delete
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#iso-dmg-conversion" class="md-nav__link">
+    <span class="md-ellipsis">
+      ISO / DMG conversion
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#create-installation-usb" class="md-nav__link">
+    <span class="md-ellipsis">
+      Create installation USB
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#create-boot-usb-flash-windows-iso" class="md-nav__link">
+    <span class="md-ellipsis">
+      Create BOOT USB FLASH Windows ISO
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#repair-system-volume" class="md-nav__link">
+    <span class="md-ellipsis">
+      Repair system volume
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#create-iso-from-folder-on-hdd" class="md-nav__link">
+    <span class="md-ellipsis">
+      Create ISO from Folder on HDD
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#create-encrypted-dmg" class="md-nav__link">
+    <span class="md-ellipsis">
+      Create encrypted DMG
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#filevault-check-validate-recovery-key" class="md-nav__link">
+    <span class="md-ellipsis">
+      FileVault - Check, Validate Recovery Key
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#set-login-screen-keyboard-layout" class="md-nav__link">
+    <span class="md-ellipsis">
+      Set Login Screen keyboard layout
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#set-macos-http-proxy-in-terminal" class="md-nav__link">
+    <span class="md-ellipsis">
+      Set macOS HTTP Proxy in terminal
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#flush-dns-resolver" class="md-nav__link">
+    <span class="md-ellipsis">
+      Flush DNS resolver
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#protect-hosts" class="md-nav__link">
+    <span class="md-ellipsis">
+      Protect hosts
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#handy-info-commands" class="md-nav__link">
+    <span class="md-ellipsis">
+      Handy Info Commands
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#boot-startup-keys-reinstall" class="md-nav__link">
+    <span class="md-ellipsis">
+      Boot - Startup Keys, Reinstall
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#boot-verbose-mode" class="md-nav__link">
+    <span class="md-ellipsis">
+      Boot - Verbose Mode
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#debug-kernel-panic-in-human-readable-form" class="md-nav__link">
+    <span class="md-ellipsis">
+      Debug Kernel Panic in human readable form
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#smart-smartctl" class="md-nav__link">
+    <span class="md-ellipsis">
+      SMART smartctl
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#plistbuddy-a-defaults" class="md-nav__link">
+    <span class="md-ellipsis">
+      PlistBuddy a defaults
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#compress-to-zip-using-random-generated-password" class="md-nav__link">
+    <span class="md-ellipsis">
+      Compress to ZIP using random generated password
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#searching-filtering-logs" class="md-nav__link">
+    <span class="md-ellipsis">
+      Searching / Filtering logs
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-files-are-accessed-by-whom" class="md-nav__link">
+    <span class="md-ellipsis">
+      What FILES are accessed by whom
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#disable-low-priority-for-background-processes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Disable LOW priority for background processes
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#list-loaded-kernel-extensions-kext" class="md-nav__link">
+    <span class="md-ellipsis">
+      List loaded kernel extensions / kext
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cpu-details-power-levels-load-overal-e-and-p-cores" class="md-nav__link">
+    <span class="md-ellipsis">
+      CPU details, power levels, load overal E and P cores
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#swap-on-macos" class="md-nav__link">
+    <span class="md-ellipsis">
+      SWAP on macOS
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#czech-spelling" class="md-nav__link">
+    <span class="md-ellipsis">
+      Czech Spelling
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#word-translation-to-cz-using-dictionary" class="md-nav__link">
+    <span class="md-ellipsis">
+      Word translation to CZ using Dictionary
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#quicklook-plugins" class="md-nav__link">
+    <span class="md-ellipsis">
+      QuickLook plugins
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#apple-mail" class="md-nav__link">
+    <span class="md-ellipsis">
+      Apple Mail
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tcp-debug" class="md-nav__link">
+    <span class="md-ellipsis">
+      TCP Debug
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#memory-compresssion-and-swap-settings" class="md-nav__link">
+    <span class="md-ellipsis">
+      Memory compresssion and swap settings
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sqlite-db-view" class="md-nav__link">
+    <span class="md-ellipsis">
+      SQLite DB View
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#delay-standby-mode-os-sleep" class="md-nav__link">
+    <span class="md-ellipsis">
+      Delay Standby mode (OS sleep)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#delay-hibernate-after-standby-mode" class="md-nav__link">
+    <span class="md-ellipsis">
+      Delay Hibernate after Standby mode
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#xcrun-errors" class="md-nav__link">
+    <span class="md-ellipsis">
+      xcrun errors
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#oobsolete-sleep-to-ram-only" class="md-nav__link">
+    <span class="md-ellipsis">
+      OOBSOLETE: Sleep to RAM only
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#obsolete-trim" class="md-nav__link">
+    <span class="md-ellipsis">
+      OBSOLETE: TRIM
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#obsolete-ntfs" class="md-nav__link">
+    <span class="md-ellipsis">
+      OBSOLETE: NTFS
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="OBSOLETE: NTFS">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#installation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Installation
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#uninstallation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Uninstallation
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../macOS-TimeMachine/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Time Machine
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../macOS-OrbStack/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    OrbStack
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../macOS-ShellScripting/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Shell Scripting
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../macOS-Virtualization/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Virtualization
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../macOS-ColorShell/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Color Shell with Git
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../macOS-Privacy/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Privacy
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../macOS-Spotlight/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Spotlight
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../macOS-Safari/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Safari
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../macOS-OpenCorePatcher/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    OpenCore Patcher
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../macOS-Java/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Java
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../macOS-iTerm2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    iTerm2
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_10" >
+        
+          
+          <label class="md-nav__link" for="__nav_10" id="__nav_10_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Linux
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_10_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_10">
+            <span class="md-nav__icon md-icon"></span>
+            Linux
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Linux/Linux-Common/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Common
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Linux/Linux-BASH/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    BASH
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Linux/Linux-HomeCA/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Certification Authority
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Linux/Linux-Parsing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Parsing
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Linux/Linux-Systemd/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Systemd
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Linux/Linux-Rescue/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Rescue
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Linux/Linux-Apache/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Apache
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Linux/Linux-Tmux/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    TMUX
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Linux/Linux-Cron/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Cron
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Linux/Linux-AudioVideo/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Audio Video
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Linux/Linux-Security/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Security
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Linux/Linux-UPSPowerWalker/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    UPS PowerWalker
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Linux/Linux-AltServer/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    AltServer
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Google/Google/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Google
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../fail2ban/Fail2ban/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    fail2ban
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../VirtualBox/VirtualBox/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    VirtualBox
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#hdd-format-fs-delete" class="md-nav__link">
+    <span class="md-ellipsis">
+      HDD format / FS delete
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#iso-dmg-conversion" class="md-nav__link">
+    <span class="md-ellipsis">
+      ISO / DMG conversion
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#create-installation-usb" class="md-nav__link">
+    <span class="md-ellipsis">
+      Create installation USB
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#create-boot-usb-flash-windows-iso" class="md-nav__link">
+    <span class="md-ellipsis">
+      Create BOOT USB FLASH Windows ISO
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#repair-system-volume" class="md-nav__link">
+    <span class="md-ellipsis">
+      Repair system volume
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#create-iso-from-folder-on-hdd" class="md-nav__link">
+    <span class="md-ellipsis">
+      Create ISO from Folder on HDD
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#create-encrypted-dmg" class="md-nav__link">
+    <span class="md-ellipsis">
+      Create encrypted DMG
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#filevault-check-validate-recovery-key" class="md-nav__link">
+    <span class="md-ellipsis">
+      FileVault - Check, Validate Recovery Key
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#set-login-screen-keyboard-layout" class="md-nav__link">
+    <span class="md-ellipsis">
+      Set Login Screen keyboard layout
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#set-macos-http-proxy-in-terminal" class="md-nav__link">
+    <span class="md-ellipsis">
+      Set macOS HTTP Proxy in terminal
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#flush-dns-resolver" class="md-nav__link">
+    <span class="md-ellipsis">
+      Flush DNS resolver
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#protect-hosts" class="md-nav__link">
+    <span class="md-ellipsis">
+      Protect hosts
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#handy-info-commands" class="md-nav__link">
+    <span class="md-ellipsis">
+      Handy Info Commands
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#boot-startup-keys-reinstall" class="md-nav__link">
+    <span class="md-ellipsis">
+      Boot - Startup Keys, Reinstall
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#boot-verbose-mode" class="md-nav__link">
+    <span class="md-ellipsis">
+      Boot - Verbose Mode
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#debug-kernel-panic-in-human-readable-form" class="md-nav__link">
+    <span class="md-ellipsis">
+      Debug Kernel Panic in human readable form
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#smart-smartctl" class="md-nav__link">
+    <span class="md-ellipsis">
+      SMART smartctl
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#plistbuddy-a-defaults" class="md-nav__link">
+    <span class="md-ellipsis">
+      PlistBuddy a defaults
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#compress-to-zip-using-random-generated-password" class="md-nav__link">
+    <span class="md-ellipsis">
+      Compress to ZIP using random generated password
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#searching-filtering-logs" class="md-nav__link">
+    <span class="md-ellipsis">
+      Searching / Filtering logs
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-files-are-accessed-by-whom" class="md-nav__link">
+    <span class="md-ellipsis">
+      What FILES are accessed by whom
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#disable-low-priority-for-background-processes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Disable LOW priority for background processes
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#list-loaded-kernel-extensions-kext" class="md-nav__link">
+    <span class="md-ellipsis">
+      List loaded kernel extensions / kext
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cpu-details-power-levels-load-overal-e-and-p-cores" class="md-nav__link">
+    <span class="md-ellipsis">
+      CPU details, power levels, load overal E and P cores
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#swap-on-macos" class="md-nav__link">
+    <span class="md-ellipsis">
+      SWAP on macOS
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#czech-spelling" class="md-nav__link">
+    <span class="md-ellipsis">
+      Czech Spelling
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#word-translation-to-cz-using-dictionary" class="md-nav__link">
+    <span class="md-ellipsis">
+      Word translation to CZ using Dictionary
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#quicklook-plugins" class="md-nav__link">
+    <span class="md-ellipsis">
+      QuickLook plugins
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#apple-mail" class="md-nav__link">
+    <span class="md-ellipsis">
+      Apple Mail
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tcp-debug" class="md-nav__link">
+    <span class="md-ellipsis">
+      TCP Debug
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#memory-compresssion-and-swap-settings" class="md-nav__link">
+    <span class="md-ellipsis">
+      Memory compresssion and swap settings
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sqlite-db-view" class="md-nav__link">
+    <span class="md-ellipsis">
+      SQLite DB View
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#delay-standby-mode-os-sleep" class="md-nav__link">
+    <span class="md-ellipsis">
+      Delay Standby mode (OS sleep)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#delay-hibernate-after-standby-mode" class="md-nav__link">
+    <span class="md-ellipsis">
+      Delay Hibernate after Standby mode
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#xcrun-errors" class="md-nav__link">
+    <span class="md-ellipsis">
+      xcrun errors
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#oobsolete-sleep-to-ram-only" class="md-nav__link">
+    <span class="md-ellipsis">
+      OOBSOLETE: Sleep to RAM only
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#obsolete-trim" class="md-nav__link">
+    <span class="md-ellipsis">
+      OBSOLETE: TRIM
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#obsolete-ntfs" class="md-nav__link">
+    <span class="md-ellipsis">
+      OBSOLETE: NTFS
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="OBSOLETE: NTFS">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#installation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Installation
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#uninstallation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Uninstallation
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="macos-common">macOS Common</h1>
+<h2 id="hdd-format-fs-delete">HDD format / FS delete</h2>
+<pre><code>diskutil listFilesystems
+diskutil list
+diskutil unmountDisk /dev/diskX
+diskutil apfs deleteContainer diskX   ### ONLY if diskX is APFS container
+
+   ### FORMAT
+diskutil eraseDisk ExFAT FLASH diskX   ### This will create EFI partition
+diskutil eraseDisk ExFAT FLASH MBR diskX   ### EFI is not created
+    ### To DELETE all partitinos ONLY - to have empty HDD without filesystems
+diskutil partitionDisk /dev/diskX MBR Free Space 100%
+</code></pre>
+<h2 id="iso-dmg-conversion">ISO / DMG conversion</h2>
+<p>From ISO to DMG</p>
+<pre><code>hdiutil convert -format UDRW file.iso -o file.dmg
+</code></pre>
+<p>From DMG to ISO</p>
+<pre><code>hdiutil convert -format UDTO file.dmg -o file.iso
+</code></pre>
+<h2 id="create-installation-usb">Create installation USB</h2>
+<p>For macOS</p>
+<pre><code>sudo /Applications/Install\ macOS\ Catalina.app/Contents/Resources/createinstallmedia --volume /Volumes/MyVolume
+</code></pre>
+<p>For Linux, ISO needs to be converted to DMG format first</p>
+<pre><code>hdiutil convert -format UDRW -o ubuntu-iso.img ubuntu.iso
+</code></pre>
+<p>Write to Flash</p>
+<pre><code>diskutil list
+diskutil unmountDisk /dev/diskX
+sudo dd if=ubuntu-iso.img.dmg of=/dev/rdiskX bs=1m conv=sync
+    ### you can see status using Control+T
+diskutil eject /dev/diskX
+</code></pre>
+<h2 id="create-boot-usb-flash-windows-iso">Create BOOT USB FLASH Windows ISO</h2>
+<pre><code>diskutil list
+diskutil unmountDisk /dev/diskX
+sudo dd if=windows.iso of=/dev/diskX bs=1m
+diskutil eject /dev/diskX
+</code></pre>
+<h2 id="repair-system-volume">Repair system volume</h2>
+<p><del class="critic">Run <code>diskutil repairvolume &lt;diskX&gt;</code> in Terminal from Recovery Mode.</del> Does not work anymore for encrypted volumes.</p>
+<p>Now run <strong>Disk Utility</strong> in <strong>Recovery Mode</strong> and repair the disk from there. After that, unmount and mount the disk. Then check if errors are gone and reboot.</p>
+<h2 id="create-iso-from-folder-on-hdd">Create ISO from Folder on HDD</h2>
+<p>Use <strong>Disk Utility</strong> &gt; File &gt; Image from Folder &gt; Browse to and select the folder containing your files<br />
+Set the <strong>Image Format</strong> to DVD/CD master<br />
+Convert CDR to ISO</p>
+<pre><code>hdiutil makehybrid -iso -joliet -o FILENAME.iso FILENAME.cdr
+</code></pre>
+<h2 id="create-encrypted-dmg">Create encrypted DMG</h2>
+<pre><code>hdiutil create -encryption AES-256 -stdinpass -size 6m -volname "secureStorage" -fs APFS ./secureStorage.dmg
+hdiutil attach ./secureStorage.dmg
+ls -la /Volumes/secureStorage
+hdiutil detach /Volumes/secureStorage/
+</code></pre>
+<h2 id="filevault-check-validate-recovery-key">FileVault - Check, Validate Recovery Key</h2>
+<p>It's good to <strong>run this command</strong> from time to time and <strong>for sure when it was changed</strong>.</p>
+<pre><code>sudo fdesetup validaterecovery
+</code></pre>
+<h2 id="set-login-screen-keyboard-layout">Set Login Screen keyboard layout</h2>
+<pre><code># sudo languagesetup   ### doesn't work anymore
+# # ENG = 1            ### doesn't work anymore
+nvram prev-lang:kbd
+sudo nvram prev-lang:kbd="en_US:0"
+</code></pre>
+<p>Logout / Restart. Should be english keyboard layout on login screen always.<br />
+<a href="https://www.motionbug.com/jamf-connect-filevault-and-the-usa-keyboard/">https://www.motionbug.com/jamf-connect-filevault-and-the-usa-keyboard/</a></p>
+<h2 id="set-macos-http-proxy-in-terminal">Set macOS HTTP Proxy in terminal</h2>
+<pre><code>export ALL_PROXY=px:3128
+</code></pre>
+<h2 id="flush-dns-resolver">Flush DNS resolver</h2>
+<pre><code>sudo killall -HUP mDNSResponder
+</code></pre>
+<h2 id="protect-hosts">Protect hosts</h2>
+<p>Set immutable</p>
+<pre><code>sudo chflags uchg /etc/hosts
+sudo chflags schg /etc/hosts
+</code></pre>
+<p>Unset immutable</p>
+<pre><code>sudo chflags nouchg /etc/hosts
+sudo chflags noschg /etc/hosts
+</code></pre>
+<h2 id="handy-info-commands">Handy Info Commands</h2>
+<pre><code>sw_vers
+sysctl -n hw.model
+sysctl -n hw.memsize
+diskutil info diskX | grep "Media Name"
+diskutil verifyVolume diskX   ### diskXsY ...
+</code></pre>
+<h2 id="boot-startup-keys-reinstall">Boot - Startup Keys, Reinstall</h2>
+<p>Start Built-in macOS Recovery system, NVRAM / PRAM / SMC reset, Safe Mode ...</p>
+<p><a href="https://support.apple.com/en-gu/102603">Mac startup key combinations</a>
+<a href="https://support.apple.com/en-gb/guide/mac-help/mchlp1599/mac">Reinstall macOS</a>
+<a href="https://support.apple.com/en-us/102605">Reset the SMC of your Mac</a></p>
+<h2 id="boot-verbose-mode">Boot - Verbose Mode</h2>
+<p><code>sudo nvram boot-args</code> - Show current settings<br />
+<code>sudo nvram boot-args="-v"</code> - Enable<br />
+<code>sudo nvram boot-args=""</code> - Disable</p>
+<h2 id="debug-kernel-panic-in-human-readable-form">Debug Kernel Panic in human readable form</h2>
+<pre><code>sudo nvram boot-args="-v keepsyms=y debug=0x144"
+sudo nvram boot-args="-v keepsyms=y debug=0x14e"   ### More verbose
+</code></pre>
+<h2 id="smart-smartctl">SMART smartctl</h2>
+<pre><code>diskutil list
+diskutil info /dev/diskX | grep SMART      ### Basic info, only if S.M.A.R.T. is supported
+sudo smartctl -l error /dev/disk0          ### Full info if it's supported
+</code></pre>
+<h2 id="plistbuddy-a-defaults">PlistBuddy a defaults</h2>
+<p>Get BundleID</p>
+<pre><code>defaults read /System/Applications/Utilities/Terminal.app/Contents/Info.plist CFBundleIdentifier
+</code></pre>
+<p>Some Examples</p>
+<pre><code>/usr/libexec/PlistBuddy -c "Print :AppleGlobalTextInputProperties:TextInputGlobalPropertyPerContextInput" ~/Library/Preferences/com.apple.HIToolbox.plist
+/usr/libexec/PlistBuddy -c "Print" ~/Library/Preferences/com.apple.HIToolbox.plist
+/usr/libexec/PlistBuddy -c "Set :AppleGlobalTextInputProperties:TextInputGlobalPropertyPerContextInput true" ~/Library/Preferences/com.apple.HIToolbox.plist
+/usr/libexec/PlistBuddy -c "Add :AppleGlobalTextInputProperties:TextInputGlobalPropertyPerContextInput bool true" ~/Library/Preferences/com.apple.HIToolbox.plist
+</code></pre>
+<h2 id="compress-to-zip-using-random-generated-password">Compress to ZIP using random generated password</h2>
+<pre><code>openssl rand -base64 6 ; zip -er FILE.zip &lt;folder-OR-file&gt;
+</code></pre>
+<h2 id="searching-filtering-logs">Searching / Filtering logs</h2>
+<pre><code>### Network
+log show --predicate '(processImagePath contains "kernel") &amp;&amp; (eventMessage contains "AirPort: Link Down")' --style syslog --last 1d   ### or 5m, 6h ...
+### Time Machine
+printf '\e[3J' &amp;&amp; log stream --predicate 'subsystem == "com.apple.TimeMachine"' --info
+</code></pre>
+<h2 id="what-files-are-accessed-by-whom">What FILES are accessed by whom</h2>
+<p><a href="https://superuser.com/questions/97980/view-filesystem-access-in-real-time-on-mac-os-x">Talk on SuperUser</a><br />
+Use <code>lsof</code>, <code>fs_usage</code>, or <code>GUI fseventer</code>  </p>
+<pre><code>sudo fs_usage [PID]
+</code></pre>
+<h2 id="disable-low-priority-for-background-processes">Disable LOW priority for background processes</h2>
+<pre><code>sudo sysctl debug.lowpri_throttle_enabled=0
+</code></pre>
+<p>This will disable low priority for background processes including Time Machine. macOS Could be slower overal.</p>
+<h2 id="list-loaded-kernel-extensions-kext">List loaded kernel extensions / kext</h2>
+<pre><code>sudo kextstat --list-only
+</code></pre>
+<h2 id="cpu-details-power-levels-load-overal-e-and-p-cores">CPU details, power levels, load overal E and P cores</h2>
+<pre><code>sudo powermetrics -n 1 -s cpu_power   ### (info since from last boot)
+</code></pre>
+<h2 id="swap-on-macos">SWAP on macOS</h2>
+<p>Turn OFF</p>
+<pre><code>sudo launchctl unload -wF /System/Library/LaunchDaemons/com.apple.dynamic_pager.plist
+    ### REBOOT and after reboot: rm /var/vm/swapfile
+</code></pre>
+<p>Turn ON</p>
+<pre><code>sudo launchctl load -wF /System/Library/LaunchDaemons/com.apple.dynamic_pager.plist
+</code></pre>
+<p>Flush</p>
+<pre><code>purge
+</code></pre>
+<p>Show what's using swap right now</p>
+<pre><code>sudo fs_usage | egrep --color=auto "PAGE_|swapfile"
+</code></pre>
+<h2 id="czech-spelling">Czech Spelling</h2>
+<p>Download dictionary from <a href="http://ftp.linux.cz/pub/localization/OpenOffice.org/devel/Czech/spell_checking/cs_CZ.zip">OpenOffice</a><br />
+To <code>~/Library/Spelling/</code> copy <code>cs_CZ.aff</code>, <code>cs_CZ.dic</code> and <code>hyph_cs_CZ.dic</code><br />
+Turn it on in <strong>System Preferences</strong> (Settings) &gt; Keyboard &gt; Text</p>
+<h2 id="word-translation-to-cz-using-dictionary">Word translation to CZ using Dictionary</h2>
+<p>Visit <a href="https://github.com/lzap/cesky-slovnik-macos">cesky-slovnik-macos</a> on github and download <a href="https://github.com/lzap/cesky-slovnik-macos/archive/refs/heads/main.zip">latest version</a><br />
+Copy <code>Czech/objects/Czech.dictionary</code> to <code>~/Library/Dictionaries/</code> (Show ~/Library folder with Command+Shift+L and create Dictionaries folder if not exists)<br />
+In <strong>Dictionary</strong> &gt; Preferences enable <code>en-cs.txt</code> and move it UP  </p>
+<h2 id="quicklook-plugins">QuickLook plugins</h2>
+<p>Folders</p>
+<ul>
+<li>/System/Library/QuickLook/</li>
+<li>/Library/QuickLook/</li>
+<li>~/Library/QuickLook/</li>
+</ul>
+<p>Plugins</p>
+<ul>
+<li><a href="http://www.quicklookplugins.com">http://www.quicklookplugins.com</a></li>
+<li><a href="https://code.google.com/archive/p/cert-quicklook/">Certificate Quicklook</a></li>
+<li><a href="https://macitbetter.com/BetterZip-Quick-Look-Generator/">ZIP viewer</a></li>
+<li><a href="http://www.cocoaintheshell.com/2012/02/quicklook-images-dimensions/">Image dimension</a></li>
+</ul>
+<p>Reload of plugin <code>qlmanage -r</code> and QL cache <code>qlmanage -r cache</code></p>
+<h2 id="apple-mail">Apple Mail</h2>
+<p>Disable of showing inline attachments</p>
+<pre><code>defaults write com.apple.mail DisableInlineAttachmentViewing -bool yes
+</code></pre>
+<p>Enable</p>
+<pre><code>defaults delete com.apple.mail DisableInlineAttachmentViewing
+</code></pre>
+<h2 id="tcp-debug">TCP Debug</h2>
+<pre><code>sudo lsof -iTCP -sTCP:LISTEN -n -P
+sudo lsof -i TCP -n -P
+</code></pre>
+<h2 id="memory-compresssion-and-swap-settings">Memory compresssion and swap settings</h2>
+<p>Default is <code>vm.compressor_mode: 4</code><br />
+Memory compressed ON, SWAP OFF <code>sudo nvram boot-args="vm_compressor=2"</code><br />
+Memory compresses OFF, SWAP ON <code>sudo nvram boot-args="vm_compressor=1"</code><br />
+Check after reboot:</p>
+<ul>
+<li><code>sysctl -a vm.compressor_mode</code></li>
+<li><code>sysctl vm.swapusage</code></li>
+</ul>
+<h2 id="sqlite-db-view">SQLite DB View</h2>
+<p>Autovacuum SQLite /private/var/db/systemstats/snapshots.db<br />
+<a href="https://discussions.apple.com/message/25482339#25482339">Maverick issue</a></p>
+<h2 id="delay-standby-mode-os-sleep">Delay Standby mode (OS sleep)</h2>
+<pre><code>sudo pmset -a standbydelay 86400   ### 24 hours
+</code></pre>
+<h2 id="delay-hibernate-after-standby-mode">Delay Hibernate after Standby mode</h2>
+<pre><code>sudo pmset -a autopoweroffdelay 43200   ### in seconds
+</code></pre>
+<h2 id="xcrun-errors">xcrun errors</h2>
+<p>xcrun: error: invalid active developer path ...<br />
+missing xcrun at: ...</p>
+<pre><code>xcode-select --install
+</code></pre>
+<h2 id="oobsolete-sleep-to-ram-only">OOBSOLETE: Sleep to RAM only</h2>
+<pre><code>pmset -g   ### to see current settings
+</code></pre>
+<p>Disable hibernate to HDD</p>
+<pre><code>sudo pmset -a hibernatemode 0
+</code></pre>
+<p>Delete sleep image</p>
+<pre><code>sudo rm -f /private/var/vm/sleepimage
+sudo touch /private/var/vm/sleepimage
+sudo chflags uchg /private/var/vm/sleepimage   ### it can not be created now
+</code></pre>
+<h2 id="obsolete-trim">OBSOLETE: TRIM</h2>
+<pre><code>log show --predicate "processID == 0" | grep spaceman
+log show --predicate "processID == 0" | grep spaceman | grep "trims took"
+log show --start $(date +%F) | grep -i spaceman_scan_free_blocks
+log show --start 2023-02-03 | grep -i spaceman_scan_free_blocks | grep "trims took"
+sudo trimforce enable   ### for non-Apple HDD
+sudo trimforce --enable   ### for non-Apple HDD
+</code></pre>
+<h2 id="obsolete-ntfs">OBSOLETE: NTFS</h2>
+<p><strong>This is obsolete and probably not working.</strong></p>
+<h3 id="installation">Installation</h3>
+<p><a href="https://github.com/osxfuse/osxfuse/wiki/NTFS-3G">NTFS-3G</a><br />
+<a href="https://wpbeaches.com/how-to-write-to-windows-ntfs-usb-disk-drives-on-macos-macos-mojave-and-sierra/">wpbeaches.com</a>  </p>
+<ul>
+<li>Install FUSE for OS X from <a href="https://macfuse.github.io">https://macfuse.github.io</a> and Homebrew from <a href="https://brew.sh">https://brew.sh</a></li>
+<li>
+<ul>
+<li>When installing "FUSE for OS X" make sure to select the "MacFUSE Compatibility Layer" option.</li>
+</ul>
+<p>brew install homebrew/fuse/ntfs-3g   ### not working anymore
+brew tap gromgit/homebrew-fuse
+brew install ntfs-3g-mac
+sudo mv /sbin/mount_ntfs /sbin/mount_ntfs.original
+sudo ln -s /usr/local/sbin/mount_ntfs /sbin/mount_ntfs</p>
+</li>
+</ul>
+<p>If using El Capitan, <a href="https://www.reddit.com/r/osx/comments/3hv3kk/update_on_rootless_the_configuration_mechanism/">System Integrity Protection's fs role will first need to be disabled</a>.</p>
+<h3 id="uninstallation">Uninstallation</h3>
+<pre><code>sudo nvram boot-args="rootless=0"   ### and REBOOT
+
+sudo rm /sbin/mount_ntfs
+sudo mv /sbin/mount_ntfs.original /sbin/mount_ntfs
+sudo nvram boot-args="rootless=1"   ### and REBOOT
+
+brew uninstall ...
+</code></pre>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "../..", "features": ["content.code.copy", "navigation.expand", "search.share", "search.focus"], "search": "../../assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.f55a23d4.min.js"></script>
+      
+    
+  </body>
+</html>

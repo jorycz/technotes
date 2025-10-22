@@ -1,0 +1,1693 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../Linux-Security/">
+      
+      
+        <link rel="next" href="../Linux-AltServer/">
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.22">
+    
+    
+      
+        <title>UPS PowerWalker - Tech Notes</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.84d31ad4.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#linux-ups-power-walker" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Tech Notes" class="md-header__button md-logo" aria-label="Tech Notes" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Tech Notes
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              UPS PowerWalker
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="Share" aria-label="Share" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91s2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08"/></svg>
+          </a>
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Tech Notes" class="md-nav__button md-logo" aria-label="Tech Notes" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Tech Notes
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Home
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../OpenSSL/OpenSSL/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    OpenSSL
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../VSCode/VSCode/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Visual Studio Code
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Go/Go/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Go
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../PostgreSQL/PostgreSQL/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    PostgreSQL
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../iSH/iSH/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    iSH Linux Shell
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../3DPrint/3DPrint-PrusaMiniPlus/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    3D Print
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Git
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8">
+            <span class="md-nav__icon md-icon"></span>
+            Git
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Git/Git-Common/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Common
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Git/Git-Issues/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Issues
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Git/Git-NewRepository/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    New Repository
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Git/Git-CreateServer/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Create Server
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_9" >
+        
+          
+          <label class="md-nav__link" for="__nav_9" id="__nav_9_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    macOS
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_9_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_9">
+            <span class="md-nav__icon md-icon"></span>
+            macOS
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../macOS/macOS-Common/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Common
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../macOS/macOS-TimeMachine/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Time Machine
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../macOS/macOS-OrbStack/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    OrbStack
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../macOS/macOS-ShellScripting/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Shell Scripting
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../macOS/macOS-Virtualization/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Virtualization
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../macOS/macOS-ColorShell/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Color Shell with Git
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../macOS/macOS-Privacy/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Privacy
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../macOS/macOS-Spotlight/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Spotlight
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../macOS/macOS-Safari/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Safari
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../macOS/macOS-OpenCorePatcher/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    OpenCore Patcher
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../macOS/macOS-Java/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Java
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../macOS/macOS-iTerm2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    iTerm2
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_10" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_10" id="__nav_10_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Linux
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_10_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_10">
+            <span class="md-nav__icon md-icon"></span>
+            Linux
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Linux-Common/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Common
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Linux-BASH/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    BASH
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Linux-HomeCA/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Certification Authority
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Linux-Parsing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Parsing
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Linux-Systemd/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Systemd
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Linux-Rescue/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Rescue
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Linux-Apache/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Apache
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Linux-Tmux/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    TMUX
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Linux-Cron/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Cron
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Linux-AudioVideo/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Audio Video
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Linux-Security/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Security
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    UPS PowerWalker
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    UPS PowerWalker
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#model-powerwalker-vi-650-iec" class="md-nav__link">
+    <span class="md-ellipsis">
+      Model PowerWalker VI 650 IEC
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#installation-and-setup" class="md-nav__link">
+    <span class="md-ellipsis">
+      Installation and Setup
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#etcnutnutconf" class="md-nav__link">
+    <span class="md-ellipsis">
+      /etc/nut/nut.conf
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#etcnutupsconf" class="md-nav__link">
+    <span class="md-ellipsis">
+      /etc/nut/ups.conf
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#restart-server" class="md-nav__link">
+    <span class="md-ellipsis">
+      Restart server
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#etcnutupsdusers" class="md-nav__link">
+    <span class="md-ellipsis">
+      /etc/nut/upsd.users
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#etcnutupsmonconf" class="md-nav__link">
+    <span class="md-ellipsis">
+      /etc/nut/upsmon.conf
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#usrlocalbinupsnotifysh" class="md-nav__link">
+    <span class="md-ellipsis">
+      /usr/local/bin/upsNotify.sh
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#etcrclocal-disable-beeper" class="md-nav__link">
+    <span class="md-ellipsis">
+      /etc/rc.local - disable beeper
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#start-nut-and-check-varlogdaemonlog" class="md-nav__link">
+    <span class="md-ellipsis">
+      Start NUT and check /var/log/daemon.log
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#runtime-settings" class="md-nav__link">
+    <span class="md-ellipsis">
+      Runtime settings
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Linux-AltServer/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    AltServer
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Google/Google/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Google
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../fail2ban/Fail2ban/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    fail2ban
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../VirtualBox/VirtualBox/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    VirtualBox
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#model-powerwalker-vi-650-iec" class="md-nav__link">
+    <span class="md-ellipsis">
+      Model PowerWalker VI 650 IEC
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#installation-and-setup" class="md-nav__link">
+    <span class="md-ellipsis">
+      Installation and Setup
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#etcnutnutconf" class="md-nav__link">
+    <span class="md-ellipsis">
+      /etc/nut/nut.conf
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#etcnutupsconf" class="md-nav__link">
+    <span class="md-ellipsis">
+      /etc/nut/ups.conf
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#restart-server" class="md-nav__link">
+    <span class="md-ellipsis">
+      Restart server
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#etcnutupsdusers" class="md-nav__link">
+    <span class="md-ellipsis">
+      /etc/nut/upsd.users
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#etcnutupsmonconf" class="md-nav__link">
+    <span class="md-ellipsis">
+      /etc/nut/upsmon.conf
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#usrlocalbinupsnotifysh" class="md-nav__link">
+    <span class="md-ellipsis">
+      /usr/local/bin/upsNotify.sh
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#etcrclocal-disable-beeper" class="md-nav__link">
+    <span class="md-ellipsis">
+      /etc/rc.local - disable beeper
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#start-nut-and-check-varlogdaemonlog" class="md-nav__link">
+    <span class="md-ellipsis">
+      Start NUT and check /var/log/daemon.log
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#runtime-settings" class="md-nav__link">
+    <span class="md-ellipsis">
+      Runtime settings
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="linux-ups-power-walker">Linux UPS Power Walker</h1>
+<h2 id="model-powerwalker-vi-650-iec">Model PowerWalker VI 650 IEC</h2>
+<ul>
+<li>USB version driver <a href="https://networkupstools.org/docs/man/blazer_usb.html">balzer_usb</a></li>
+<li>Driver find on <a href="https://networkupstools.org/stable-hcl.html">networkupstools.org</a></li>
+</ul>
+<h2 id="installation-and-setup">Installation and Setup</h2>
+<pre><code>apt-get install nut
+</code></pre>
+<h2 id="etcnutnutconf">/etc/nut/nut.conf</h2>
+<pre><code>MODE=standalone
+</code></pre>
+<h2 id="etcnutupsconf">/etc/nut/ups.conf</h2>
+<pre><code>[powerwalker]
+    driver = blazer_usb
+    port = auto
+    desc = "PowerWalker UPS"
+</code></pre>
+<h2 id="restart-server">Restart server</h2>
+<pre><code>systemctl restart nut-server   ### OR upsdrvctl start
+</code></pre>
+<h2 id="etcnutupsdusers">/etc/nut/upsd.users</h2>
+<pre><code>[local]
+    password = PASSWORD
+    upsmon master
+    actions = SET
+    instcmds = ALL
+</code></pre>
+<h2 id="etcnutupsmonconf">/etc/nut/upsmon.conf</h2>
+<pre><code>...
+NOTIFYFLAG ONLINE       SYSLOG+WALL+EXEC
+NOTIFYFLAG ONBATT       SYSLOG+WALL+EXEC
+NOTIFYFLAG LOWBATT      SYSLOG+WALL+EXEC
+NOTIFYFLAG FSD          SYSLOG+WALL+EXEC
+NOTIFYFLAG COMMOK       SYSLOG+WALL+EXEC
+NOTIFYFLAG COMMBAD      SYSLOG+WALL+EXEC
+NOTIFYFLAG SHUTDOWN     SYSLOG+WALL+EXEC
+NOTIFYFLAG REPLBATT     SYSLOG+WALL+EXEC
+NOTIFYFLAG NOCOMM       SYSLOG+WALL+EXEC
+NOTIFYFLAG NOPARENT     SYSLOG+WALL+EXEC
+...
+MONITOR powerwalker@localhost 1 local PASSWORD master
+SHUTDOWNCMD "sleep 5 ; /sbin/shutdown -h now"
+NOTIFYCMD "/usr/local/bin/upsNotify.sh"
+# POWERDOWNFLAG /etc/killpower
+</code></pre>
+<h2 id="usrlocalbinupsnotifysh">/usr/local/bin/upsNotify.sh</h2>
+<pre><code>#!/bin/bash
+
+EMAIL="someone@somewhere.cz"
+LOG="/tmp/upsMessages.log"
+U=$(whoami)
+MESSAGE="${U} @ $NOTIFYTYPE / ${1}."
+M_BATT="NAS will shutdown in 1 minute and cmd in 2 minutes."
+M_WALL="Wall power restored."
+
+echo "--------- $(date) ---------" &gt;&gt; ${LOG}
+echo "${U} @ $NOTIFYTYPE / $1" &gt;&gt; ${LOG}
+
+if [[ "$NOTIFYTYPE" =~ (ONBATT|LOWBATT|FSD|SHUTDOWN) ]]
+then
+    ### Shutdown NAS in 1 minute
+    MESSAGE="${MESSAGE} ${M_BATT}"
+    echo 'ssh -i /usr/local/bin/upsNotify.sh.id_rsa -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null USER@HOSTNAME_NAS "sudo poweroff"' | at now + "1 minutes"
+    echo 'sudo /sbin/poweroff' | at now + "2 minutes"
+    echo "${MESSAGE}" &gt;&gt; ${LOG}
+    atq &gt;&gt; ${LOG}
+fi
+
+if [[ "$NOTIFYTYPE" =~ (ONLINE) ]]
+then
+    ### Cancel all scheduled poweroff jobs if any
+    MESSAGE="${MESSAGE} ${M_WALL}"
+    echo "Trying to cancel shutdowns ..." &gt;&gt; ${LOG}
+    atq &gt;&gt; ${LOG}
+    for i in `atq | awk '{print $1}'` ; do atrm $i ; done
+fi
+
+echo "${MESSAGE}" | mail -s "UPS on cmd ($NOTIFYTYPE)" ${EMAIL}
+
+echo "-----------------------------------------" &gt;&gt; ${LOG}
+</code></pre>
+<h2 id="etcrclocal-disable-beeper">/etc/rc.local - disable beeper</h2>
+<pre><code>upscmd -u local -p PASSWORD powerwal beeper.toggle &amp;
+</code></pre>
+<h2 id="start-nut-and-check-varlogdaemonlog">Start NUT and check /var/log/daemon.log</h2>
+<pre><code>/etc/init.d/nut-server start  ### OR reboot
+</code></pre>
+<h2 id="runtime-settings">Runtime settings</h2>
+<p>Command <code>upsc powerwalker</code></p>
+<pre><code>Init SSL without certificate database
+battery.charge: 92
+battery.voltage: 12.80
+battery.voltage.high: 13.00
+battery.voltage.low: 10.40
+battery.voltage.nominal: 12.0
+device.type: ups
+driver.name: blazer_usb
+driver.parameter.pollinterval: 2
+driver.parameter.port: auto
+driver.version: 2.7.2
+driver.version.internal: 0.11
+input.current.nominal: 2.0
+input.frequency: 50.3
+input.frequency.nominal: 50
+input.voltage: 228.4
+input.voltage.fault: 228.4
+input.voltage.nominal: 230
+output.voltage: 228.4
+ups.beeper.status: disabled
+ups.delay.shutdown: 30
+ups.delay.start: 180
+ups.load: 6
+ups.productid: 5161
+ups.status: OL
+ups.temperature: 25.0
+ups.type: offline / line interactive
+ups.vendorid: 0665
+</code></pre>
+<p>Command <code>upscmd -l powerwalker</code></p>
+<pre><code>Instant commands supported on UPS [powerwal]:
+beeper.toggle - Toggle the UPS beeper
+load.off - Turn off the load immediately
+load.on - Turn on the load immediately
+shutdown.return - Turn off the load and return when power is back
+shutdown.stayoff - Turn off the load and remain off
+shutdown.stop - Stop a shutdown in progress
+test.battery.start - Start a battery test
+test.battery.start.deep - Start a deep battery test
+test.battery.start.quick - Start a quick battery test
+test.battery.stop - Stop the battery test
+</code></pre>
+<p>Disable beeper adhoc by <code>upscmd -u local -p PASSWORD powerwalker beeper.toggle</code></p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "../..", "features": ["content.code.copy", "navigation.expand", "search.share", "search.focus"], "search": "../../assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.f55a23d4.min.js"></script>
+      
+    
+  </body>
+</html>
