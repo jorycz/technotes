@@ -91,9 +91,12 @@ Merge branch
     git switch main          ### Switch to main or other branch you want to merge with
     git merge abc            ### Merge changes from abc branch to main
     git push                 ### Push to remote
+
+Delete branch
+
     git branch -D abc        ### Delete branch on local if you wish
     git push -d origin abc   ### Delete branch on remote if you wish
-
+    
         ### On OTHER computers, refresh changes and delete also
     git fetch --all --prune
     git branch -D abc
