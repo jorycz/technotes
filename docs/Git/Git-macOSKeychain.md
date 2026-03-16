@@ -2,11 +2,12 @@
 
 ## Credentials in macOS Keychain for git
 
-List credentials in macOS Keychain
+List first credentials in macOS Keychain
 
-    # List first record for github.com domain
     printf "protocol=https\nhost=github.com\n" | git credential-osxkeychain get
-    # List record for usernaname myuser
+
+List credentials in macOS Keychain for **myuser**
+
     printf "protocol=https\nhost=github.com\nusername=myuser\n" | git credential-osxkeychain get
 
 Clone repository using particular credentials
@@ -20,4 +21,8 @@ Clone repository using particular credentials
 And press Enter ...
 
     git push origin main   ### to login with new credentials
+
+## List all credentials in macOS Keychain related to github.com
+
+    security dump-keychain | grep github.com -A 5 | grep acct
 
