@@ -14,6 +14,7 @@ nav:
     - Issues: Git/Git-Issues.md
     - New Repository: Git/Git-NewRepository.md
     - Create Server: Git/Git-CreateServer.md
+    - MacOS Keychain: Git/Git-macOSKeychain.md
   - macOS:
     - Common: macOS/macOS-Common.md
     - Time Machine: macOS/macOS-TimeMachine.md
