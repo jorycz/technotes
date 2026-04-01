@@ -6,8 +6,8 @@
 
 * or install from [VMware / Broadcom Page](https://www.vmware.com/products/desktop-hypervisor/workstation-and-fusion)
 * For Shared Folder in Ubuntu:
-  * mkdir /mnt/hgfs
-  * sudo vmhgfs-fuse .host:/ /mnt/hgfs/ -o allow_other -o uid=1000
+* * mkdir /mnt/hgfs
+* * sudo vmhgfs-fuse .host:/ /mnt/hgfs/ -o allow_other -o uid=1000
 
 ### Windows 11
 
