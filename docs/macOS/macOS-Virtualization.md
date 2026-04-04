@@ -73,7 +73,7 @@ Build ISO
 
 #### Content of nocloud folder
 
-user-data
+**user-data**
 
     #cloud-config
     autoinstall:
@@ -114,23 +114,117 @@ user-data
         - systemctl daemon-reload
 
 
-    storage:
-        layout:
-        name: lvm
-        match:
-            size: largest
+    # storage:
+    #     layout:
+    #     name: lvm
+    #     match:
+    #         size: largest
 
-meta-data
+    storage:
+        config:
+        - id: disk-main
+            type: disk
+            ptable: gpt
+            path: /dev/nvme0n1
+            wipe: superblock-recursive
+
+        - id: efipart
+            type: partition
+            device: disk-main
+            offset: 1048576
+            size: 600M
+            flag: boot
+            grub_device: true
+
+        - id: bootpart
+            type: partition
+            device: disk-main
+            size: 1G
+
+        - id: pvpart
+            type: partition
+            device: disk-main
+            size: -1
+
+        ### Optional encryption
+        # - id: pvpart-crypt
+        #   type: dm_crypt
+        #   volume: pvpart
+        #   key: mysecretpassword
+
+        - id: vg0
+            type: lvm_volgroup
+            name: vg0
+            devices:
+            - pvpart
+            # - pvpart-crypt
+
+        - id: root_lv
+            type: lvm_partition
+            name: root_lv
+            volgroup: vg0
+            size: 12G
+    
+        - id: tmp_lv
+            type: lvm_partition
+            name: tmp_lv
+            volgroup: vg0
+            size: 2G
+
+        - id: efipart_fs
+            type: format
+            volume: efipart
+            fstype: fat32
+
+        - id: bootpart_fs
+            type: format
+            volume: bootpart
+            fstype: ext4
+
+        - id: root_lv_fs
+            type: format
+            volume: root_lv
+            fstype: ext4
+
+        - id: tmp_lv_fs
+            type: format
+            volume: tmp_lv
+            fstype: ext4
+
+        - id: efipart-mount
+            type: mount
+            device: efipart_fs
+            path: /boot/efi
+
+        - id: bootpart-mount
+            type: mount
+            device: bootpart_fs
+            path: /boot
+
+        - id: root_lv_mount
+            type: mount
+            device: root_lv_fs
+            path: /
+
+        - id: tmp_lv_mount
+            type: mount
+            device: tmp_lv_fs
+            path: /tmp
+
+
+* Source for storage section was [linuxconfig.org](https://linuxconfig.org/how-to-write-and-perform-ubuntu-unattended-installations-with-autoinstall)
+
+**meta-data**
 
     instance-id: ubuntu-autoinstall
     local-hostname: ubuntu
 
-override.conf
+**override.conf**
 
     [Service]
     TimeoutStartSec=5
 
-99-info
+**99-info**
 
     #!/bin/sh
 
@@ -139,7 +233,7 @@ override.conf
     printf "ls *.sh\n"
     printf "===========================================\n\n"
 
-run.sh
+**run.sh**
 
     #!/bin/bash
 
@@ -150,7 +244,7 @@ run.sh
     echo "Enable AutomaticLogin in /etc/gdm3/custom.conf"
     echo
 
-mount.sh
+**mount.sh**
 
     #!/bin/bash
 
