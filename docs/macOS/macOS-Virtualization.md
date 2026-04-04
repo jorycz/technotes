@@ -77,23 +77,23 @@ Build ISO
 
     #cloud-config
     autoinstall:
-    version: 1
-    update: no
+      version: 1
+      update: no
 
-    identity:
+      identity:
         hostname: ubuntu
         username: test
         password: "$6$RZHzEtPHl.UTTyJ6$pDKw5mZtystrIiV3RlBsU93nLkCN1ShKPH35ppEQtui3E9yfSfr6TQJ5Q30IwKP2GnU6yrUquBcPc8SJc5fYB1"   ### password is "test" hashed with openssl passwd -6
 
-    ssh:
+      ssh:
         install-server: yes
 
-    timezone: Europe/Prague
-    locale: en_US.UTF-8
-    keyboard: 
+      timezone: Europe/Prague
+      locale: en_US.UTF-8
+      keyboard: 
         layout: us
 
-    packages:
+      packages:
         - software-properties-common
         - open-vm-tools # for vmware hypervisor
         - open-vm-tools-desktop # for vmware hypervisor
@@ -101,7 +101,7 @@ Build ISO
         - git
         - vim
 
-    late-commands:
+      late-commands:
         - lvextend -l +100%FREE $(lvdisplay | grep "LV Path" | head -n 1 | awk '{print $NF}')
         - echo 'test ALL=(ALL) NOPASSWD:ALL' > /target/etc/sudoers.d/test
         - echo 'alias s="sudo -i"' >> /target/etc/bash.bashrc
@@ -113,22 +113,21 @@ Build ISO
         - cp /cdrom/nocloud/override.conf /target/etc/systemd/system/systemd-networkd-wait-online.service.d/
         - systemctl daemon-reload
 
+      # storage:
+      #     layout:
+      #     name: lvm
+      #     match:
+      #         size: largest
 
-    # storage:
-    #     layout:
-    #     name: lvm
-    #     match:
-    #         size: largest
-
-    storage:
+      storage:
         config:
-        - id: disk-main
+          - id: disk-main
             type: disk
             ptable: gpt
             path: /dev/nvme0n1
             wipe: superblock-recursive
 
-        - id: efipart
+          - id: efipart
             type: partition
             device: disk-main
             offset: 1048576
@@ -136,81 +135,80 @@ Build ISO
             flag: boot
             grub_device: true
 
-        - id: bootpart
+          - id: bootpart
             type: partition
             device: disk-main
             size: 1G
 
-        - id: pvpart
+          - id: pvpart
             type: partition
             device: disk-main
             size: -1
 
-        ### Optional encryption
-        # - id: pvpart-crypt
-        #   type: dm_crypt
-        #   volume: pvpart
-        #   key: mysecretpassword
+          ### Optional encryption
+          # - id: pvpart-crypt
+          #   type: dm_crypt
+          #   volume: pvpart
+          #   key: mysecretpassword
 
-        - id: vg0
+          - id: vg0
             type: lvm_volgroup
             name: vg0
             devices:
-            - pvpart
-            # - pvpart-crypt
+              - pvpart
+              # - pvpart-crypt
 
-        - id: root_lv
+          - id: root_lv
             type: lvm_partition
             name: root_lv
             volgroup: vg0
             size: 12G
-    
-        - id: tmp_lv
+        
+          - id: tmp_lv
             type: lvm_partition
             name: tmp_lv
             volgroup: vg0
             size: 2G
 
-        - id: efipart_fs
+          - id: efipart_fs
             type: format
             volume: efipart
             fstype: fat32
 
-        - id: bootpart_fs
+          - id: bootpart_fs
             type: format
             volume: bootpart
             fstype: ext4
 
-        - id: root_lv_fs
+          - id: root_lv_fs
             type: format
             volume: root_lv
             fstype: ext4
 
-        - id: tmp_lv_fs
+          - id: tmp_lv_fs
             type: format
             volume: tmp_lv
             fstype: ext4
 
-        - id: efipart-mount
+          - id: efipart-mount
             type: mount
             device: efipart_fs
             path: /boot/efi
 
-        - id: bootpart-mount
+          - id: bootpart-mount
             type: mount
             device: bootpart_fs
             path: /boot
 
-        - id: root_lv_mount
+          - id: root_lv_mount
             type: mount
             device: root_lv_fs
             path: /
 
-        - id: tmp_lv_mount
+          - id: tmp_lv_mount
             type: mount
             device: tmp_lv_fs
             path: /tmp
-
 
 * Source for storage section was [linuxconfig.org](https://linuxconfig.org/how-to-write-and-perform-ubuntu-unattended-installations-with-autoinstall)
 
