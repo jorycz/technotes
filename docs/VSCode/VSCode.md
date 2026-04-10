@@ -36,6 +36,7 @@ Then open in terminal like `code .`
 * [YAML](https://marketplace.visualstudio.com/items?itemName=redhat.vscode-yaml)
 * [Ansible](https://marketplace.visualstudio.com/items?itemName=redhat.ansible)
 * [Windsurf](https://marketplace.visualstudio.com/items?itemName=Codeium.codeium)
+* [GitLens — Git supercharged](https://marketplace.visualstudio.com/items?itemName=eamodio.gitlens)
 
 `ansible` and `ansible-lint` is needed.  Install for macOS:
 
