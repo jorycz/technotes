@@ -37,6 +37,7 @@ Then open in terminal like `code .`
 * [Ansible](https://marketplace.visualstudio.com/items?itemName=redhat.ansible)
 * [Windsurf](https://marketplace.visualstudio.com/items?itemName=Codeium.codeium)
 * [GitLens — Git supercharged](https://marketplace.visualstudio.com/items?itemName=eamodio.gitlens)
+* [Trailing spaces](https://marketplace.visualstudio.com/items?itemName=shardulm94.trailing-spaces)
 
 `ansible` and `ansible-lint` is needed.  Install for macOS:
 
