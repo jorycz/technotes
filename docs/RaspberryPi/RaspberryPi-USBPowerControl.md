@@ -4,6 +4,8 @@ Reason for this solution are ESP32 cameras connected to Raspberry Pi USB ports t
 
 ## Installation
 
+[uhubctl on github](https://github.com/mvp/uhubctl)
+
     apt install -y uhubctl
 
 ## Usage
