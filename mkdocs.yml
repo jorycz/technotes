@@ -45,6 +45,7 @@ nav:
   - Raspberry Pi:
     - Common: RaspberryPi/RaspberryPi-Common.md
     - Ramdisk: RaspberryPi/RaspberryPi-Ramdisk.md
+    - USB Power Control: RaspberryPi/RaspberryPi-USBPowerControl.md
   - Google: Google/Google.md
   - fail2ban: fail2ban/Fail2ban.md
   - VirtualBox: VirtualBox/VirtualBox.md

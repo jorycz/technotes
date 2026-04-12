@@ -39,7 +39,7 @@ Static IP address can also be set in `/etc/dhcpcd.conf`, but rootfs (ext4) must 
 ## Basic packages
 
     apt -y dist-upgrade
-    apt install -y software-properties-common vim git
+    apt install -y software-properties-common vim git jq
 
 ## Basic configuration
 
