@@ -42,6 +42,9 @@ nav:
     - Security: Linux/Linux-Security.md
     - UPS PowerWalker: Linux/Linux-UPSPowerWalker.md
     - AltServer: Linux/Linux-AltServer.md
+  - Raspberry Pi:
+    - Common: RaspberryPi/RaspberryPi-Common.md
+    - Ramdisk: RaspberryPi/RaspberryPi-Ramdisk.md
   - Google: Google/Google.md
   - fail2ban: fail2ban/Fail2ban.md
   - VirtualBox: VirtualBox/VirtualBox.md
