@@ -22,6 +22,14 @@ In case of INACTIVE devices, make them ACTIVE if you know what you are doing
     lvchange -ay /dev/vg_root/var
     fsck /dev/vg_root/var
 
+## FSCK on FAT32 (vfat)
+
+    ### Usually on /boot
+    sudo fsck.vfat -l -v -a -t /dev/sdc1
+    ### OR
+    ### apt -y install dosfstools
+    sudo dosfsck -w -r -l -a -v -t /dev/sda1
+
 ## Rescue
 
 Usually boot from USB and fix MBR, GRUB, ...

@@ -75,6 +75,10 @@ It's good to **run this command** from time to time and **for sure when it was c
 
     sudo fdesetup validaterecovery
 
+## Mount Linux FS on macOS
+
+Use [anylinuxfs](https://github.com/nohajc/anylinuxfs) or VMware Fusion in **macOS - Virtualization** section.
+
 ## Set Login Screen keyboard layout
 
     # sudo languagesetup   ### doesn't work anymore

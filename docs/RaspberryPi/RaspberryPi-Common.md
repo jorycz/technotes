@@ -64,3 +64,66 @@ or set NTP in /etc/systemd/timesyncd.conf
     #FallbackNTP=0.debian.pool.ntp.org 1.debian.pool.ntp.org 2.debian.pool.ntp.org 3.debian.pool.ntp.org
     ...
 
+## Network configuration after boot
+
+Find and remove wpa_supplicant.conf
+
+    sudo find /etc -name wpa_supplicant.conf -delete
+    sudo find /boot -name wpa_supplicant.conf -delete
+
+Create hashed password
+
+    wpa_passphrase "<WIFI_SSID>"
+    ### optionally (put space in the front of command):  wpa_passphrase "<WIFI_SSID>" "<WIFI_PASSWORD>"
+
+Create Network Manager config **/etc/NetworkManager/system-connections/my.nmconnection**
+
+    [connection]
+    id=my
+    type=wifi
+    interface-name=wlan0
+    autoconnect=true
+
+    [wifi]
+    mode=infrastructure
+    ssid=<WIFI_SSID>
+
+    [wifi-security]
+    key-mgmt=wpa-psk
+    psk=<WIFI_PASSWORD>
+
+    [ipv4]
+    method=auto
+
+    [ipv6]
+    method=auto
+
+Setup rights and enable configuration
+
+    sudo chmod 600 /etc/NetworkManager/system-connections/my.nmconnection
+    sudo nmcli connection reload
+    sudo nmcli connection up my
+
+Verify
+
+    nmcli dev                ### nmcli device status
+    nmcli connection show
+    nmcli connection show my
+    iw dev wlan0 link
+    iw reg get               ### info about frequency bands in current country
+    iw dev wlan0 station dump
+    sudo iw dev wlan0 scan | grep SSID
+
+In case of need to restart everything
+
+    sudo nmcli radio wifi off && sleep 2 && sudo nmcli radio wifi on
+    sudo systemctl restart systemd-networkd
+    sudo systemctl restart NetworkManager
+
+In case of need to debug of wpa_supplicant
+
+    sudo dmesg -wT
+    sudo systemctl stop wpa_supplicant
+    sudo wpa_supplicant -i wlan0 -c /etc/wpa_supplicant/wpa_supplicant.conf -dd
+
+--
