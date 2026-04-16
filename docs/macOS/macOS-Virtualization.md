@@ -61,24 +61,15 @@ Edit GRUB
     autoinstall ds=nocloud\;s=/cdrom/nocloud/ ---
     ### Example: linux /casper/vmlinuz $cmdline  --- console=tty0 autoinstall ds=nocloud\;s=/cdrom/nocloud/ ---
 
-Create structure for automated installation
+Create structure of nocloud folder for automated installation
 
-    mkdir nocloud
-    ### ... create structure for automated installation ... see below
-    cp -v nocloud/* iso/nocloud/
-
-Build ISO
-
-    xorriso -as mkisofs -r -V UBUNTU_ARM64 -o ubuntu-autoinstall.iso -J -l -iso-level 3 -partition_offset 16 -append_partition 2 0xef iso/mbr_part2_efi.img -appended_part_as_gpt -iso_mbr_part_type 0x00 -c boot.catalog -e --interval:appended_partition_2:all:: -no-emul-boot iso/
-
-#### Content of nocloud folder
-
-**user-data**
+**vim nocloud/user-data**
 
     #cloud-config
     autoinstall:
       version: 1
       update: no
+      proxy: http://IP_ADDRESS:PORT/
 
       identity:
         hostname: ubuntu
@@ -90,7 +81,7 @@ Build ISO
 
       timezone: Europe/Prague
       locale: en_US.UTF-8
-      keyboard: 
+      keyboard:
         layout: us
 
       packages:
@@ -114,10 +105,8 @@ Build ISO
         - systemctl daemon-reload
 
       # storage:
-      #     layout:
+      #   layout:
       #     name: lvm
-      #     match:
-      #         size: largest
 
       storage:
         config:
@@ -163,7 +152,7 @@ Build ISO
             name: root_lv
             volgroup: vg0
             size: 12G
-        
+
           - id: tmp_lv
             type: lvm_partition
             name: tmp_lv
@@ -212,17 +201,17 @@ Build ISO
 
 * Source for storage section was [linuxconfig.org](https://linuxconfig.org/how-to-write-and-perform-ubuntu-unattended-installations-with-autoinstall)
 
-**meta-data**
+**vim nocloud/meta-data**
 
     instance-id: ubuntu-autoinstall
     local-hostname: ubuntu
 
-**override.conf**
+**vim nocloud/override.conf**
 
     [Service]
     TimeoutStartSec=5
 
-**99-info**
+**vim nocloud/99-info**
 
     #!/bin/sh
 
@@ -231,7 +220,7 @@ Build ISO
     printf "ls *.sh\n"
     printf "===========================================\n\n"
 
-**run.sh**
+**vim nocloud/run.sh**
 
     #!/bin/bash
 
@@ -242,10 +231,21 @@ Build ISO
     echo "Enable AutomaticLogin in /etc/gdm3/custom.conf"
     echo
 
-**mount.sh**
+**vim nocloud/mount.sh**
 
     #!/bin/bash
 
     mkdir -p /mnt/hgfs &> /dev/null
     vmhgfs-fuse .host:/ /mnt/hgfs/ -o allow_other -o uid=1000
+
+Copy files to installation CD
+
+    mkdir iso/nocloud
+    ### ... create structure for automated installation ... see below
+    cp -v nocloud/* iso/nocloud/
+
+Build ISO
+
+    xorriso -as mkisofs -r -V UBUNTU_ARM64 -o ubuntu-autoinstall.iso -J -l -iso-level 3 -partition_offset 16 -append_partition 2 0xef iso/mbr_part2_efi.img -appended_part_as_gpt -iso_mbr_part_type 0x00 -c boot.catalog -e --interval:appended_partition_2:all:: -no-emul-boot iso/
+
 
