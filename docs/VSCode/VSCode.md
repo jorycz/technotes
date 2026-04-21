@@ -84,13 +84,27 @@ Stop Server: `CMD + SHIFT + P` > `Kill VS Code Server on Host`
 
 * Sometimes I do it 2x or disconnect and try it again. It will start next time I connect or project is oppened.
 
-    ps -elf | grep -i vscode-server
-    kill $(pidof node)
+    for i in $(ps -elf | grep -i vscode-server | grep -v grep | awk '{print $4}' | tr '\n' ' ') ; do echo "Killing $i ..." ; kill $i ; done
 
-In case HTTP proxy is needed for vscode-server
+In case HTTP proxy is needed for vscode-server, open **Preferences: Open Remote Settings...**
 
-    export HTTP_PROXY=http://proxy:port
-    export HTTPS_PROXY=${HTTP_PROXY}
+    {
+    "remote.SSH.httpProxy": {
+        "my-remote-host": "http://proxy.example.com:8080"
+    },
+    "remote.SSH.httpsProxy": {
+        "my-remote-host": "http://proxy.example.com:8080"
+    }
+    }
+
+or globally
+
+    {
+    "remote.SSH.httpProxy": "http://proxy.example.com:8080",
+    "remote.SSH.httpsProxy": "http://proxy.example.com:8080"
+    }
+
+Then **Remote-SSH: Kill VS Code Server on Host…** and troubleshoot with **View → Output → Remote‑SSH**
 
 ## Code-Server on WEB
 
