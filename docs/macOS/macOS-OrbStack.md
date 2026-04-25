@@ -4,7 +4,7 @@
 * [Linux Distributions](https://docs.orbstack.dev/machines/distros)
 * [Linux Machines](https://docs.orbstack.dev/machines/#ssh)
 * [Networking / Direct Access](https://docs.orbstack.dev/docker/network#direct-container-access)
-* [SSH access and Ansible Setup](https://docs.orbstack.dev/machines/ssh)
+* [Basic SSH access and Ansible Setup](https://docs.orbstack.dev/machines/ssh)
 
 ## Orb List
 
@@ -34,12 +34,35 @@ Proxy
 
 Update and Install
 
-    sudo apt update
-    sudo apt dist-upgrade -y 
+    sudo apt update && apt dist-upgrade -y
     sudo apt install -y software-properties-common bash-completion vim git sudo dialog tzdata net-tools curl wget netcat-openbsd rsync
         ### Turn off unattended upgrades
     # echo 'Unattended-Upgrade::Allowed-Origins:: "LP-PPA-mozillateam:${distro_codename}";' | sudo tee /etc/apt/apt.conf.d/51unattended-upgrades-firefox
     sudo apt purge unattended-upgrades
+
+## Orb Start, Stop, ...
+
+    for i in $(orb list -q) ; do orb stop $i ; done   ### stop ALL VMs
+    orb start VM_NAME
+    orb stop VM_NAME
+
+## Universal SSH config (can be used in VSCode / code)
+
+    ### OrbStack - EXAMPLE (change user and vm name)
+
+    Host orb-prionotes
+        HostName 127.0.0.1
+        Port 32222
+        User jr@prionotes
+        IdentityFile ~/.orbstack/ssh/id_ed25519
+        IdentitiesOnly yes
+
+    Host orb-ipad
+        HostName 127.0.0.1
+        Port 32222
+        User jr@ipad
+        IdentityFile ~/.orbstack/ssh/id_ed25519
+        IdentitiesOnly yes
 
 ## Clone VM
 
@@ -48,12 +71,6 @@ Update and Install
 ## Delete VM
 
     orb delete VM_NAME
-
-## Orb Start, Stop, ...
-
-    for i in $(orb list -q) ; do orb stop $i ; done   ### stop ALL VMs
-    orb start VM_NAME
-    orb stop VM_NAME
 
 ## Set default Orb VM
 
