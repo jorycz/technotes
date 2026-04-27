@@ -22,29 +22,57 @@
     orb -m VM_NAME   ### login to VM_NAME as default user
     orb -m VM_NAME -u root   ### login to VM_NAME as root
 
-## Initial setup
+## Initial setup - Ubuntu cloud-config
 
-    cd
-    echo 'cd' >> .bashrc
-    echo 'alias s="sudo su -"' >> .bashrc
+~/Documents/Scripts/orbstack-ubuntu.yml
 
-Proxy
+    #cloud-config
 
-    echo 'Acquire::http::Proxy "http://${HOST}:3128";' > /etc/apt/apt.conf.d/99proxy
+    #proxy: http://IP:PORT/
 
-Update and Install
+    package_update: true
+    package_upgrade: true
 
-    sudo apt update && apt dist-upgrade -y
-    sudo apt install -y software-properties-common bash-completion vim git sudo dialog tzdata net-tools curl wget netcat-openbsd rsync
-        ### Turn off unattended upgrades
+    users:
+    - name: USER
+        shell: /bin/bash
+        sudo: "ALL=(ALL) NOPASSWD:ALL"
+        ssh_authorized_keys:
+        - ssh-rsa ...
+
+    runcmd:
+    - echo "alias s='sudo su -'" >> /home/jr/.bashrc
+
+    packages:
+    - software-properties-common
+    - bash-completion
+    - sudo
+    - dialog
+    - tzdata
+    - netcat-openbsd
+    - net-tools
+    - rsync
+    - git
+    - vim
+    - curl
+    - wget
+
+Run command to create ubuntu VM using this config
+
+    orb create ubuntu testvm -c ~/Documents/Scripts/orbstack-ubuntu.yml --isolated
+
+## If you want
+
+    ### Turn off unattended upgrades
     # echo 'Unattended-Upgrade::Allowed-Origins:: "LP-PPA-mozillateam:${distro_codename}";' | sudo tee /etc/apt/apt.conf.d/51unattended-upgrades-firefox
     sudo apt purge unattended-upgrades
 
-## Orb Start, Stop, ...
+## Orb Start, Stop, Logs ...
 
-    for i in $(orb list -q) ; do orb stop $i ; done   ### stop ALL VMs
+    for i in $(orb list -q) ; do echo "Stopping [ $i ] ... " ; orb stop $i ; done
     orb start VM_NAME
     orb stop VM_NAME
+    orb logs VM_NAME
 
 ## Universal SSH config (can be used in VSCode / code)
 
@@ -76,10 +104,6 @@ Update and Install
 
     orb default
     orb default VM_MAME
-
-## Boot logs
-
-    orb logs VM_NAME
 
 ## List all commands
 
