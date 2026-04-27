@@ -41,7 +41,7 @@
         - ssh-rsa ...
 
     runcmd:
-    - echo "alias s='sudo su -'" >> /home/jr/.bashrc
+    - echo "alias s='sudo su -'" >> /home/USER/.bashrc
 
     packages:
     - software-properties-common
@@ -81,14 +81,14 @@ Run command to create ubuntu VM using this config
     Host orb-prionotes
         HostName 127.0.0.1
         Port 32222
-        User jr@prionotes
+        User USER@prionotes
         IdentityFile ~/.orbstack/ssh/id_ed25519
         IdentitiesOnly yes
 
     Host orb-ipad
         HostName 127.0.0.1
         Port 32222
-        User jr@ipad
+        User USER@ipad
         IdentityFile ~/.orbstack/ssh/id_ed25519
         IdentitiesOnly yes
 
