@@ -11,7 +11,7 @@ I store here commands, how-to guides or code/script snippets. It should be worki
 
     curl checkip.amazonaws.com
 
-* Or use [showmyip.com](https://www.showmyip.com)
+* Or use [What Is My IP](https://whatismyip.help) to check your public IP
 
 ## Generate random password
 
