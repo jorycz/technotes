@@ -1,5 +1,31 @@
 # macOS - Virtualization
 
+## VirtualBuddy
+
+* For macOS virtualization using 
+* Available on [GitHub](https://github.com/insidegui/VirtualBuddy)
+
+### Increase size of HDD
+
+**This process remove Recovery Partition for good!** Recovery boot in VirtualBuddy still works.
+
+#### On host macOS
+
+    cd TestVM.vbvm/
+    truncate -s +5G ./Disk.img
+
+#### In VM macOS
+
+    sudo csrutil disable
+    # reboot ...
+    diskutil list
+    ### Look for IDENTIFIER like **Apple_APFS_Recovery Container**
+    sudo diskutil eraseVolume free "%noformat%" Xdisk1s3X
+    ### Look for IDENTIFIER like **Apple_APFS Container** which should be disk you want to increase
+    diskutil apfs resizeContainer Xdisk1s2X 68g
+    sudo csrutil enable
+    # reboot ...
+
 ## VMware Fusion
 
     brew install vmware-fusion
