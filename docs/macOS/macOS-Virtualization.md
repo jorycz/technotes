@@ -7,7 +7,9 @@
 
 ### Increase size of HDD
 
-**This process remove Recovery Partition for good!** Recovery boot in VirtualBuddy still works.
+**This process remove Recovery Partition for good!** Recovery boot in VirtualBuddy still works.  
+
+<font color="red">Create backup.</font>
 
 #### On host macOS
 
@@ -21,7 +23,7 @@
     diskutil list
     ### Look for IDENTIFIER like **Apple_APFS_Recovery Container**
     sudo diskutil eraseVolume free "%noformat%" Xdisk1s3X
-    ### Look for IDENTIFIER like **Apple_APFS Container** which should be disk you want to increase
+    ### Look for IDENTIFIER of main disk like **Apple_APFS Container**
     diskutil apfs resizeContainer Xdisk1s2X 68g
     sudo csrutil enable
     # reboot ...
