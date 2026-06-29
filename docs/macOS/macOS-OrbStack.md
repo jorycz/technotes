@@ -40,6 +40,16 @@
         ssh_authorized_keys:
         - ssh-rsa ...
 
+    - content: |
+        set mouse-=a
+        syntax on
+        set hlsearch
+        set autoindent expandtab tabstop=2 shiftwidth=2
+      path: /home/USER/.vimrc
+      owner: USER:USER
+      defer: true
+      permissions: '0640'
+
     runcmd:
     - echo "alias s='sudo su -'" >> /home/USER/.bashrc
 
