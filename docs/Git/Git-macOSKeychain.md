@@ -2,7 +2,18 @@
 
 ## Credentials in macOS Keychain for git
 
-List first credentials in macOS Keychain
+Check what type of store is used
+
+    git config --show-origin --get-all credential.helper
+
+Add credentials for **myuser**
+
+    git credential approve <<<"protocol=https
+    host=github.com
+    username=myuser
+    password=github_PAT_token"
+
+List first credentials in macOS Keychain (on Linux it could be stored in ~/.git-credentials)
 
     printf "protocol=https\nhost=github.com\n" | git credential-osxkeychain get
 
