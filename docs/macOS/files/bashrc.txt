@@ -1,67 +1,52 @@
+# ---- colors (wrapped in \[ \] so bash computes prompt width correctly) ----
+C_DEF=$'\[\e[0m\]'
+C_USR=$'\[\e[38;5;039m\]'
+C_DIR=$'\[\e[38;5;082m\]'
+C_GIT=$'\[\e[38;5;011m\]'
+
+# raw (unwrapped) colors for use inside command substitution
+r()  { printf '\001\e[%sm\002' "$1"; }
+RED=$(r '31');    GREEN=$(r '32');  YELLOW=$(r '33')
+BLUE=$(r '34');   MAGENTA=$(r '35'); CYAN=$(r '36'); RESET=$(r '0')
+
+parse_git_branch() {
+    local b
+    b=$(git symbolic-ref --short HEAD 2>/dev/null) || \
+    b=$(git rev-parse --short HEAD 2>/dev/null)   || return
+    printf '[%s]' "$b"
+}
 
 git_status() {
     git rev-parse --is-inside-work-tree &>/dev/null || return
 
-    local status_symbols=()
-    local esc=$'\e'  # escape sequence
-
-    local git_status
+    local git_status working_tree out=""
     git_status="$(git status --porcelain -b 2>/dev/null)"
-    local working_tree
-    working_tree=$(echo "$git_status" | tail -n +2)
+    working_tree="$(printf '%s\n' "$git_status" | tail -n +2)"
 
-    # Branch status
-    if echo "$git_status" | grep -q "ahead"; then
-        status_symbols+=("${esc}[36m\u2191${esc}[0m")    # Cyan
-    elif echo "$git_status" | grep -q "behind"; then
-        status_symbols+=("${esc}[33m\u2193${esc}[0m")    # Yellow
-    elif echo "$git_status" | grep -q "diverged"; then
-        status_symbols+=("${esc}[31m\u2195${esc}[0m")    # Red
+    # branch sync state (check diverged first: it contains both ahead & behind)
+    if grep -q 'ahead .*behind' <<<"$git_status"; then
+        out+="${RED}⇅${RESET}"
+    elif grep -q 'ahead' <<<"$git_status"; then
+        out+="${CYAN}↑${RESET}"
+    elif grep -q 'behind' <<<"$git_status"; then
+        out+="${YELLOW}↓${RESET}"
     fi
 
     if [[ -z "$working_tree" ]]; then
-        status_symbols+=("${esc}[32m\u2714${esc}[0m")    # Green clean
+        out+="${GREEN}✔${RESET}"
     else
-        if echo "$git_status" | grep -q "^??"; then
-            status_symbols+=("${esc}[34m?${esc}[0m")
-        fi
-        if echo "$git_status" | grep -q "^.M"; then
-            status_symbols+=("${esc}[33m!${esc}[0m")
-        fi
-        if echo "$git_status" | grep -q "^.D"; then
-            status_symbols+=("${esc}[31m-${esc}[0m")
-        fi
-        if echo "$git_status" | grep -q "^A"; then
-            status_symbols+=("${esc}[35m+${esc}[0m")
-        fi
-        if echo "$git_status" | grep -q "^M"; then
-            status_symbols+=("${esc}[35mM${esc}[0m")
-        fi
-        if echo "$git_status" | grep -q "^D"; then
-            status_symbols+=("${esc}[35mD${esc}[0m")
-        fi
-        if echo "$git_status" | grep -q "^R"; then
-            status_symbols+=("${esc}[36mR${esc}[0m")
-        fi
-        if echo "$git_status" | grep -q "^C"; then
-            status_symbols+=("${esc}[36mC${esc}[0m")
-        fi
-        if echo "$git_status" | grep -Eq "^U|^.U|^AA|^DD"; then
-            status_symbols+=("${esc}[31m\u2260${esc}[0m")
-        fi
+        grep -q '^??'              <<<"$working_tree" && out+="${BLUE}?${RESET}"
+        grep -q '^.M'              <<<"$working_tree" && out+="${YELLOW}!${RESET}"
+        grep -q '^.D'              <<<"$working_tree" && out+="${RED}-${RESET}"
+        grep -q '^A'               <<<"$working_tree" && out+="${MAGENTA}+${RESET}"
+        grep -q '^M'               <<<"$working_tree" && out+="${MAGENTA}M${RESET}"
+        grep -q '^D'               <<<"$working_tree" && out+="${MAGENTA}D${RESET}"
+        grep -q '^R'               <<<"$working_tree" && out+="${CYAN}R${RESET}"
+        grep -q '^C'               <<<"$working_tree" && out+="${CYAN}C${RESET}"
+        grep -qE '^(U.|.U|AA|DD)'  <<<"$working_tree" && out+="${RED}✖${RESET}"
     fi
 
-    echo " ${status_symbols[*]} "
+    [[ -n "$out" ]] && printf ' %s ' "$out"
 }
 
-parse_git_branch() {
-    git branch 2>/dev/null | sed -n -e 's/^\* \(.*\)/[\1]/p'
-}
-
-# Colors (only here we wrap them in \[ \] for Bash prompt)
-COLOR_DEF="\[\e[0m\]"
-COLOR_USR="\[\e[38;5;39m\]"
-COLOR_DIR="\[\e[38;5;82m\]"
-COLOR_GIT="\[\e[38;5;11m\]"
-
-PS1="${COLOR_USR}\u ${COLOR_DIR}\w${COLOR_GIT} \$(parse_git_branch)\$(git_status)${COLOR_DEF}$ "
+PS1="${C_USR}\u ${C_DIR}\w${C_GIT} \$(parse_git_branch)${C_DEF}\$(git_status)\$ "
