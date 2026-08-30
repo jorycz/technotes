@@ -1,6 +1,7 @@
 # ---- colors (wrapped in \[ \] so bash computes prompt width correctly) ----
 C_DEF=$'\[\e[0m\]'
 C_USR=$'\[\e[38;5;039m\]'
+C_HST=$'\[\e[38;5;033m\]'   ### Blue — hostname
 C_DIR=$'\[\e[38;5;082m\]'
 C_GIT=$'\[\e[38;5;011m\]'
 
@@ -49,4 +50,7 @@ git_status() {
     [[ -n "$out" ]] && printf ' %s ' "$out"
 }
 
-PS1="${C_USR}\u ${C_DIR}\w${C_GIT} \$(parse_git_branch)${C_DEF}\$(git_status)\$ "
+#PS1="${C_USR}\u ${C_DIR}\w${C_GIT} \$(parse_git_branch)${C_DEF}\$(git_status)\$ "
+#PS1="${C_USR}\u${C_DEF}@${C_HST}\h ${C_DIR}\w${C_GIT} \$(parse_git_branch)${C_DEF}\$(git_status)\$ "
+PS1="${C_HST}\h ${C_DIR}\w${C_GIT} \$(parse_git_branch)${C_DEF}\$(git_status)\$ "
+
