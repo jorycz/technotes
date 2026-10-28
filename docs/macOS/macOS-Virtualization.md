@@ -1,5 +1,75 @@
 # macOS - Virtualization
 
+## Tart - macOS/Linux VM (also without GUI - good for mac mini)
+
+https://tart.run
+
+### Installation
+
+    # brew install cirruslabs/cli/tart   ### doesn't work right now
+    ### Workaround 2026/10:
+    brew tap openai/tools
+    brew trust openai/tools
+    brew install openai/tools/tart
+
+Download image
+
+    # tart clone ghcr.io/cirruslabs/macos-tahoe-base:latest tart-tahoe
+    tart clone ghcr.io/cirruslabs/macos-tahoe-xcode:latest tart-tahoe
+
+#### Start
+
+User need's to be logged in (at least once after reboot of host) but ssh login is enough
+
+    tart run --no-graphics --net-bridged=en1 tart-tahoe ### No GUI, start in tmux, Bridge on WiFi
+    # Do not USE --vnc (legacy protocol)
+    # Use tmux if using ssh or VM is stooped after logout
+
+#### On HOST
+
+Get VM_IP_ADDRESS:
+
+    # tart ip tart-tahoe                ### NAT IP (for example 192.168.64.4)
+    tart ip --resolver=arp tart-tahoe   ### For Bridged IP (own DHCP needed or manual IP inside VM)
+
+#### Using VM
+
+* GUI: Open Remote Desktop using **CMD+K** and enter vnc://VM_IP_ADDRESS:5900
+
+~/.ssh/config:
+
+    Host tart-tahoe
+      User admin
+
+    ### And then
+    ssh $(tart ip tart-tahoe) OR ssh $(tart ip --resolver=arp tart-tahoe)
+
+* Copy files like .gitconfig, .gitignore, .tmux.conf, .ssh/authorized_keys, ...
+
+#### Mount
+
+To mount a directory, run the VM with the --dir argument:
+
+    tart run --dir=proj1:~/src/proj1 --dir=proj2:~/src/proj2 tart-tahoe
+
+_Here, the project specifies a mount name, whereas the ~/src/proj1 is a path to the host's directory to expose to the VM. All shared goes in guest to /Volumes/My Shared Files/..._
+
+#### Settings & Management
+
+    tart list
+    tart delete tart-tahoe
+    tart prune --space-budget 1   ### removes every OCI image under 1GB ...
+    du -sh ~/.tart/vms ~/.tart/cache/*
+
+    pgrep -fl "tart run"   ### to see if any VM is running
+    tart get tart-tahoe
+    tart stop tart-tahoe
+    tart set tart-tahoe --cpu 4 --memory 8192 --display 1920x1080pt   ### pt is needed for HiDPi
+
+* --memory is in megabytes. You can also grow the disk with --disk-size GB, but it can only increase, and you may need to expand the volume inside the guest afterwards.
+
+
+
 ## VirtualBuddy
 
 * For macOS virtualization using 
