@@ -1,0 +1,56 @@
+# ---- colors (wrapped in \[ \] so bash computes prompt width correctly) ----
+C_DEF=$'\[\e[0m\]'
+C_USR=$'\[\e[38;5;039m\]'
+C_HST=$'\[\e[38;5;033m\]'   ### Blue — hostname
+C_DIR=$'\[\e[38;5;082m\]'
+C_GIT=$'\[\e[38;5;011m\]'
+
+# raw (unwrapped) colors for use inside command substitution
+r()  { printf '\001\e[%sm\002' "$1"; }
+RED=$(r '31');    GREEN=$(r '32');  YELLOW=$(r '33')
+BLUE=$(r '34');   MAGENTA=$(r '35'); CYAN=$(r '36'); RESET=$(r '0')
+
+parse_git_branch() {
+    local b
+    b=$(git symbolic-ref --short HEAD 2>/dev/null) || \
+    b=$(git rev-parse --short HEAD 2>/dev/null)   || return
+    printf '[%s]' "$b"
+}
+
+git_status() {
+    git rev-parse --is-inside-work-tree &>/dev/null || return
+
+    local git_status working_tree out=""
+    git_status="$(git status --porcelain -b 2>/dev/null)"
+    working_tree="$(printf '%s\n' "$git_status" | tail -n +2)"
+
+    # branch sync state (check diverged first: it contains both ahead & behind)
+    if grep -q 'ahead .*behind' <<<"$git_status"; then
+        out+="${RED}⇅${RESET}"
+    elif grep -q 'ahead' <<<"$git_status"; then
+        out+="${CYAN}↑${RESET}"
+    elif grep -q 'behind' <<<"$git_status"; then
+        out+="${YELLOW}↓${RESET}"
+    fi
+
+    if [[ -z "$working_tree" ]]; then
+        out+="${GREEN}✔${RESET}"
+    else
+        grep -q '^??'              <<<"$working_tree" && out+="${BLUE}?${RESET}"
+        grep -q '^.M'              <<<"$working_tree" && out+="${YELLOW}!${RESET}"
+        grep -q '^.D'              <<<"$working_tree" && out+="${RED}-${RESET}"
+        grep -q '^A'               <<<"$working_tree" && out+="${MAGENTA}+${RESET}"
+        grep -q '^M'               <<<"$working_tree" && out+="${MAGENTA}M${RESET}"
+        grep -q '^D'               <<<"$working_tree" && out+="${MAGENTA}D${RESET}"
+        grep -q '^R'               <<<"$working_tree" && out+="${CYAN}R${RESET}"
+        grep -q '^C'               <<<"$working_tree" && out+="${CYAN}C${RESET}"
+        grep -qE '^(U.|.U|AA|DD)'  <<<"$working_tree" && out+="${RED}✖${RESET}"
+    fi
+
+    [[ -n "$out" ]] && printf ' %s ' "$out"
+}
+
+#PS1="${C_USR}\u ${C_DIR}\w${C_GIT} \$(parse_git_branch)${C_DEF}\$(git_status)\$ "
+#PS1="${C_USR}\u${C_DEF}@${C_HST}\h ${C_DIR}\w${C_GIT} \$(parse_git_branch)${C_DEF}\$(git_status)\$ "
+PS1="${C_HST}\h ${C_DIR}\w${C_GIT} \$(parse_git_branch)${C_DEF}\$(git_status)\$ "
+
