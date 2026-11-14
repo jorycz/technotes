@@ -42,6 +42,8 @@ nav:
     - Security: Linux/Linux-Security.md
     - UPS PowerWalker: Linux/Linux-UPSPowerWalker.md
     - AltServer: Linux/Linux-AltServer.md
+  - Proxmox:
+    - Common: Proxmox/Proxmox-Common.md
   - Raspberry Pi:
     - Common: RaspberryPi/RaspberryPi-Common.md
     - Ramdisk: RaspberryPi/RaspberryPi-Ramdisk.md
